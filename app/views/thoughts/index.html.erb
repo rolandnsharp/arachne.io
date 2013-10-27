@@ -1,12 +1,13 @@
 index thoughts
 
-<ol id="reviews">
+<ul id="reviews">
   <% @thoughts.each do |thought| %>
     <li>
       
       <span class="user"> <%= thought.content %></span>
+      <%= link_to "Delete", user_thought_path(@user, thought) %>
       
       
     </li>
   <% end %>
-</ol>
+</ul>
