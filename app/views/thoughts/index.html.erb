@@ -1,0 +1,12 @@
+index thoughts
+
+<ol id="reviews">
+  <% @thoughts.each do |thought| %>
+    <li>
+      
+      <span class="user"> <%= thought.content %></span>
+      
+      
+    </li>
+  <% end %>
+</ol>
