@@ -1,0 +1,18 @@
+edit thoughts
+
+<%= form_for([@user, @thought]) do |f| %>
+<%= render "shared/error_messages", object: @thought %>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :content %>         
+        <%= f.text_field :content, size: 4000, autofocus: true %>
+      </li>
+  
+    </ol>
+    <p>
+      <%= f.submit 'Post Thought' %> 
+      <%= link_to "Cancel", @user, class: 'button' %>
+    </p>
+  </fieldset>
+<% end %>

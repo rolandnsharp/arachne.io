@@ -10,7 +10,7 @@ class ThoughtsController < ApplicationController
 	end
 	def create
 	  @user = User.find(params[:user_id])
-	  @thought = @user.thoughts.new(review_params)
+	  @thought = @user.thoughts.new(thought_params)
 	  if @thought.save
 	    redirect_to user_thoughts_path(@user), 
 	                  notice: "Thanks for your thought!"
@@ -24,6 +24,22 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.find(params[:id])
 	end
 
+	def edit
+		@user = User.find(params[:user_id])
+		@thought = @user.thoughts.find(params[:id])
+	end
+
+	def update
+	    @user = User.find(params[:user_id])
+		@thought = @user.thoughts.find(params[:id])
+	    if @thought.update(thought_params)
+	      flash[:notice] = "Movie successfully updated!"
+	      redirect_to user_thoughts_path(@user)
+	    else
+	      render :edit
+	    end
+    end
+
 	def destroy
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
@@ -34,7 +50,7 @@ class ThoughtsController < ApplicationController
 
 private
 
-def review_params
+def thought_params
   params.require(:thought).permit(:content)
 end
 
