@@ -24,6 +24,13 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.find(params[:id])
 	end
 
+	def destroy
+		@user = User.find(params[:user_id])
+		@thought = @user.thoughts.find(params[:id])
+	    @thought.destroy
+	    redirect_to user_thoughts_path(@user), alert: "Movie successfully deleted!"
+	end
+
 
 private
 

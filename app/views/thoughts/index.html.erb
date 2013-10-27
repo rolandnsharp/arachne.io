@@ -5,8 +5,8 @@ index thoughts
     <li>
       
       <span class="user"> <%= thought.content %></span>
-      <%= link_to "Delete", user_thought_path(@user, thought) %>
-      
+      <%= link_to "Show", user_thought_path(@user, thought) %>
+      <%= link_to "Delete", user_thought_path(@user, thought), method: :delete, data: { confirm: 'Are you sure?' } %>
       
     </li>
   <% end %>

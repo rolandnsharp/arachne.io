@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-	has_many :thoughts
+	has_many :thoughts, dependent: :destroy
 	has_secure_password
 
 	
