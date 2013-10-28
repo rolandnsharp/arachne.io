@@ -1,0 +1,18 @@
+
+<h1>Log In</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_tag sessions_path do %>
+      
+
+	      <%= label_tag :username %>
+	      <%= text_field_tag :username %>
+
+	      <%= label_tag :password %>
+	      <%= password_field_tag :password %>
+
+	      <%= submit_tag "Log In", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

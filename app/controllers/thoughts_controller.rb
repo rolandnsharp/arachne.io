@@ -1,4 +1,5 @@
 class ThoughtsController < ApplicationController
+	
 	def index
 		@user = User.find(params[:user_id])
 		@thoughts = @user.thoughts
@@ -8,6 +9,7 @@ class ThoughtsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.new
 	end
+	
 	def create
 	  @user = User.find(params[:user_id])
 	  @thought = @user.thoughts.new(thought_params)
@@ -33,7 +35,7 @@ class ThoughtsController < ApplicationController
 	    @user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 	    if @thought.update(thought_params)
-	      flash[:notice] = "Movie successfully updated!"
+	      flash[:notice] = "Thought successfully updated!"
 	      redirect_to user_thoughts_path(@user)
 	    else
 	      render :edit
@@ -44,7 +46,7 @@ class ThoughtsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 	    @thought.destroy
-	    redirect_to user_thoughts_path(@user), alert: "Movie successfully deleted!"
+	    redirect_to user_thoughts_path(@user), alert: "Thought successfully deleted!"
 	end
 
 

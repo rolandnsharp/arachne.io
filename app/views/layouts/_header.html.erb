@@ -4,21 +4,13 @@
       <%= link_to "Arachne", root_path, id: "logo" %>
       <nav>
         <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", root_path %></li>
           
-            <li><%= link_to "Users", users_path %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", root_path %></li>
-                <li><%= link_to "Settings", root_path %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", root_path, method: "delete" %>
-                </li>
+            
+          <li><%= link_to "Sign Up", new_user_path %></li>
+          <li><%= link_to "Log In", new_session_path %></li>
+
+
+
               </ul>
             </li>
           
