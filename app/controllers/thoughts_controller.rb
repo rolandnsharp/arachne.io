@@ -1,5 +1,6 @@
 class ThoughtsController < ApplicationController
-	
+	before_filter :authorize
+
 	def index
 		@user = User.find(params[:user_id])
 		@thoughts = @user.thoughts

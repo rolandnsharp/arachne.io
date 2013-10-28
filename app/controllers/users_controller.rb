@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	
+	before_filter :authorize, only: [:show, :new]
 	def index
 		
 	end
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 		
 		@user = User.new(user_params)
 		if @user.save
+			session[:user_id] = @user.id
 			redirect_to @user, notice: "Thank you for signing up!"
 		else
 			render "new"
