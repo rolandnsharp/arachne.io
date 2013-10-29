@@ -4,7 +4,12 @@ class UsersController < ApplicationController
 
 
 	def index
-		
+		@user = User.new
+
+		if current_user
+			redirect_to current_user
+		end
+
 	end
 
 	def show
