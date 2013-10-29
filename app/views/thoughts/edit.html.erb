@@ -1,17 +1,17 @@
-edit thoughts
+
 
 <%= form_for([@user, @thought]) do |f| %>
 <%= render "shared/error_messages", object: @thought %>
   <fieldset>
-    <ol>
-      <li class="required">
-        <%= f.label :content %>         
+    <!-- <ol> -->
+      <!-- <li class="required"> -->
+        <!-- <%= f.label :content %>          -->
         <%= f.text_area :content, autofocus: true, rows: 10 %>
-      </li>
+      <!-- </li> -->
   
-    </ol>
+    <!-- </ol> -->
     <p>
-      <%= f.submit 'Post Thought' %> 
+      <%= f.submit 'Save', class: "btn btn-primary" %> 
       <%= link_to "Cancel", @user, class: 'button' %>
     </p>
   </fieldset>
