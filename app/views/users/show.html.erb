@@ -1,6 +1,39 @@
 <%= @user.email %>
 <%= @user.username %>
-show
+<h1> show page </h1>
 
 
-<%= link_to "New Thought", new_user_thought_path(@user) %>
+
+
+<ul id="reviews">
+  <% @thoughts.each do |thought| %>
+    <li>
+      
+      <span class="user"> <%= thought.content %></span>
+      <%= link_to "Show", user_thought_path(@user, thought) %>
+      <%= link_to "Delete", user_thought_path(@user, thought), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "Edit", edit_user_thought_path(@user, thought) %>
+      
+    </li>
+  <% end %>
+</ul>
+
+
+
+
+<%= form_for([@user, @thought]) do |f| %>
+<%= render "shared/error_messages", object: @thought %>
+  <fieldset>
+    <ol>
+      <li class="required">
+        <%= f.label :content %>         
+        <%= f.text_field :content, size: 4000, autofocus: true %>
+      </li>
+  
+    </ol>
+    <p>
+      <%= f.submit 'Post Thought' %> 
+      <%= link_to "Cancel", @user, class: 'button' %>
+    </p>
+  </fieldset>
+<% end %>

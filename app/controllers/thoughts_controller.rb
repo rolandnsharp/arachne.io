@@ -1,5 +1,5 @@
 class ThoughtsController < ApplicationController
-	
+	before_filter :authorize
 	def index
 		@user = User.find(params[:user_id])
 		@thoughts = @user.thoughts
@@ -14,7 +14,7 @@ class ThoughtsController < ApplicationController
 	  @user = User.find(params[:user_id])
 	  @thought = @user.thoughts.new(thought_params)
 	  if @thought.save
-	    redirect_to user_thoughts_path(@user), 
+	    redirect_to @user, 
 	                  notice: "Thanks for your thought!"
 	  else
 	    render :new
@@ -36,7 +36,7 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.find(params[:id])
 	    if @thought.update(thought_params)
 	      flash[:notice] = "Thought successfully updated!"
-	      redirect_to user_thoughts_path(@user)
+	      redirect_to @user
 	    else
 	      render :edit
 	    end
@@ -46,7 +46,7 @@ class ThoughtsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 	    @thought.destroy
-	    redirect_to user_thoughts_path(@user), alert: "Thought successfully deleted!"
+	    redirect_to @user, alert: "Thought successfully deleted!"
 	end
 
 

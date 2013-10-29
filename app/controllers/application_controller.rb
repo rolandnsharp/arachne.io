@@ -12,4 +12,15 @@ private
 
 	helper_method :current_user
 
+	def authorize
+
+        if params[:user_id]
+        	redirect_to root_url, alert: "Not authorized" if current_user.id.to_s != params[:user_id].to_s# clean this up
+        elsif params[:id]
+        	redirect_to root_url, alert: "Not authorized" if current_user.id.to_s != params[:id].to_s# clean this up
+        end
+
+        
+    end
+
 end
