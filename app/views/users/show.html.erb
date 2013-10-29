@@ -1,8 +1,22 @@
-<%= @user.email %>
-<%= @user.username %>
-<h1> show page </h1>
+<!-- <h1> show page </h1> -->
 
 
+<%= form_for([@user, @thought]) do |f| %>
+<%= render "shared/error_messages", object: @thought %>
+  <fieldset>
+    
+     
+        <!-- <%= f.label :content %>          -->
+        <%= f.text_area :content, autofocus: true, rows: 10  %>
+      
+  
+    
+    <p>
+      <%= f.submit 'Post Thought', class: "btn btn-primary" %> 
+      
+    </p>
+  </fieldset>
+<% end %>
 
 
 <ul id="reviews">
@@ -10,30 +24,10 @@
     <li>
       
       <span class="user"> <%= thought.content %></span>
-      <%= link_to "Show", user_thought_path(@user, thought) %>
-      <%= link_to "Delete", user_thought_path(@user, thought), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "Show", user_thought_path(@user, thought) %> |
+      <%= link_to "Delete", user_thought_path(@user, thought), method: :delete, data: { confirm: 'Are you sure?' } %> |
       <%= link_to "Edit", edit_user_thought_path(@user, thought) %>
       
     </li>
   <% end %>
 </ul>
-
-
-
-
-<%= form_for([@user, @thought]) do |f| %>
-<%= render "shared/error_messages", object: @thought %>
-  <fieldset>
-    <ol>
-      <li class="required">
-        <%= f.label :content %>         
-        <%= f.text_field :content, size: 4000, autofocus: true %>
-      </li>
-  
-    </ol>
-    <p>
-      <%= f.submit 'Post Thought', class: "btn btn-primary" %> 
-      
-    </p>
-  </fieldset>
-<% end %>
