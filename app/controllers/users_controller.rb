@@ -1,5 +1,8 @@
 class UsersController < ApplicationController
-	before_filter :authorize, only: [:show, :new]
+
+	before_filter :authorize, only: [:show]
+
+
 	def index
 		
 	end
@@ -7,6 +10,8 @@ class UsersController < ApplicationController
 	def show
 
 		@user = User.find(params[:id])
+		@thoughts = @user.thoughts
+		@thought = @user.thoughts.new
 
 	end
 

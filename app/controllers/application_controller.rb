@@ -14,7 +14,13 @@ private
 
 	def authorize
 
-		# redirect_to root_url, alert: "Not authorized" if (current_user.id != (params[:user_id] || params[:id]))# clean this up
-	end
+        if params[:user_id]
+        	redirect_to root_url, alert: "Not authorized" if current_user.id.to_s != params[:user_id].to_s
+        elsif params[:id]
+        	redirect_to root_url, alert: "Not authorized" if current_user.id.to_s != params[:id].to_s
+        end
+
+        
+    end
 
 end
