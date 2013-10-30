@@ -25,8 +25,8 @@ config.action_mailer.smtp_settings = {
   #domain: "railscasts.com",
   authentication: "plain",
   enable_starttls_auto: true,
-  user_name: "rolandnsharp@gmail.com",
-  password: "nis0oda3",
+  user_name: "********",
+  password: "**********",
   :authentication       => 'plain',
   :enable_starttls_auto => true  }
 
