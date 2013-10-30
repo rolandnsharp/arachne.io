@@ -33,15 +33,27 @@
 </ul>
 
 
-<div >
+<!-- <div >
     
     <button  id="random">Random Layout</button>
     
     <button  id="circular">Circular Layout</button>
     
   </div>
-
+ -->
 
 <div class="sigma-parent" id="sigma-example-parent">
     <div class="sigma-expand" id="sigma-example"></div>
 </div>
+
+
+
+<%= javascript_tag do %>
+  window.userName = "<%=j @user.username %>";
+  window.nodeCount = "<%= @thoughts.size %>";
+
+
+
+
+
+<% end %>
