@@ -48,12 +48,29 @@
 
 
 
+<% xx=[] %>
+<% @thoughts.each do |thought| %>
+ 
+ <% thought.content.to_s   %>
+ 
+ <% str=  thought.content.to_s   %>
+ 
+
+ <% tags = str.scan(/#\w+/).uniq %>
+ 
+   
+
+
+ <%xx= xx.concat tags %>
+ 
+<% end %>
+
+
+
 <%= javascript_tag do %>
   window.userName = "<%=j @user.username %>";
   window.nodeCount = "<%= @thoughts.size %>";
-
-
-
+  window.hashArray = <%=raw xx.as_json %>;
 
 
 <% end %>
