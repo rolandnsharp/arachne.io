@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 		if @user.save
 			session[:user_id] = @user.id
 			UserMailer.signup_confirmation(@user).deliver
-			redirect_to @user, notice: "Thank you for signing up! A confirmation email has been sent to your email address."
+			redirect_to @user, notice: "Thank you for signing up! A confirmation email has been sent to your address."
 		else
 			render "new"
 		end

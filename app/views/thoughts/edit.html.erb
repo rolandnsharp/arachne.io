@@ -13,7 +13,67 @@
     <p>
       <%= f.submit 'Save', class: "btn btn-primary" %> 
       <%= link_to "Cancel", @user, class: 'button' %>
+      <%= link_to "Delete", user_thought_path(@user, @thought), method: :delete, data: { confirm: 'Are you sure?' } %>
     </p>
   </fieldset>
 <% end %>
 
+<ul>
+  <% @thoughts.each do |thought| %>
+    <li>
+      
+      
+      
+      
+      <%= link_to thought.content, edit_user_thought_path(@user, thought) %>
+      
+    </li>
+  <% end %>
+</ul>
+
+
+<!-- <div >
+    
+    <button  id="random">Random Layout</button>
+    
+    <button  id="circular">Circular Layout</button>
+    
+  </div>
+ -->
+
+    <div >
+  <h1>#hashtag nodes</h1>
+  
+  <div class="span12 sigma-parent" id="sigma-example-parent">
+    <div class="sigma-expand" id="sigma-example"></div>
+  </div>
+</div>
+
+
+
+<% xx=[] %>
+<% @thoughts.each do |thought| %>
+ 
+ <% thought.content.to_s   %>
+ 
+ <% str=  thought.content.to_s   %>
+ 
+
+ <% tags = str.scan(/#\w+/).uniq %>
+ 
+   
+
+
+ <%xx= xx.concat tags %>
+ 
+<% end %>
+
+
+
+<%= javascript_tag do %>
+  window.userName = "<%=j @user.username %>";
+  window.nodeCount = "<%= @thoughts.size %>";
+  window.hashArray = <%=raw xx.as_json %>;
+
+
+<% end %>

@@ -30,6 +30,7 @@ class ThoughtsController < ApplicationController
 	def edit
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
+		@thoughts = @user.thoughts
 	end
 
 	def update
