@@ -4,6 +4,8 @@ class ThoughtsController < ApplicationController
 	def index
 		@user = User.find(params[:user_id])
 		@thoughts = @user.thoughts
+		@thoughts_search = Thought.text_search(params[:query])
+		@thought = @user.thoughts.first
 	end
 
 	def new
@@ -58,8 +60,6 @@ def thought_params
   params.require(:thought).permit(:content)
 end
 
-# def set_movie
-#   @movie = Movie.find(params[:movie_id])
-# end
+
 
 end

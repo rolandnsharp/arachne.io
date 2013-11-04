@@ -1,14 +1,76 @@
-index thoughts
+<!-- <h1> show page </h1> -->
+<%= form_tag user_thoughts_path(@user), method: :get do %>
+<p>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search", name: nil %>
+</p>
+<% end %>
 
-<ul id="reviews">
-  <% @thoughts.each do |thought| %>
+
+
+<%= form_for([@user, @thought]) do |f| %>
+<%= render "shared/error_messages", object: @thought %>
+  <fieldset>
+    
+     
+        <!-- <%= f.label :content %>          -->
+        <%= f.text_area :content, autofocus: true, rows: 10  %>
+      
+  
+    
+    <p>
+      <%= f.submit 'Save', class: "btn btn-primary" %> 
+      
+    </p>
+  </fieldset>
+<% end %>
+
+
+<ul>
+  <% @thoughts_search.each do |thought| %>
     <li>
       
-      <span class="user"> <%= thought.content %></span>
-      <%= link_to "Show", user_thought_path(@user, thought) %>
-      <%= link_to "Delete", user_thought_path(@user, thought), method: :delete, data: { confirm: 'Are you sure?' } %>
-      <%= link_to "Edit", edit_user_thought_path(@user, thought) %>
+      <%= link_to thought.content, edit_user_thought_path(@user, thought) %>
       
     </li>
   <% end %>
 </ul>
+
+
+
+    <div >
+  <h1>#hashtag nodes</h1>
+  
+  <div class="span12 sigma-parent" id="sigma-example-parent">
+    <div class="sigma-expand" id="sigma-example"></div>
+  </div>
+</div>
+
+
+
+<% xx=[] %>
+<% @thoughts.each do |thought| %>
+ 
+ <% thought.content.to_s   %>
+ 
+ <% str=  thought.content.to_s   %>
+ 
+
+ <% tags = str.scan(/#\w+/).uniq %>
+ 
+   
+
+
+ <%xx= xx.concat tags %>
+ 
+<% end %>
+
+
+
+<%= javascript_tag do %>
+  window.userName = "<%=j @user.username %>";
+  window.nodeCount = "<%= @thoughts.size %>";
+  window.hashArray = <%=raw xx.as_json %>;
+
+
+<% end %>

@@ -1,4 +1,11 @@
 <!-- <h1> show page </h1> -->
+<%= form_tag user_thoughts_path(@user),:id => 'submit_id', method: :get do %>
+<p>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search", name: nil %>
+</p>
+<% end %>
+
 
 
 <%= form_for([@user, @thought]) do |f| %>
@@ -30,14 +37,6 @@
 </ul>
 
 
-<!-- <div >
-    
-    <button  id="random">Random Layout</button>
-    
-    <button  id="circular">Circular Layout</button>
-    
-  </div>
- -->
 
     <div >
   <h1>#hashtag nodes</h1>
