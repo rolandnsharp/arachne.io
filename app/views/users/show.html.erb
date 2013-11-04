@@ -27,7 +27,7 @@
     
     <p>
       <%= f.submit 'Save', class: "btn btn-primary" %> |
-      <%= link_to "Delete", user_thought_path(@user, @thought), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "Delete", user_thought_path(@user, @thought_edit), method: :delete, data: { confirm: 'Are you sure?' } %>
       
     </p>
   </fieldset>
@@ -54,7 +54,7 @@
 
 
 
-<%unless @thoughts_search.empty?%>
+
 <ul>
   <% @thoughts_search.each do |thought|%>
     <li>
@@ -64,23 +64,14 @@
     </li>
   <% end %> 
 </ul>
-<% end %>
 
 
-<ul>
-  <% @thoughts.each do |thought| %>
-    <li>
-      
-      <%= link_to thought.content, params.merge({:id_edit => thought.id}) %>
-      
-    </li>
-  <% end %>
-</ul>
+
 
 
 
     <div >
-  <h1>#hashtag nodes</h1>
+<!--   <h1>#hashtag nodes</h1> -->
   
   <div class="span12 sigma-parent" id="sigma-example-parent">
     <div class="sigma-expand" id="sigma-example"></div>
