@@ -1,4 +1,8 @@
-<!-- <h1> show page </h1> -->
+
+
+
+
+
 <div style="display:none;">
 <%= form_tag @user,:id => 'submit_id', method: :get do %>
 <p>
@@ -51,32 +55,30 @@
 <% end %>
 <% end %>
 
+<div style=" overflow:scroll; height:250px; overflow-x: hidden; border:1px solid gray; border-radius:4px;">
+<table class="table table-bordered table-striped" >
 
 
 
-
-<ul>
+<tbody>
   <% @thoughts_search.each do |thought|%>
-    <li>
-      
+    <tr>
+      <td>
       <%= link_to thought.content, params.merge({:id_edit => thought.id}) %>
-      
-    </li>
+      </td>
+    </tr>
   <% end %> 
-</ul>
+</tbody>
+
+</table>
+</div>
 
 
 
-
-
-
-    <div >
-<!--   <h1>#hashtag nodes</h1> -->
   
-  <div class="span12 sigma-parent" id="sigma-example-parent">
+  <div class=" sigma-parent" id="sigma-example-parent">
     <div class="sigma-expand" id="sigma-example"></div>
   </div>
-</div>
 
 
 

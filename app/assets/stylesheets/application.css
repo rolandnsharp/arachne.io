@@ -22,6 +22,7 @@
     -webkit-border-radius: 4px;
     background: #222;
     height: 500px;
+    top: 30px;
   }
   .sigma-expand {
     position: absolute;
@@ -29,8 +30,4 @@
     height: 100%;
     top: 0;
     left: 0;
-  }
-  .buttons-container{
-    padding-bottom: 8px;
-    padding-top: 12px;
   }
