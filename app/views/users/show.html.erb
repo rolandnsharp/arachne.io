@@ -1,13 +1,38 @@
 <!-- <h1> show page </h1> -->
-<%= form_tag user_thoughts_path(@user),:id => 'submit_id', method: :get do %>
+<div style="display:none;">
+<%= form_tag @user,:id => 'submit_id', method: :get do %>
 <p>
   <%= text_field_tag :query, params[:query] %>
   <%= submit_tag "Search", name: nil %>
 </p>
 <% end %>
+</div>
 
 
 
+
+
+
+
+<% if @thought_edit%>
+<%= form_for([@user, @thought_edit]) do |f| %>
+<%= render "shared/error_messages", object: @thought_edit %>
+  <fieldset>
+    
+     
+        <!-- <%= f.label :content %>          -->
+        <%= f.text_area :content, autofocus: true, rows: 10  %>
+      
+  
+    
+    <p>
+      <%= f.submit 'Save', class: "btn btn-primary" %> |
+      <%= link_to "Delete", user_thought_path(@user, @thought), method: :delete, data: { confirm: 'Are you sure?' } %>
+      
+    </p>
+  </fieldset>
+<% end %>
+<% else %>
 <%= form_for([@user, @thought]) do |f| %>
 <%= render "shared/error_messages", object: @thought %>
   <fieldset>
@@ -24,13 +49,29 @@
     </p>
   </fieldset>
 <% end %>
+<% end %>
+
+
+
+
+<%unless @thoughts_search.empty?%>
+<ul>
+  <% @thoughts_search.each do |thought|%>
+    <li>
+      
+      <%= link_to thought.content, params.merge({:id_edit => thought.id}) %>
+      
+    </li>
+  <% end %> 
+</ul>
+<% end %>
 
 
 <ul>
   <% @thoughts.each do |thought| %>
     <li>
       
-      <%= link_to thought.content, edit_user_thought_path(@user, thought) %>
+      <%= link_to thought.content, params.merge({:id_edit => thought.id}) %>
       
     </li>
   <% end %>
