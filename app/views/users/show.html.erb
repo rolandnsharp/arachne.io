@@ -40,7 +40,10 @@
       <td>
      
        
-      
+       <% mod = thought.content.scan(/#\w+/).uniq %>
+       <% title = mod[0].titleize %>
+       <% title[0]="" %>
+       <%= title %>
        
 
        </br>
