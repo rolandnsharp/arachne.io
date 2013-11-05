@@ -41,7 +41,7 @@
      
        
        <% mod = thought.content.scan(/#\w+/) %>
-       <% title = mod[0] %>
+       <% title = mod[0].titleize %>
        
        <%= title %>
 
