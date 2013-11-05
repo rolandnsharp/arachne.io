@@ -41,7 +41,7 @@
 <div style=" overflow:scroll; height:100%; overflow-x: hidden; border:1px solid gray; border-radius:4px;">
 <table class="table table-bordered table-striped" >
       <tbody>
-  <% @thoughts_search.each_with_index do |thought, index|%>
+  <% @thoughts_search.each do |thought|%>
     <tr>
       <td>
       <!-- <%= thought_array[index][0] %> -->
@@ -50,7 +50,7 @@
       <!-- <%= link_to thought_array[index].to_s, params.merge({:id_edit => thought.id}) %> -->
        
        <% mod = thought.content.scan(/#\w+/).uniq %>
-       <% title = mod[0].titleize %>
+       <% title = mod[0] %>
        <% title[0]="" %>
        <%= title %>
        
