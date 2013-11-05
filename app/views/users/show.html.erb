@@ -13,9 +13,14 @@
   window.hashArray = <%=raw thought_array.as_json %>;
 <% end %>
 
-
-
-
+<div style="display: none;">
+<%= form_tag @user,:id => 'submit_id', method: :get do %>
+<p>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search", name: nil %>
+</p>
+<% end %>
+</div>
 
 
 
@@ -27,8 +32,7 @@
     <!--Side search-->
 <%= form_tag @user,:id => 'submit_id', method: :get do %>
 <p>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "Search", name: nil %>
+  <%= text_field_tag :query, params[:query], :placeholder => "search" %>
 </p>
 <% end %>
   <!--Sidebar items-->    
