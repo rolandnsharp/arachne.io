@@ -40,11 +40,10 @@
       <td>
      
        
-       <% mod = thought.content.scan(/#\w+/).uniq %>
-       <% title = mod[0].titleize %>
-       <% title[0]="" %>
+       <% mod = thought.content.scan(/#\w+/) %>
+       <% title = mod[0] %>
        <%= title %>
-       
+
 
        </br>
        <%= link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
