@@ -1,6 +1,17 @@
+<!-- get embedded hash array -->
+<% thought_array=[] %>
+<% @thoughts.each do |thought| %>
+ <% thought.content.to_s   %>
+ <% str=  thought.content.to_s   %>
+ <% tags = str.scan(/#\w+/).uniq %>
+ <%thought_array= thought_array+[tags] %>
+<% end %>
 
-
-
+<%= javascript_tag do %>
+  window.userName = "<%=j @user.username %>";
+  window.nodeCount = "<%= @thoughts.size %>";
+  window.hashArray = <%=raw thought_array.as_json %>;
+<% end %>
 
 
 <div style="display:none;">
@@ -15,8 +26,48 @@
 
 
 
+<div class="container-fluid">
+  <div class="row-fluid">
+    <div class="span2">
 
+<!--Sidebar content-->
+    <!--Side search-->
+<%= form_tag @user,:id => 'submit_id', method: :get do %>
+<div>
+  <%= text_field_tag :query, params[:query], :id => 'submit_id', :placeholder => "search" %>
+</div>
+<% end %>
+  <!--Sidebar items-->    
+<div style=" overflow:scroll; height:100%; overflow-x: hidden; border:1px solid gray; border-radius:4px;">
+<table class="table table-bordered table-striped" >
+      <tbody>
+  <% @thoughts_search.each_with_index do |thought, index|%>
+    <tr>
+      <td>
+      <!-- <%= thought_array[index][0] %> -->
+      <!-- <%= thought_array[params[:id].to_i][0] %> -->
 
+      <!-- <%= link_to thought_array[index].to_s, params.merge({:id_edit => thought.id}) %> -->
+       
+       <% mod = thought.content.scan(/#\w+/).uniq %>
+       <% title = mod[0].titleize %>
+       <% title[0]="" %>
+       <%= title %>
+       
+
+       </br>
+       <%= link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
+      </td>
+    </tr>
+  <% end %> 
+</tbody>
+
+</table>
+</div>
+</div>
+
+<div class="span10">
+<!--Body content-->
 
 <% if @thought_edit%>
 <%= form_for([@user, @thought_edit]) do |f| %>
@@ -25,7 +76,7 @@
     
      
         <!-- <%= f.label :content %>          -->
-        <%= f.text_area :content, autofocus: true, rows: 10  %>
+        <%= f.text_area :content, autofocus: true, rows: 7  %>
       
   
     
@@ -43,7 +94,7 @@
     
      
         <!-- <%= f.label :content %>          -->
-        <%= f.text_area :content, autofocus: true, rows: 10  %>
+        <%= f.text_area :content, autofocus: true, rows: 7  %>
       
   
     
@@ -57,59 +108,19 @@
 
 
 
-<div style=" overflow:scroll; height:200px; overflow-x: hidden; border:1px solid gray; border-radius:4px;">
-<table class="table table-bordered table-striped" >
-
-
-
-<tbody>
-  <% @thoughts_search.each do |thought|%>
-    <tr>
-      <td>
-      <%= link_to thought.content, params.merge({:id_edit => thought.id}) %>
-      </td>
-    </tr>
-  <% end %> 
-</tbody>
-
-</table>
-</div>
-
-
-</br> 
   
 
-
-
-<% xx=[] %>
-<% @thoughts.each do |thought| %>
- 
- <% thought.content.to_s   %>
- 
- <% str=  thought.content.to_s   %>
- 
-
- <% tags = str.scan(/#\w+/).uniq %>
- 
-   
-
-
- <%xx= xx+[tags] %>
- 
-<% end %>
-
-
-
-<%= javascript_tag do %>
-  window.userName = "<%=j @user.username %>";
-  window.nodeCount = "<%= @thoughts.size %>";
-  window.hashArray = <%=raw xx.as_json %>;
-
-
-<% end %>
-  
-
-
+<!-- node and line div -->
   <div class=" sigma-parent" id="sigma-example-parent">
     <div class="sigma-expand" id="sigma-example"></div>
   </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
