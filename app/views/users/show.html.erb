@@ -13,6 +13,11 @@
   window.hashArray = <%=raw thought_array.as_json %>;
 <% end %>
 
+
+
+
+
+
 <div style="display: none;">
 <%= form_tag @user,:id => 'submit_id', method: :get do %>
 <p>
@@ -21,8 +26,6 @@
 </p>
 <% end %>
 </div>
-
-
 
 <div class="container-fluid">
   <div class="row-fluid">
@@ -42,13 +45,10 @@
   <% @thoughts_search.each do |thought|%>
     <tr>
       <td>
-     
        
        <% mod = thought.content.scan(/#\w+/) %>
        <% title = mod[0] %>
-       
        <%= title %>
-
 
        </br>
        <%= link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
@@ -60,11 +60,10 @@
 </table>
 </div>
 
-
 </div>
 
 <div class="span10">
-<!--Body content-->
+<!--Body content--> 
 
 <% if @thought_edit%>
 <%= form_for([@user, @thought_edit]) do |f| %>
@@ -72,8 +71,6 @@
   <fieldset>
     
         <%= f.text_area :content, autofocus: true, rows: 10  %>
-      
-  
     
     <p>
       <%= f.submit 'Save', class: "btn btn-primary" %> |
@@ -86,12 +83,10 @@
 <%= form_for([@user, @thought]) do |f| %>
 <%= render "shared/error_messages", object: @thought %>
   <fieldset>
-    
-     
+
         <!-- <%= f.label :content %>          -->
-        <%= f.text_area :content, autofocus: true, rows: 7  %>
-      
-  
+        <%= f.text_area :content, autofocus: true, rows: 10  %>
+
     
     <p>
       <%= f.submit 'Save', class: "btn btn-primary" %> 
@@ -101,21 +96,11 @@
 <% end %>
 <% end %>
 
-
-
-  
-
 <!-- node and line div -->
   <div class=" sigma-parent" id="sigma-example-parent">
     <div class="sigma-expand" id="sigma-example"></div>
   </div>
 
-
-
     </div>
   </div>
 </div>
-
-
-
-
