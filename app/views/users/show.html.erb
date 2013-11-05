@@ -14,14 +14,7 @@
 <% end %>
 
 
-<div style="display:none;">
-<%= form_tag @user,:id => 'submit_id', method: :get do %>
-<p>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "Search", name: nil %>
-</p>
-<% end %>
-</div>
+
 
 
 
@@ -33,9 +26,10 @@
 <!--Sidebar content-->
     <!--Side search-->
 <%= form_tag @user,:id => 'submit_id', method: :get do %>
-<div>
-  <%= text_field_tag :query, params[:query], :id => 'submit_id', :placeholder => "search" %>
-</div>
+<p>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search", name: nil %>
+</p>
 <% end %>
   <!--Sidebar items-->    
 <div style=" overflow:scroll; height:100%; overflow-x: hidden; border:1px solid gray; border-radius:4px;">
@@ -47,7 +41,7 @@
      
        
        <% mod = thought.content.scan(/#\w+/).uniq %>
-       <% title = mod[0] %>
+       <% title = mod[0].titleize %>
        <% title[0]="" %>
        <%= title %>
        
@@ -71,8 +65,6 @@
 <%= render "shared/error_messages", object: @thought_edit %>
   <fieldset>
     
-     
-        <!-- <%= f.label :content %>          -->
         <%= f.text_area :content, autofocus: true, rows: 7  %>
       
   
