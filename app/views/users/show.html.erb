@@ -37,7 +37,7 @@
 <% end %>
   <!--Sidebar items-->    
 <div style=" overflow:scroll; height:100%; overflow-x: hidden; border:1px solid gray; border-radius:4px;">
-<table class="table table-bordered table-striped" >
+<table class="table table-bordered" >
       <tbody>
   <% @thoughts_search.each do |thought|%>
     <tr>
@@ -71,7 +71,7 @@
 <%= render "shared/error_messages", object: @thought_edit %>
   <fieldset>
     
-        <%= f.text_area :content, autofocus: true, rows: 7  %>
+        <%= f.text_area :content, autofocus: true, rows: 10  %>
       
   
     

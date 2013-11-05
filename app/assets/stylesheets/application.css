@@ -34,3 +34,13 @@
     
     /*margin-bottom: 30px;*/
   }
+
+
+ td:hover{
+  background-color: lightgray;
+ }
+
+ #right-top-buttons{
+  float: right;
+  margin-right: 20px;
+ }
