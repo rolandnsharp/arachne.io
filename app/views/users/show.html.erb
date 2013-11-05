@@ -55,7 +55,9 @@
 <% end %>
 <% end %>
 
-<div style=" overflow:scroll; height:250px; overflow-x: hidden; border:1px solid gray; border-radius:4px;">
+
+
+<div style=" overflow:scroll; height:200px; overflow-x: hidden; border:1px solid gray; border-radius:4px;">
 <table class="table table-bordered table-striped" >
 
 
@@ -74,11 +76,8 @@
 </div>
 
 
-
+</br> 
   
-  <div class=" sigma-parent" id="sigma-example-parent">
-    <div class="sigma-expand" id="sigma-example"></div>
-  </div>
 
 
 
@@ -95,7 +94,7 @@
    
 
 
- <%xx= xx.concat tags %>
+ <%xx= xx+[tags] %>
  
 <% end %>
 
@@ -108,3 +107,9 @@
 
 
 <% end %>
+  
+
+
+  <div class=" sigma-parent" id="sigma-example-parent">
+    <div class="sigma-expand" id="sigma-example"></div>
+  </div>

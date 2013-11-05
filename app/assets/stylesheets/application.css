@@ -22,7 +22,8 @@
     -webkit-border-radius: 4px;
     background: #222;
     height: 500px;
-    top: 30px;
+    bottom: 10px;
+  
   }
   .sigma-expand {
     position: absolute;
@@ -30,4 +31,6 @@
     height: 100%;
     top: 0;
     left: 0;
+    
+    /*margin-bottom: 30px;*/
   }
