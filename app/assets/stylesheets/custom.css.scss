@@ -13,11 +13,17 @@ $grayMediumLight: #eaeaea;
 /* universal */
 
 html {
-  overflow-y: scroll;
+
+  overflow:hidden;
+  height: 100%;
+ 
+
 }
 
 body {
   padding-top: 60px;
+  height: 100%;
+
 }
 
 section {
