@@ -45,10 +45,11 @@
   <% @thoughts_search.each do |thought|%>
     <tr>
       <td>
-       
-       <% mod = thought.content.scan(/#\w+/) %>
+      <% mod = thought.content.scan(/#\w+/) %>
        <% title = mod[0] %>
+       
        <%= title %>
+
 
        </br>
        <%= link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>

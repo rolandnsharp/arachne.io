@@ -36,8 +36,9 @@ class UsersController < ApplicationController
 		if @user.save
 			session[:user_id] = @user.id
 			UserMailer.signup_confirmation(@user).deliver
-			@thought = @user.thoughts.create(content: "#title The first hashtag is used as the title. #other tags are #children of the title tag.")
+			@thought = @user.thoughts.create(content: "#refresh your browser to see your #node and #line graph. Needs fixing.")
 			@thought = @user.thoughts.create(content: "#another_hashtag. #hash1 #hash2 #hash3 and some non hashed text")
+			@thought = @user.thoughts.create(content: "#title The first hashtag is used as the title. #other tags are #children of the title tag.")
 			redirect_to @user, notice: "Thank you for signing up! A confirmation email has been sent to your address."
 		else
 			render "new"
