@@ -50,7 +50,7 @@ class ThoughtsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 	    @thought.destroy
-	    redirect_to @user, alert: "Thought successfully deleted!"
+	    redirect_to edit_user_path(@user), alert: "Thought successfully deleted!"
 	end
 
 
