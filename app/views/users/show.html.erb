@@ -14,7 +14,12 @@
 <% end %>
 
 <div style="display: none;">
-<%= text_field_tag :query, params[:query] %>
+
+<p>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag "Search", name: nil %>
+</p>
+
 </div>
 
 
@@ -42,20 +47,23 @@
     <h3 id="myModalLabel">Modal header</h3>
   </div>
   <div class="modal-body">
-    <% @thoughts_search.each do |thought|%>
+   
+
+  <% @thoughts_search = @user.thoughts.text_search("and") %>
+  <% @thoughts_search.each do |thought|%>
     <tr>
       <td>
-      <% mod = thought.content.scan(/#\w+/) %>
-       <% title = mod[0] %>
+      
        
-       <%= title %>
-
-
+       <%= thought.content %>
        </br>
-       <%= link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
+       ------------------------------------------
+       </br>
       </td>
     </tr>
   <% end %> 
+
+
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

@@ -13,7 +13,6 @@ class UsersController < ApplicationController
 	end
 
 	def show
-
 		@user = User.find(params[:id])
 		@thoughts = @user.thoughts
 		@thoughts_search = @user.thoughts.text_search(params[:query])

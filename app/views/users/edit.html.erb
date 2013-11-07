@@ -2,13 +2,7 @@
 
 
 
-<script type="text/javascript">
-
-
-
-
-
-</script>
+<script type="text/javascript"></script>
 
 
 
@@ -102,11 +96,11 @@
     
 
 
-    <p>
-      <%= f.submit 'Save', class: "btn btn-primary" %> |
-      <%= link_to "Delete", user_thought_path(@user, @thought_edit), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= f.submit 'Save', class: "btn btn-primary" %> 
+      <%= link_to "New", edit_user_path(@user), class: "btn" %>
+      <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn", method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "Publish", @user, class: "btn" %>
       
-    </p>
 
   </fieldset>
 <% end %>
@@ -120,7 +114,7 @@
 
     
       <%= link_to "New", edit_user_path(@user), class: "btn" %>
-      <%= f.submit 'Save', class: "btn btn-primary" %> 
+      <%= f.submit 'Save', class: "btn btn-primary"%> 
       <%= link_to "Publish", @user, class: "btn" %>
 
       <% flash.each do |key, value| %>
