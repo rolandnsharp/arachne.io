@@ -13,17 +13,23 @@
   window.hashArray = <%=raw thought_array.as_json %>;
 <% end %>
 
+<div style="display: none;">
+<%= text_field_tag :query, params[:query] %>
+</div>
 
 
-
-
-
-<div class="container-fluid" style=" height:98%;" >
+<div class="container-fluid" style=" height:100%;" >
   <div class="row-fluid" style="height:100%;">
   
   <div class=" sigma-parent" id="sigma-example-parent" >
     <div class="sigma-expand" id="sigma-example" ></div>
   </div>
+
+
+
+
+
+  
 <%= link_to "Edit", edit_user_path(@user), class: "btn" %>
    <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
    <!-- Modal -->
@@ -33,11 +39,24 @@
     <h3 id="myModalLabel">Modal header</h3>
   </div>
   <div class="modal-body">
-    <p>One fine body…</p>
+    <% @thoughts_search.each do |thought|%>
+    <tr>
+      <td>
+      <% mod = thought.content.scan(/#\w+/) %>
+       <% title = mod[0] %>
+       
+       <%= title %>
+
+
+       </br>
+       <%= link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
+      </td>
+    </tr>
+  <% end %> 
   </div>
   <div class="modal-footer">
     <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-    <button class="btn btn-primary">Save changes</button>
+    <!-- <button class="btn btn-primary">Save changes</button> -->
   </div>
 </div>
   </div>
