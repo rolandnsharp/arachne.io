@@ -21,9 +21,9 @@
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     background: #222;
-    height: 500px;
-    bottom: 10px;
-  
+    height: 65%;
+    
+    
   }
   .sigma-expand {
     position: absolute;
@@ -46,8 +46,9 @@
  }
 
  .sideScrollBar{
-  
-  height:90%;
+  position: relative;
+
+  height:85%;
   padding-bottom: 0;
   overflow:scroll; 
   overflow-x: hidden; 

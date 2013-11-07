@@ -18,90 +18,31 @@
 
 
 
-<div style="display: none;">
-<%= form_tag @user,:id => 'submit_id', method: :get do %>
-<p>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "Search", name: nil %>
-</p>
-<% end %>
-</div>
-
-<div class="container-fluid" style=" height:90%;" >
+<div class="container-fluid" style=" height:98%;" >
   <div class="row-fluid" style="height:100%;">
-    <div class="span2" style="height:100%;">
-
-<!--Sidebar content-->
-    <!--Side search-->
-<%= form_tag @user,:id => 'submit_id', method: :get do %>
-<p>
-  <%= text_field_tag :query, params[:query], :placeholder => "search" %>
-</p>
-<% end %>
-  <!--Sidebar items-->    
-<div class="sideScrollBar">
-<table class="table table-bordered">
-      <tbody>
-  <% @thoughts_search.each do |thought|%>
-    <tr>
-      <td>
-      <% mod = thought.content.scan(/#\w+/) %>
-       <% title = mod[0] %>
-       
-       <%= title %>
-
-
-       </br>
-       <%= link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
-      </td>
-    </tr>
-  <% end %> 
-</tbody>
-
-</table>
-</div>
-
-</div>
-
-<div class="span10">
-<!--Body content--> 
-
-<% if @thought_edit%>
-<%= form_for([@user, @thought_edit]) do |f| %>
-<%= render "shared/error_messages", object: @thought_edit %>
-  <fieldset>
-    
-        <%= f.text_area :content, autofocus: true, rows: 10  %>
-    
-    <p>
-      <%= f.submit 'Save', class: "btn btn-primary" %> |
-      <%= link_to "Delete", user_thought_path(@user, @thought_edit), method: :delete, data: { confirm: 'Are you sure?' } %>
-      
-    </p>
-  </fieldset>
-<% end %>
-<% else %>
-<%= form_for([@user, @thought]) do |f| %>
-<%= render "shared/error_messages", object: @thought %>
-  <fieldset>
-
-        <!-- <%= f.label :content %>          -->
-        <%= f.text_area :content, autofocus: true, rows: 10  %>
-
-    
-    <p>
-      <%= f.submit 'Save', class: "btn btn-primary" %> 
-      
-    </p>
-  </fieldset>
-<% end %>
-<% end %>
-
-<!-- node and line div -->
+  
   <div class=" sigma-parent" id="sigma-example-parent" >
     <div class="sigma-expand" id="sigma-example" ></div>
   </div>
-
-    </div>
+<%= link_to "Edit", edit_user_path(@user), class: "btn" %>
+   <a href="#myModal" role="button" class="btn" data-toggle="modal">Launch demo modal</a>
+   <!-- Modal -->
+<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+  </div>
+  <div class="modal-body">
+    <p>One fine body…</p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+    <button class="btn btn-primary">Save changes</button>
   </div>
 </div>
+  </div>
+</div>
+
+
+
+ 

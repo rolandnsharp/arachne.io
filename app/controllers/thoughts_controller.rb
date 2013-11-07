@@ -17,7 +17,7 @@ class ThoughtsController < ApplicationController
 	  @user = User.find(params[:user_id])
 	  @thought = @user.thoughts.new(thought_params)
 	  if @thought.save
-	    redirect_to @user, 
+	    redirect_to edit_user_path(@user), 
 	                  notice: "Thanks for your thought!"
 	  else
 	    render :new
@@ -40,7 +40,7 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.find(params[:id])
 	    if @thought.update(thought_params)
 	      flash[:notice] = "Thought successfully updated!"
-	      redirect_to @user
+	      redirect_to edit_user_path(@user)
 	    else
 	      render :edit
 	    end

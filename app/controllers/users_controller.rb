@@ -45,8 +45,19 @@ class UsersController < ApplicationController
 		end
 	end
 
-
-
+	def edit
+		@user = User.find(params[:id])
+		@thoughts = @user.thoughts
+		@thoughts_search = @user.thoughts.text_search(params[:query])
+		@thought = @user.thoughts.new
+		
+	    if params[:query]	
+			@thought_edit = @thoughts_search.first
+		elsif params[:id_edit]
+			@thought_edit = @user.thoughts.find(params[:id_edit]) 
+	    end
+		
+	end
 
 	private
 
