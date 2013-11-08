@@ -12,5 +12,17 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function() {
+  $('#save').on('click', function() { 
+  	console.log("click")
+  	$('#newForm').submit(); 
+  	location.reload();
+
+  });
+
+});

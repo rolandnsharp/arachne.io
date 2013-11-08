@@ -1,21 +1,4 @@
 
-
-
-
-<script type="text/javascript"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
 <!-- get embedded hash array -->
 <% thought_array=[] %>
 <% @thoughts.each do |thought| %>
@@ -31,11 +14,6 @@
   window.hashArray = <%=raw thought_array.as_json %>;
 <% end %>
 
-
-
-
-
-
 <div style="display: none;">
 <%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
 <p>
@@ -45,77 +23,133 @@
 <% end %>
 </div>
 
-<div class="container-fluid" style=" height:98%;" >
-  <div class="row-fluid" style="height:100%;">
-    <div class="span2" style="height:100%;">
 
-<!--Sidebar content-->
-    <!--Side search-->
-<div class="sideSearch" style="height:5%;">
-<%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
-<p>
-  <%= text_field_tag :query, params[:query], :placeholder => "search" %>
-</p>
-<% end %>
+
+<nav class="navbar navbar-default" role="navigation" id="toolBar">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    
+  </div>
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+  
+    <form class="navbar-form navbar-left" role="search">
+      
+      <%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
+        <div class="form-group">
+        <%= text_field_tag :query, params[:query], :placeholder => "search", class: "form-control" %>
+       </div>
+        <!-- <%= submit_tag "Search", name: nil, class: "btn btn-default" %> -->
+      <% end %>
+    </form>
+
+
+    <ul class="nav navbar-nav navbar-right">
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="save">Save</button>
+        <button type="button" class="btn btn-danger" id="delete">Delete</button>
+        <%= link_to "Publish", @user, class: "btn btn-default" %>
+       <%= link_to "New", edit_user_path(@user), class: "btn btn-default" %>
+      </div>
+    </ul>
+
+
+
+
+
+
+
+    
+  </div><!-- /.navbar-collapse -->
+
+
+
+
+
+</nav>
+
+
+
+
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" style="height:100%;">
+
+<div class="sideSearch">
+
 </div>
-  <!--Sidebar items-->    
-<div class="sideScrollBar">
-<table class="table table-bordered">
-      <tbody>
-  <% @thoughts_search.each do |thought|%>
-    <tr>
-      <td>
-      <% mod = thought.content.scan(/#\w+/) %>
-       <% title = mod[0] %>
-       
-       <%= title %>
 
 
-       </br>
-       <%= link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
-      </td>
-    </tr>
-  <% end %> 
-</tbody>
+        <div class="sideScrollBar">
 
-</table>
-</div>
 
-</div>
 
-<div class="span10" style="height:100%;">
-<!--Body content--> 
 
-<% if @thought_edit%>
-<%= form_for ([@user, @thought_edit]) do |f| %>
+          <div class="list-group">
+
+
+              <% @thoughts_search.each do |thought|%>
+              <a href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                <% mod = thought.content.scan(/#\w+/) %>
+                 <% title = mod[0] %>
+                 
+                 <%= title %>
+
+
+                 </h4>
+                 <p class="list-group-item-text">
+                 <% link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
+                 jklsdjf ksdljf kldsjf kldsj klfdsjklfdsj klfdjifkljwdklkfjls kdfkl dsj fkldsjkfljdslk fkldsj fls
+                </p>
+              </a>
+            <% end %> 
+            
+            <a href="#" class="list-group-item">
+              <h4 class="list-group-item-heading">List group item heading</h4>
+              <p class="list-group-item-text">sda dsaf sasadsadsada ds afdsfdsf sf dsfsd dsfdsffds fdsf dsfds </p>
+            </a>
+           
+          </div>
+        </div>
+
+        </div><!--/span-->
+
+
+        <div class="col-xs-12 col-sm-9" style="height:100%;">
+         
+          <% if @thought_edit%>
+<%= form_for [@user, @thought_edit], :remote => true, :html => { :id => "newForm" } do |f| %>
 <%= render "shared/error_messages", object: @thought_edit %>
   <fieldset>
     
-        <%= f.text_area :content, autofocus: true, rows: 10  %>
+        <%= f.text_area :content, autofocus: true, rows: 10, class: "form-control writingClass"  %>
     
     
 
 
-      <%= f.submit 'Save', class: "btn btn-primary" %> 
-      <%= link_to "New", edit_user_path(@user), class: "btn" %>
       <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn", method: :delete, data: { confirm: 'Are you sure?' } %>
-      <%= link_to "Publish", @user, class: "btn" %>
+      
       
 
   </fieldset>
 <% end %>
 <% else %>
-<%= form_for([@user, @thought]) do |f| %>
+<%= form_for [@user, @thought], :remote => true, :html => { :id => "newForm" } do |f| %>
 <%= render "shared/error_messages", object: @thought %>
   <fieldset>
 
         <!-- <%= f.label :content %>          -->
-        <%= f.text_area :content, autofocus: true, rows: 10  %>
+        <%= f.text_area :content, autofocus: true, rows: 10, class: "form-control writingClass"  %>
 
     
-      <%= link_to "New", edit_user_path(@user), class: "btn" %>
-      <%= f.submit 'Save', class: "btn btn-primary"%> 
-      <%= link_to "Publish", @user, class: "btn" %>
+      
+      
 
       <% flash.each do |key, value| %>
         <%= content_tag(:span, value, class: "alert alert-#{key}") %>
@@ -126,11 +160,16 @@
 <% end %>
 <% end %>
 
-<!-- node and line div -->
+
+
+
   <div class=" sigma-parent" id="sigma-example-parent" >
     <div class="sigma-expand" id="sigma-example" ></div>
   </div>
+</div><!--/span-->
 
-    </div>
-  </div>
-</div>
+        
+
+
+
+       
