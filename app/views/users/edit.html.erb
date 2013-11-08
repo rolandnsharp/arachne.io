@@ -54,7 +54,10 @@
     <ul class="nav navbar-nav navbar-right">
       <div class="btn-group">
         <button type="button" class="btn btn-primary" id="save">Save</button>
-        <button type="button" class="btn btn-danger" id="delete">Delete</button>
+        <% if @thought_edit%>
+        <%= link_to 'Delete', user_thought_path(@user, @thought_edit), :class => 'btn btn-danger', :id => 'delete' %>
+        <%end%>
+        <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
         <%= link_to "Publish", @user, class: "btn btn-default" %>
        <%= link_to "New", edit_user_path(@user), class: "btn btn-default" %>
       </div>
