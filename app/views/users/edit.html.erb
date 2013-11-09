@@ -55,7 +55,8 @@
       <div class="btn-group">
         <button type="button" class="btn btn-primary" id="save">Save</button>
         <% if @thought_edit%>
-        <%= link_to 'Delete', user_thought_path(@user, @thought_edit), :class => 'btn btn-danger', :id => 'delete' %>
+          
+          <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
         <%end%>
         <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
         <%= link_to "Publish", @user, class: "btn btn-default" %>
@@ -97,14 +98,15 @@
 
 
               <% @thoughts_search.each do |thought|%>
-              <a href="#" class="list-group-item">
+              <a href="/users/<%= @user.id %>/edit?id_edit=<%= thought.id %>" class="list-group-item" data-thoughtid="<%= thought.id %>">
                 <h4 class="list-group-item-heading">
                 <% mod = thought.content.scan(/#\w+/) %>
                  <% title = mod[0] %>
                  
+                 
                  <%= title %>
 
-
+                 
                  </h4>
                  <p class="list-group-item-text">
                  <% link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>

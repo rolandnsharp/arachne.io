@@ -28,12 +28,5 @@ $(document).ready(function() {
 });
 
 
-$(document).ready(function() {
-  $('#delete').click(function() {
-    confirm("Are you sure?");
-    $.post(this.href, { _method: 'delete' }, null, "script");
-    location.reload();
-    // return false;
-  });
 
-});
+
