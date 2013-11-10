@@ -25,8 +25,20 @@ $(document).ready(function() {
 
   });
 
+
+$('.list-group a').click(function() {
+function getURLParameter(name) {
+    return decodeURI(
+        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
+    );
+};
+
+var a = getURLParameter("id_edit");
+console.log(a);
+
+        // $(this).siblings('a').removeClass('active');
+        // $(this).addClass('list-group-item active');
+    });
+
 });
-
-
-
 

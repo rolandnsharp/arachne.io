@@ -50,7 +50,7 @@
  .sideScrollBar{
  /* display: none;*/
   position: relative;
-  margin-top:-80px;
+  margin-top:-62px;
   
 
   /*bottom:0;*/
@@ -75,5 +75,20 @@ top: -40px;
 
  .writingClass{
   position: relative;
-  top: -85px;
+  top: -68px;
  }
+
+/*fixes nav width but breaks tablets*/
+.navbar  { height: 28px; }  
+
+
+#greenLogIn {
+  position: relative;
+  bottom: 7px;
+}
+
+.btn-group {
+  position: relative;
+  top: 7px;
+  right: 15px;
+}
