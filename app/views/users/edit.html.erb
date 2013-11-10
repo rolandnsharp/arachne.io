@@ -69,7 +69,7 @@
         <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
         <%= link_to "Publish", @user, class: "btn btn-default" %>
        <%= link_to "New", edit_user_path(@user), class: "btn btn-default" %>
-       <button type="button" class="btn" id="delete">Web</button>
+       <button type="button" class="btn btn-default" id="thought_network">Thought Network</button>
       </div>
     </ul>
 
@@ -80,7 +80,7 @@
 </nav>
 
 
-<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" style="height:100%;">
+<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" style="height:100%; padding-bottom:10px;">
 
 <div class="sideSearch">
 
@@ -112,14 +112,16 @@
 
         </div><!--/span-->
 
-<div class="col-xs-12 col-sm-9" style="height:100%;">
+<div class="col-xs-12 col-sm-9" style="height:100%; padding-bottom:10px;">
      
 <% if @thought_edit%>
 <%= form_for [@user, @thought_edit], :remote => true, :html => { :id => "newForm" } do |f| %>
 <%= render "shared/error_messages", object: @thought_edit %>
   <fieldset style="height:100%;">
     <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
-        
+        <div class=" sigma-parent" id="sigma-example-parent" >
+    <div class="sigma-expand" id="sigma-example" ></div>
+  </div>
     
   </fieldset>
 <% end %>
@@ -129,16 +131,18 @@
   <fieldset style="height:100%;">
 
         <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
-
+<div class=" sigma-parent" id="sigma-example-parent" >
+    <div class="sigma-expand" id="sigma-example" ></div>
+  </div>
   </fieldset>
 <% end %>
 <% end %>
  
 
-<!--   <div class=" sigma-parent" id="sigma-example-parent" >
+  <div class=" sigma-parent" id="sigma-example-parent" >
     <div class="sigma-expand" id="sigma-example" ></div>
   </div>
- -->
+
 
 </div><!--/span-->
 

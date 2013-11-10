@@ -26,11 +26,20 @@ $(document).ready(function() {
 
   });
 
+
+$( "#thought_network" ).click(function() {
+
+   $("#thought_content").css({"height": "200px"});
+ 
+});
+
+
 setTimeout(doSomething, 1000);
 
 function doSomething() {
    $(".alert").alert('close');
 }
+
 
 
 });
