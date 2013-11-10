@@ -22,23 +22,16 @@ $(document).ready(function() {
   	console.log("click")
   	$('#newForm').submit(); 
   	location.reload();
+  	$('.alert').show();
 
   });
 
+setTimeout(doSomething, 1000);
 
-$('.list-group a').click(function() {
-function getURLParameter(name) {
-    return decodeURI(
-        (RegExp(name + '=' + '(.+?)(&|$)').exec(location.search)||[,null])[1]
-    );
-};
+function doSomething() {
+   $(".alert").alert('close');
+}
 
-var a = getURLParameter("id_edit");
-console.log(a);
-
-        // $(this).siblings('a').removeClass('active');
-        // $(this).addClass('list-group-item active');
-    });
 
 });
 

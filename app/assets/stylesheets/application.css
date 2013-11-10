@@ -13,17 +13,19 @@
  *= require_tree .
  */
   
-
+/*  #textDiv{
+    height: 100%;
+  }*/
 
   /* sigma.js context : */
   .sigma-parent {
     position: relative;
-    top: -90px;
+    bottom: 2px;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     background: #222;
-    height: 65%;
+    height: 100%;
     
     
   }
@@ -50,7 +52,7 @@
  .sideScrollBar{
  /* display: none;*/
   position: relative;
-  margin-top:-62px;
+  margin-top:-64px;
   
 
   /*bottom:0;*/
@@ -73,11 +75,6 @@ top: -40px;
   top: -50px;
  }
 
- .writingClass{
-  position: relative;
-  top: -68px;
- }
-
 /*fixes nav width but breaks tablets*/
 .navbar  { height: 28px; }  
 
@@ -88,7 +85,24 @@ top: -40px;
 }
 
 .btn-group {
-  position: relative;
+  position: absolute;
   top: 7px;
   right: 15px;
+}
+
+.alert-div {
+position: relative;
+height: 48px;
+width: 400px;
+  right: 200px;
+}
+
+#thought_content{
+  position: relative;
+  height: 100%;
+}
+
+#newForm{
+  height: 100%;
+  
 }

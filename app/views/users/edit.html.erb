@@ -24,7 +24,6 @@
 </div>
 
 
-
 <nav class="navbar navbar-default" role="navigation" id="toolBar">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -49,8 +48,17 @@
         <!-- <%= submit_tag "Search", name: nil, class: "btn btn-default" %> -->
       <% end %>
     </form>
+    
+    <nav class="navbar-right">
 
 
+    <% flash.each do |key, value| %>
+        
+        <%= content_tag(:div, value, class: "alert-div alert alert-#{key}") %>
+        
+    <% end %>
+    </nav>
+    
     <ul class="nav navbar-nav navbar-right">
       <div class="btn-group">
         <button type="button" class="btn btn-primary" id="save">Save</button>
@@ -61,25 +69,15 @@
         <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
         <%= link_to "Publish", @user, class: "btn btn-default" %>
        <%= link_to "New", edit_user_path(@user), class: "btn btn-default" %>
+       <button type="button" class="btn" id="delete">Web</button>
       </div>
     </ul>
-
-
-
-
-
-
 
     
   </div><!-- /.navbar-collapse -->
 
 
-
-
-
 </nav>
-
-
 
 
 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" style="height:100%;">
@@ -88,11 +86,7 @@
 
 </div>
 
-
         <div class="sideScrollBar">
-
-
-
 
           <div class="list-group">
 
@@ -103,10 +97,8 @@
                 <% mod = thought.content.scan(/#\w+/) %>
                  <% title = mod[0] %>
                  
-                 
                  <%= title %>
 
-                 
                  </h4>
                  <p class="list-group-item-text">
                  <% link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
@@ -114,60 +106,40 @@
                 </p>
               </a>
             <% end %> 
-            
-            
            
           </div>
         </div>
 
         </div><!--/span-->
 
-
-        <div class="col-xs-12 col-sm-9" style="height:100%;">
-         
-          <% if @thought_edit%>
+<div class="col-xs-12 col-sm-9" style="height:100%;">
+     
+<% if @thought_edit%>
 <%= form_for [@user, @thought_edit], :remote => true, :html => { :id => "newForm" } do |f| %>
 <%= render "shared/error_messages", object: @thought_edit %>
-  <fieldset>
+  <fieldset style="height:100%;">
+    <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
+        
     
-        <%= f.text_area :content, autofocus: true, rows: 10, class: "form-control writingClass"  %>
-    
-    
-
-
-      <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn", method: :delete, data: { confirm: 'Are you sure?' } %>
-      
-      
-
   </fieldset>
 <% end %>
 <% else %>
 <%= form_for [@user, @thought], :remote => true, :html => { :id => "newForm" } do |f| %>
 <%= render "shared/error_messages", object: @thought %>
-  <fieldset>
+  <fieldset style="height:100%;">
 
-        <!-- <%= f.label :content %>          -->
-        <%= f.text_area :content, autofocus: true, rows: 10, class: "form-control writingClass"  %>
+        <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
 
-    
-      
-      
-
-      <% flash.each do |key, value| %>
-        <%= content_tag(:span, value, class: "alert alert-#{key}") %>
-      <% end %>
-     
-    
   </fieldset>
 <% end %>
 <% end %>
+ 
 
-
-
-
-  <div class=" sigma-parent" id="sigma-example-parent" >
+<!--   <div class=" sigma-parent" id="sigma-example-parent" >
     <div class="sigma-expand" id="sigma-example" ></div>
   </div>
+ -->
+
 </div><!--/span-->
 
         

@@ -20,6 +20,8 @@ section {
 
 textarea {
   resize: vertical;
+  
+  top: -70px;
 }
 
 .center {
@@ -82,7 +84,7 @@ h2 {
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
+  /*margin-bottom: 15px;*/
  
 }
 
