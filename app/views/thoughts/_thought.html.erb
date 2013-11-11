@@ -10,7 +10,6 @@
   <fieldset style="height:100%;">
 
         <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
-        <%= f.submit "save", class: "btn btn-primary", remote: true %>
-        <%= link_to "Delete", user_thought_path(@user, @thought), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+      
   </fieldset>
 <% end %>

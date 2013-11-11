@@ -3,7 +3,6 @@
          $('.list-group a').removeClass('active');
             $(this).addClass('active');
   
-          // console.log("response");
     });
 </script>
 
@@ -13,10 +12,12 @@
                  <% title = mod[0] %>
                  
                  <%= title %>
-
+                 <span class="hashSubTitle">
+                 <%=  @thought.content.scan(/#\w+/).uniq %>
+                 </span>
                  </h4>
                  <p class="list-group-item-text">
-                 <% link_to @thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => @thought.id}) %>
-                 jklsdjf ksdljf kldsjf kldsj klfdsjklfdsj klfdjifkljwdklkfjls kdfkl dsj fkldsjkfljdslk fkldsj fls
+                 
+                 <%=  truncate(@thought.content, :length => 150) %>
                 </p>
               </a>

@@ -28,11 +28,14 @@ $(document).ready(function() {
   $('#save').on('click', function() { 
   	console.log("save");
   	$('#newForm').submit();
+    // $("#success").show(0).delay(1000).hide(0);
   });
 
   $('#delete').on('click', function() { 
   	confirm("Are you sure?");
   	$.post("/users/"+userid+"/thoughts/"+thoughtid+"/", { _method: 'delete' }, null, "script");
+    // $("#success").show(0).delay(1000).hide(0);
+    return false;
   });
 
 
@@ -46,11 +49,11 @@ $( "#thought_network" ).click(function() {
 });
 
 
-setTimeout(doSomething, 1000);
+// setTimeout(doSomething, 1000);
 
-function doSomething() {
-   $(".alert").alert('close');
-};
+// function doSomething() {
+//    $(".alert").alert('close');
+// };
 
 
 

@@ -52,13 +52,12 @@
     </form>
     
     <nav class="navbar-right">
-
-
-    <% flash.each do |key, value| %>
+    <div class="alert-div alert alert-success fade in" id="success" style="display: none;">Success!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</div>
+ <!--   # <% flash.each do |key, value| %>
         
-        <%= content_tag(:div, value, class: "alert-div alert alert-#{key}") %>
+        #<%= content_tag(:div, value, class: "alert-div alert alert-#{key}") %>
         
-    <% end %>
+   # <% end %> -->
     </nav>
     
     <ul class="nav navbar-nav navbar-right">
@@ -71,9 +70,9 @@
           <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
         <%end%>
         <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
-        <%= link_to "Publish", @user, class: "btn btn-default" %>
-       <%= link_to "New", edit_user_path(@user), class: "btn btn-default" %>
-       <button type="button" class="btn btn-default" id="thought_network">Thought Network</button>
+        <!-- #<%= link_to "Publish", @user, class: "btn btn-default" %> -->
+       <%= link_to "New", new_user_thought_path(@user), class: "btn btn-default", remote: true %>
+       <!-- <button type="button" class="btn btn-default" id="thought_network">Thought Network</button> -->
       </div>
     </ul>
 
@@ -103,11 +102,14 @@
                  <% title = mod[0] %>
                  
                  <%= title %>
-
+                 <span class="hashSubTitle">
+                 <%=  thought.content.scan(/#\w+/).uniq %>
+                 </span>
                  </h4>
                  <p class="list-group-item-text">
-                 <% link_to thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => thought.id}) %>
-                 jklsdjf ksdljf kldsjf kldsj klfdsjklfdsj klfdjifkljwdklkfjls kdfkl dsj fkldsjkfljdslk fkldsj fls
+                 
+                 <%=  truncate(thought.content, :length => 150) %>
+                 
                 </p>
               </a>
             <% end %> 
@@ -125,7 +127,7 @@
   <fieldset style="height:100%;">
 
         <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
-        <%= f.submit "save", class: "btn btn-primary" %>
+    
 
   </fieldset>
 <% end %>

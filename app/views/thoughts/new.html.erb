@@ -1,18 +1,12 @@
-new
-
-<%= form_for([@user, @thought]) do |f| %>
+<%= form_for [@user, @thought], :html => { :id => "newForm" },remote: true do |f| %>
+<!-- dynamic active thought variable for delete jquery-->
+<%= javascript_tag do %>
+  window.thoughtid = "<%= @thought.id %>";
+<% end %>
 <%= render "shared/error_messages", object: @thought %>
-  <fieldset>
-    <ol>
-      <li class="required">
-        <%= f.label :content %>         
-        <%= f.text_field :content, size: 4000, autofocus: true %>
-      </li>
-  
-    </ol>
-    <p>
-      <%= f.submit 'Post Thought' %> 
-      <%= link_to "Cancel", @user, class: 'button' %>
-    </p>
+  <fieldset style="height:100%;">
+
+        <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
+      
   </fieldset>
 <% end %>
