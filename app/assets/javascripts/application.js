@@ -19,11 +19,7 @@
 
 $(document).ready(function() {
   $('#save').on('click', function() { 
-  	console.log("click")
-  	$('#newForm').submit(); 
-  	location.reload();
-  	$('.alert').show();
-
+  	console.log("save");
   });
 
 
@@ -43,4 +39,17 @@ function doSomething() {
 
 
 });
+
+
+
+
+$(document).ready(function () {
+    $('.list-group-item').click(function(e) {
+         $('.list-group a').removeClass('active');
+            $(this).addClass('active');
+  
+          // console.log("response");
+    });
+});
+
 

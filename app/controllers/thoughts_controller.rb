@@ -30,17 +30,25 @@ class ThoughtsController < ApplicationController
 	end
 
 	def edit
+
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 		@thoughts = @user.thoughts
+		# render :edit
+		# redirect_to edit_user_path(@user)
+		respond_to do |format|
+	    	
+	    	format.js
+	    end
+		
 	end
 
 	def update
 	    @user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 	    if @thought.update(thought_params)
-	      
-	      redirect_to edit_user_path(@user)
+		redirect_to edit_user_path(@user)
+	     
 	      flash[:success] = "Thought successfully updated!"
 	    else
 	      render :edit
@@ -51,7 +59,12 @@ class ThoughtsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 	    @thought.destroy
-	    redirect_to edit_user_path(@user)
+	    # respond_to do |format|
+	    # 	format.html {redirect_to edit_user_path(@user)}
+	    # 	format.js
+	    # end
+
+	    
 	    flash[:success] = "Thought successfully deleted!"
 
 	end
