@@ -7,6 +7,6 @@
 
         <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
         <%= f.submit "save", class: "btn btn-primary" %>
-
+        <%= link_to "Delete", user_thought_path(@user, @thought), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
   </fieldset>
 <% end %>

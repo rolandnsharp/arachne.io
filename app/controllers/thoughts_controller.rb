@@ -59,10 +59,10 @@ class ThoughtsController < ApplicationController
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 	    @thought.destroy
-	    # respond_to do |format|
-	    # 	format.html {redirect_to edit_user_path(@user)}
-	    # 	format.js
-	    # end
+	    respond_to do |format|
+	    	# format.html {redirect_to edit_user_path(@user)}
+	    	format.js
+	    end
 
 	    
 	    flash[:success] = "Thought successfully deleted!"
