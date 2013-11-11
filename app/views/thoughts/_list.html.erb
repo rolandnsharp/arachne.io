@@ -1,4 +1,11 @@
-
+<script type="text/javascript">
+	$('.list-group-item').click(function(e) {
+         $('.list-group a').removeClass('active');
+            $(this).addClass('active');
+  
+          // console.log("response");
+    });
+</script>
 
 <a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= @thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
                 <h4 class="list-group-item-heading">

@@ -18,13 +18,20 @@
 
 
 $(document).ready(function() {
+  $('.list-group-item').click(function(e) {
+         $('.list-group a').removeClass('active');
+            $(this).addClass('active');
+  
+          // console.log("response");
+    });
+
   $('#save').on('click', function() { 
   	console.log("save");
   	$('#newForm').submit();
   });
 
   $('#delete').on('click', function() { 
-  	console.log("delete");
+  	confirm("Are you sure?");
   	$.post("/users/"+userid+"/thoughts/"+thoughtid+"/", { _method: 'delete' }, null, "script");
   });
 
@@ -43,22 +50,11 @@ setTimeout(doSomething, 1000);
 
 function doSomething() {
    $(".alert").alert('close');
-}
+};
 
 
 
 });
 
-
-
-
-$(document).ready(function () {
-    $('.list-group-item').click(function(e) {
-         $('.list-group a').removeClass('active');
-            $(this).addClass('active');
-  
-          // console.log("response");
-    });
-});
 
 
