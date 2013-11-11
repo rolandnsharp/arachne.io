@@ -9,6 +9,8 @@
 <% end %>
 
 <%= javascript_tag do %>
+  window.userid = "<%= @user.id %>";
+  window.thoughtid = "<%= @thought.id %>";
   window.userName = "<%=j @user.username %>";
   window.nodeCount = "<%= @thoughts.size %>";
   window.hashArray = <%=raw thought_array.as_json %>;
@@ -62,8 +64,9 @@
     <ul class="nav navbar-nav navbar-right">
       <div class="btn-group">
         <button type="button" class="btn btn-primary" id="save">Save</button>
-        <%= link_to "Delete", user_thought_path(@user, @thought), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
-        <% if @thought_edit%>
+        <button type="button" class="btn btn-danger" id="delete">Delete</button>
+        
+        <% if false%>
           
           <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
         <%end%>

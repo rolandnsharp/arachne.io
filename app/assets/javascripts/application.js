@@ -20,7 +20,16 @@
 $(document).ready(function() {
   $('#save').on('click', function() { 
   	console.log("save");
+  	$('#newForm').submit();
   });
+
+  $('#delete').on('click', function() { 
+  	console.log("delete");
+  	$.post("/users/"+userid+"/thoughts/"+thoughtid+"/", { _method: 'delete' }, null, "script");
+  });
+
+
+
 
 
 $( "#thought_network" ).click(function() {
