@@ -16,6 +16,12 @@
   window.hashArray = <%=raw thought_array.as_json %>;
 <% end %>
 
+<style type="text/css">
+html{
+  overflow:hidden;
+}
+</style>
+
 <div style="display: none;">
 <%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
 <p>

@@ -2,7 +2,7 @@
 
 html{
 
-  overflow:hidden;
+  /*overflow:hidden;*/
   height: 100%;
  
 
@@ -21,7 +21,7 @@ section {
 textarea {
   resize: vertical;
   
-  top: -70px;
+  /*top: -70px;*/
 }
 
 .center {
@@ -35,13 +35,15 @@ textarea {
 
 
 h1 {
-
+  position: relative;
+  top: -50px;
   text-align: center;
 
 }
 
 h2 {
-
+  position: relative;
+  top: -50px;
   text-align: center;
 
 }
@@ -76,10 +78,6 @@ h2 {
 }
 
 
-
-
-
-/* forms */
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;

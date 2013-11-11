@@ -53,11 +53,11 @@
  /* display: none;*/
   position: relative;
 
-  margin-top:-64px;
+  
   
 
   /*bottom:0;*/
-  top:-7px;
+  top:-65px;
   height:100%;
   
   overflow:scroll; 
@@ -69,19 +69,19 @@
 
 .sideSearch{
 position: relative;
-top: -40px;
+top: 0px;
  }
 
  #toolBar{
   position: relative;
+  /*height: 60px;*/
   top: -50px;
  }
 
 
-
 #greenLogIn {
   position: relative;
-  bottom: 7px;
+  bottom: 0px;
 }
 
 .btn-group {
@@ -103,7 +103,11 @@ width: 400px;
 }
 
 #newForm{
+  position: relative;
+
+  top: -65px;
   height: 100%;
+  /*padding-bottom: -10px;*/
  
 }
 
