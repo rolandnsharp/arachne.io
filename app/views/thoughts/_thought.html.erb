@@ -1,12 +1,12 @@
 
 
 
-<%= form_for [@user, @thought], :html => { :id => "newForm" } do |f| %>
+<%= form_for [@user, @thought], :html => { :id => "newForm" },remote: true do |f| %>
 <%= render "shared/error_messages", object: @thought %>
   <fieldset style="height:100%;">
 
         <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
-        <%= f.submit "save", class: "btn btn-primary" %>
-        <%= link_to "Delete", user_thought_path(@user, @thought), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
+        <%= f.submit "save", class: "btn btn-primary", remote: true %>
+        <%= link_to "Delete", user_thought_path(@user, @thought), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
   </fieldset>
 <% end %>

@@ -1,0 +1,15 @@
+
+
+<a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= @thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
+                <h4 class="list-group-item-heading">
+                <% mod = @thought.content.scan(/#\w+/) %>
+                 <% title = mod[0] %>
+                 
+                 <%= title %>
+
+                 </h4>
+                 <p class="list-group-item-text">
+                 <% link_to @thought.content.scan(/#\w+/).uniq, params.merge({:id_edit => @thought.id}) %>
+                 jklsdjf ksdljf kldsjf kldsj klfdsjklfdsj klfdjifkljwdklkfjls kdfkl dsj fkldsjkfljdslk fkldsj fls
+                </p>
+              </a>
