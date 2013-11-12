@@ -20,7 +20,7 @@
   /* sigma.js context : */
   .sigma-parent {
     position: relative;
-    bottom: 60px;
+    top:10px;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
@@ -97,10 +97,18 @@ width: 400px;
   right: 200px;
 }
 
+.toggleHeight{
+  border:7px solid black; 
+
+  height: 200px;
+}
+
+
 #thought_content{
   position: relative;
   height: 100%;
 }
+
 
 #newForm{
   position: relative;
@@ -111,6 +119,12 @@ width: 400px;
  
 }
 
+#newForm.hide{
+ 
+  height: 100%;
+  /*padding-bottom: -10px;*/
+ 
+}
 .hashSubTitle {
   color:gray;
 }

@@ -78,7 +78,8 @@ html{
         <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
         <!-- #<%= link_to "Publish", @user, class: "btn btn-default" %> -->
        <%= link_to "New", new_user_thought_path(@user), class: "btn btn-default", remote: true %>
-       <!-- <button type="button" class="btn btn-default" id="thought_network">Thought Network</button> -->
+       <button type="button" class="btn btn-default" id="thought_network">Thought Network</button> 
+       <button type="button" class="btn btn-default" id="thought_network_hide">Thought Network Hide</button> 
       </div>
     </ul>
 
@@ -99,15 +100,23 @@ html{
 
           <div class="list-group">
 
-
               <% @thoughts_search.each do |thought|%>
               
               <a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= thought.id %>">
                 <h4 class="list-group-item-heading">
+
                 <% mod = thought.content.scan(/#\w+/) %>
-                 <% title = mod[0] %>
                  
-                 <%= title %>
+                 <% if mod[0] %>
+                 <% title = mod[0].titleize %>
+                 <% title[0] = "" %>
+                 <% else %>
+                 <% title = mod[0]%>
+                 <% end %>
+
+
+                 
+                 <strong><%= title %></strong>
                  <span class="hashSubTitle">
                  <%=  thought.content.scan(/#\w+/).uniq %>
                  </span>
@@ -128,22 +137,10 @@ html{
 <div id="bucket" class="col-xs-12 col-sm-9" style="height:100%; padding-bottom:10px;">
      
 
-<%= form_for [@user, @thought], :html => { :id => "newForm" }, remote: true do |f| %>
-<%= render "shared/error_messages", object: @thought %>
-  <fieldset style="height:100%;">
-
-        <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
-    
-
-  </fieldset>
-<% end %>
-
-  <div style="display: none;" class=" sigma-parent" id="sigma-example-parent" >
-    <div class="sigma-expand" id="sigma-example" ></div>
-  </div>
+<%= render "thoughts/thought"%>
 
 
-</div><!--/span-->
+</div>
 
         
 

@@ -7,11 +7,18 @@
 </script>
 
 <a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= @thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
-                <h4 class="list-group-item-heading">
+                 <h4 class="list-group-item-heading">
+                
                 <% mod = @thought.content.scan(/#\w+/) %>
-                 <% title = mod[0] %>
                  
-                 <%= title %>
+                 <% if mod[0] %>
+                 <% title = mod[0].titleize %>
+                 <% title[0] = "" %>
+                 <% else %>
+                 <% title = mod[0]%>
+                 <% end %>
+                 
+                 <strong><%= title %></strong>
                  <span class="hashSubTitle">
                  <%=  @thought.content.scan(/#\w+/).uniq %>
                  </span>

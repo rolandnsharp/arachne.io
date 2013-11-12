@@ -41,13 +41,34 @@ $(document).ready(function() {
 
 
 
+// $("#thought_network").on('click', function() { 
+
+//    $("#thought_content").toggle().css({"height": "400px"});
+
+// });
+
 
 $( "#thought_network" ).click(function() {
-
-   $("#thought_content").css({"height": "200px"});
- 
+  $("#thought_content").css({"height": "200px"});
+  $(".sigma-parent").show();
 });
 
+$( "#thought_network_hide" ).click(function() {
+  $("#thought_content").css({"height": "100%"});
+});
+// $("#thought_network").click(function(){
+//       if($("#newForm").hasClass('toggleHeight') {
+//         $("#newForm").removeClass('toggleHeight');
+//       } else { 
+//         $("newForm").addClass('toggleHeight');
+//       }
+//     });
+
+// $("#thought_network").toggle(function(){
+//   $("#thought_content").css({"height": "200px"});
+// });
+
+//.css({"height": "200px"});   $("#thought_content").css({"height": "200px"});
 
 // setTimeout(doSomething, 1000);
 
