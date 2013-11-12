@@ -20,12 +20,12 @@
   /* sigma.js context : */
   .sigma-parent {
     position: relative;
-    top:10px;
+    top:-50px;
     border-radius: 4px;
     -moz-border-radius: 4px;
     -webkit-border-radius: 4px;
     background: #222;
-    height: 70%;
+    height: 100%;
     
     
   }

@@ -1,6 +1,4 @@
 
-
-
 <%= form_for [@user, @thought], :html => { :id => "newForm" },remote: true do |f| %>
 <!-- dynamic active thought variable for delete jquery-->
 <%= javascript_tag do %>
@@ -10,8 +8,6 @@
   <fieldset style="height:100%;">
 
         <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
-      <div  class="sigma-parent" id="sigma-example-parent" >
-    <div class="sigma-expand" id="sigma-example" ></div>
-  </div>
+     
   </fieldset>
 <% end %>

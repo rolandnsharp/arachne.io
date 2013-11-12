@@ -50,10 +50,10 @@ html{
     <form class="navbar-form navbar-left" role="search">
       
       <%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
-        <div class="form-group">
+        
         <%= text_field_tag :query, params[:query], :placeholder => "search", class: "form-control" %>
-       </div>
-        <!-- <%= submit_tag "Search", name: nil, class: "btn btn-default" %> -->
+      <%= submit_tag "Search", name: nil, class: "btn btn-default", style: "display:none;" %>
+
       <% end %>
     </form>
     
@@ -68,6 +68,7 @@ html{
     
     <ul class="nav navbar-nav navbar-right">
       <div class="btn-group">
+        <%= link_to "New", new_user_thought_path(@user), class: "btn btn-default", remote: true %>
         <button type="button" class="btn btn-primary" id="save">Save</button>
         <button type="button" class="btn btn-danger" id="delete">Delete</button>
         
@@ -76,10 +77,10 @@ html{
           <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
         <%end%>
         <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
-        <!-- #<%= link_to "Publish", @user, class: "btn btn-default" %> -->
-       <%= link_to "New", new_user_thought_path(@user), class: "btn btn-default", remote: true %>
-       <button type="button" class="btn btn-default" id="thought_network">Thought Network</button> 
-       <button type="button" class="btn btn-default" id="thought_network_hide">Thought Network Hide</button> 
+        <%= link_to "Publish", @user, class: "btn btn-default" %>
+       
+       <!-- <button type="button" class="btn btn-default" id="thought_network">Thought Network</button> 
+       <button type="button" class="btn btn-default" id="thought_network_hide">Thought Network Hide</button>  -->
       </div>
     </ul>
 
@@ -136,9 +137,15 @@ html{
 
 <div id="bucket" class="col-xs-12 col-sm-9" style="height:100%; padding-bottom:10px;">
      
-
+  
 <%= render "thoughts/thought"%>
+ 
 
+ <div style="display:none;" class="sigma-parent" id="sigma-example-parent" >
+    <div class="sigma-expand" id="sigma-example" ></div>
+  </div>
+
+  
 
 </div>
 

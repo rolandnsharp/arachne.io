@@ -14,26 +14,28 @@
 <% end %>
 
 <style type="text/css">
+html{
+  overflow:hidden;
+}
 body {
   /*padding-top: -100px;*/
   height: 100%;
 
 }
 
-.navbar  { height: -55px; }  
+/*.navbar  { height: -55px; }  */
 
-
+/*
   .sigma-parent {
     position: relative;
-    bottom: 1px;
-    border-radius: 4px;
-    -moz-border-radius: 4px;
-    -webkit-border-radius: 4px;
+    padding-bottom: 20px;
+    bottom: 0px;
+   
     background: #222;
     height: 100%;
     
     
-  }
+  }*/
 
 </style>
 
@@ -54,13 +56,6 @@ body {
 
 
 
-
-
- 
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -91,3 +86,14 @@ body {
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
+
+
+
+
+
+<nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
+<!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
+<%= link_to "Edit", edit_user_path(@user), class: "btn btn-danger" %>
+  <p class="navbar-text navbar-right">By <a href="http://www.rolandsharp.com" class="navbar-link">Roland Sharp</a></p>
+
+</nav>
