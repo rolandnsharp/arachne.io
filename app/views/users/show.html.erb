@@ -99,7 +99,7 @@ body {
 
 <nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
 <!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
-<%= link_to "Edit", edit_user_path(@user), class: "btn btn-default", id: "editbtn" %>
+<%= link_to "Edit", edit_user_path(@user), class: "btn btn-default", id: "editbtn", 'data-no-turbolink' => true %>
   <p class="navbar-text navbar-right">By <a href="http://www.rolandsharp.com" class="navbar-link">Roland Sharp</a></p>
 
 </nav>

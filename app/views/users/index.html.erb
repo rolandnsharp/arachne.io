@@ -1,5 +1,14 @@
 
 
+<% xx=["#fjk2jfd","fsdfsfds","ur1qowru","8390jjll","234","zx","v","djksa"] %>
+
+  <%= javascript_tag do %>
+
+  window.hashArray = <%=raw xx.as_json %>;
+
+<% end %>
+
+
  <!--  <div class="center hero-unit"> -->
     <h1>Welcome to Arachne Writer</h1><h2>
       A project by <a href="http://rolandsharp.com/">rolandsharp.com</a>
@@ -18,13 +27,6 @@
 
 
 
-<% xx=["#fjk2jfd","fsdfsfds","ur1qowru","8390jjll","234","zx","v","djksa"] %>
-
-  <%= javascript_tag do %>
-
-  window.hashArray = <%=raw xx.as_json %>;
-
-<% end %>
 
 
 <style type="text/css">
