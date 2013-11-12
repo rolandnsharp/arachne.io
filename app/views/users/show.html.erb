@@ -37,6 +37,12 @@ body {
     
   }*/
 
+  #editbtn{
+    position: relative;
+    top:8px;
+    left:12px;
+  }
+
 </style>
 
 <div class=" sigma-parent" id="sigma-example-parent" >
@@ -93,7 +99,7 @@ body {
 
 <nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
 <!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
-<%= link_to "Edit", edit_user_path(@user), class: "btn btn-danger" %>
+<%= link_to "Edit", edit_user_path(@user), class: "btn btn-default", id: "editbtn" %>
   <p class="navbar-text navbar-right">By <a href="http://www.rolandsharp.com" class="navbar-link">Roland Sharp</a></p>
 
 </nav>
