@@ -1,6 +1,7 @@
-// $('#myModal').modal('hide');
 $('.modal-body').empty();
+$('#myModalLabel').empty();
 
 $('.modal-body').append('<%= j render :partial => 'thoughts/single' %>');
-// $('#myModal').modal('show');
+$('#myModalLabel').append('<%= j render :partial => 'thoughts/title' %>');
+
 

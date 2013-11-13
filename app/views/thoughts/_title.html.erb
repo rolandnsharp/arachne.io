@@ -1,0 +1,10 @@
+ <% mod = @thought.content.scan(/#\w+/) %>
+                 
+                 <% if mod[0] %>
+                 <% title = mod[0].titleize %>
+                 <% title[0] = "" %>
+                 <% else %>
+                 <% title = mod[0]%>
+                 <% end %>
+
+                 <strong><%= title %></strong>
