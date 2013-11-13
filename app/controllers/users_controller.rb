@@ -17,7 +17,14 @@ class UsersController < ApplicationController
 		@thoughts = @user.thoughts
 		@thoughts_search = @user.thoughts.text_search(params[:query])
 		@thought = @user.thoughts.new
-		
+		respond_to do |format|
+	    	 format.html {if params[:query]	
+			@thought_edit = @thoughts_search.first
+		elsif params[:id_edit]
+			@thought_edit = @user.thoughts.find(params[:id_edit]) 
+	    end}
+	    	format.js
+	    end
 	    if params[:query]	
 			@thought_edit = @thoughts_search.first
 		elsif params[:id_edit]

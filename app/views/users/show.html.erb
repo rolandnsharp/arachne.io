@@ -55,7 +55,7 @@ body {
 
 
 <div style="display: none;">
-<%= form_tag @user,:id => 'submit_id', method: :get do %>
+<%= form_tag @user,:id => 'submit_id', method: :get, remote: true do %>
 <p>
   <%= text_field_tag :query, params[:query] %>
   <%= submit_tag "Search", name: nil %>
@@ -63,38 +63,9 @@ body {
 <% end %>
 </div>
 
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-       
-  <% @thoughts_search.each do |thought|%>
-    <tr>
-      <td>
-      
-       
-       <%= thought.content %>
-       </br>
-       ------------------------------------------
-       </br>
-      </td>
-    </tr>
-  <% end %> 
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+<div id="modalDiv">
+<%= render "users/modal"%>
+</div>
 
 
 
