@@ -1,10 +1,23 @@
-<!-- Modal -->
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">
+       
+
+          <% mod = @thoughts_search.first.content.scan(/#\w+/) %>
+                 
+                 <% if mod[0] %>
+                 <% title = mod[0].titleize %>
+                 <% title[0] = "" %>
+                 <% else %>
+                 <% title = mod[0]%>
+                 <% end %>
+
+                 <strong><%= title %></strong>
+        </h4>
       </div>
       <div class="modal-body">
        
@@ -26,4 +39,4 @@
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+</div>

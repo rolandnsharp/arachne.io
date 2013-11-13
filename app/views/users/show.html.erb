@@ -50,7 +50,7 @@ body {
 
 <div class=" sigma-parent" id="sigma-example-parent" >
     <div class="sigma-expand" id="sigma-example" ></div>
-  </div>
+</div>
 
 
 
@@ -63,6 +63,9 @@ body {
 <% end %>
 </div>
 
+
+
+
 <div id="modalDiv">
 <%= render "users/modal"%>
 </div>
@@ -74,9 +77,5 @@ body {
 <nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
 <!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
 <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary", id: "editbtn", 'data-no-turbolink' => true %>
-  <p class="navbar-text navbar-right"> <a href="http://sigmajs.org/" class="navbar-link">sigms.js</a></p>
-<!-- Button trigger modal -->
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  Launch demo modal
-</button>
+  <p class="navbar-text navbar-right">Using <a href="http://sigmajs.org/" class="navbar-link">sigms.js</a></p>
 </nav>
