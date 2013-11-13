@@ -18,6 +18,8 @@
 
 
 $(document).ready(function() {
+
+
   $('.list-group-item').click(function(e) {
          $('.list-group a').removeClass('active');
             $(this).addClass('active');
@@ -28,13 +30,15 @@ $(document).ready(function() {
   $('#save').on('click', function() { 
   	console.log("save");
   	$('#newForm').submit();
-    // $("#success").show(0).delay(1000).hide(0);
+    // $("#toolBar").css({"color": "green"});
+    $("#saved").show(0).delay(1000).hide(0);
+
   });
 
   $('#delete').on('click', function() { 
   	confirm("Are you sure?");
   	$.post("/users/"+userid+"/thoughts/"+thoughtid+"/", { _method: 'delete' }, null, "script");
-    // $("#success").show(0).delay(1000).hide(0);
+    $("#deleted").show(0).delay(1000).hide(0);
     return false;
   });
 
@@ -43,7 +47,7 @@ $(document).ready(function() {
 
 // $("#thought_network").on('click', function() { 
 
-//    $("#thought_content").toggle().css({"height": "400px"});
+//    $("#toolBar).css({"color": "green"});
 
 // });
 

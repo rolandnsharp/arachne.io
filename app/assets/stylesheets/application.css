@@ -90,12 +90,7 @@ top: 0px;
   right: 15px;
 }
 
-.alert-div {
-position: relative;
-height: 48px;
-width: 400px;
-  right: 200px;
-}
+
 
 .toggleHeight{
   border:7px solid black; 

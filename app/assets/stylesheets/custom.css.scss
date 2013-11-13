@@ -103,3 +103,33 @@ input {
   @extend .error;
 }
 
+/*alert */
+
+#saved {
+    position: absolute;
+    
+  
+    top: -5px;
+      font-size: 120%;
+    left: 50%;
+    /*color: #468847;*/
+    
+    text-align: center;
+    line-height: 2.5;
+ 
+}
+
+#deleted {
+    position: absolute;
+    
+  
+    top: -5px;
+      font-size: 120%;
+    left: 50%;
+    /*color: #468847;*/
+    
+    text-align: center;
+    line-height: 2.5;
+ 
+}
+
