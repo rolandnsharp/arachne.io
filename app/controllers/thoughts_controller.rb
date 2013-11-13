@@ -38,6 +38,12 @@ class ThoughtsController < ApplicationController
 	def show
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
+		@thoughts_search = Thought.text_search(params[:query])
+		respond_to do |format|
+	    	
+	    	format.js
+	    end
+
 	end
 
 	def edit
