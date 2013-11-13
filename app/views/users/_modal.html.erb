@@ -25,19 +25,41 @@
       
       </div>
       <div class="modal-footer">
+      <% if @thoughts_search.count > 1  %>
+
+      Other items containing the hash <h2 id="hashSearched"><%= params[:query]%></h2>
+      <div class="list-group">
       <% @thoughts_search.each do |thought|%>
-    <tr>
-      <td>
-      
+    
+      <a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= thought.id %>/" class="list-group-item" data-thoughtid="<%= thought.id %>">
+                 <h4 class="list-group-item-heading">
+                
+                <% mod = thought.content.scan(/#\w+/) %>
+                 
+                 <% if mod[0] %>
+                 <% title = mod[0].titleize %>
+                 <% title[0] = "" %>
+                 <% else %>
+                 <% title = mod[0]%>
+                 <% end %>
+                 
+                 <strong><%= title %></strong>
+                 <span class="hashSubTitle">
+                 <%=  thought.content.scan(/#\w+/).uniq %>
+                 </span>
+                 </h4>
+                
+              </a>
        
-       <%= thought.content %>
-       </br>
-       ------------------------------------------
-       </br>
-      </td>
-    </tr>
+     
   <% end %> 
+  </div>
+  <% else %> 
+
+  
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+  <% end %> 
+        
       </div>
     </div><!-- /.modal-content -->
   </div><!-- /.modal-dialog -->

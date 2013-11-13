@@ -45,8 +45,10 @@
  }
 
  #right-top-buttons{
+ 
   float: right;
   margin-right: 20px;
+
  }
 
  .sideScrollBar{
@@ -57,7 +59,7 @@
   
 
   /*bottom:0;*/
-  top:-65px;
+  top:-75px;
   height:100%;
   
   overflow:scroll; 
@@ -108,7 +110,7 @@ top: 0px;
 #newForm{
   position: relative;
 
-  top: -65px;
+  top: -75px;
   height: 100%;
   /*padding-bottom: -10px;*/
  

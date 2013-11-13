@@ -60,10 +60,10 @@ h2 {
   padding-top: 12px;
   font-weight: bold;
   line-height: 1;
-  &:hover {
+  /*&:hover {
     color: white;
     text-decoration: none;
-  }
+  }*/
 }
 
 
@@ -107,29 +107,21 @@ input {
 
 #saved {
     position: absolute;
-    
-  
     top: -5px;
       font-size: 120%;
     left: 50%;
     /*color: #468847;*/
-    
     text-align: center;
     line-height: 2.5;
- 
 }
 
 #deleted {
     position: absolute;
-    
-  
     top: -5px;
       font-size: 120%;
     left: 50%;
     /*color: #468847;*/
-    
     text-align: center;
     line-height: 2.5;
- 
 }
 
