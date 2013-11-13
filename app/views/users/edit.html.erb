@@ -77,7 +77,7 @@ html{
           <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
         <%end%>
         <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
-        <%= link_to "Publish", @user, class: "btn btn-default", 'data-no-turbolink' => true %>
+        <%= link_to "Publish", @user, class: "btn btn-success", 'data-no-turbolink' => true %>
        
        <!-- <button type="button" class="btn btn-default" id="thought_network">Thought Network</button> 
        <button type="button" class="btn btn-default" id="thought_network_hide">Thought Network Hide</button>  -->
