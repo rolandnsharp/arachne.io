@@ -9,7 +9,8 @@
 <a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= thought.id %>">
                 <h4 class="list-group-item-heading">
                 
-                 <% unless @thought.title.empty? %>
+                 <% thought_title = thought.title.to_s %>
+                 <% unless thought_title == "" %>
                       <strong><%=  @thought.title.titleize %></strong>
                       <span class="hashSubTitle">
                        <%=  thought.content.scan(/#\w+/).uniq %>
