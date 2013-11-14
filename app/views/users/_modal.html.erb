@@ -29,7 +29,7 @@
       <div class="modal-footer">
       <% if @thoughts_search.count > 1  %>
 
-      <h4 id="hashSearched">Other nodes connecting to  <strong><%= params[:query]%></strong></h4>
+      <h4 id="hashSearched">All nodes connecting to  <strong><%= params[:query]%></strong></h4>
       <div class="list-group">
       <!-- the first thought is already displayed in the modal content, no the if statment ignores it  -->
       <% @thoughts_search.each do |thought|%>

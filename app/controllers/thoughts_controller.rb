@@ -90,7 +90,7 @@ class ThoughtsController < ApplicationController
 private
 
 def thought_params
-  params.require(:thought).permit(:content)
+  params.require(:thought).permit(:content, :title)
 end
 
 
