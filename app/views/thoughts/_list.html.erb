@@ -11,6 +11,9 @@
                 
                  <% unless @thought.title.empty? %>
                       <strong><%=  @thought.title.titleize %></strong>
+                      <span class="hashSubTitle">
+                       <%=  thought.content.scan(/#\w+/).uniq %>
+                       </span>
                  <% else %>
                 
                  <% mod = @thought.content.scan(/#\w+/) %>
