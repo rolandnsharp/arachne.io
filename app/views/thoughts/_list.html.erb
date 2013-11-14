@@ -6,10 +6,10 @@
     });
 </script>
 
-<a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= thought.id %>">
+<a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= @thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
                 <h4 class="list-group-item-heading">
                 
-                 <% thought_title = thought.title.to_s %>
+                 <% thought_title = @thought.title.to_s %>
                  <% unless thought_title == "" %>
                       <strong><%=  @thought.title.titleize %></strong>
                       <span class="hashSubTitle">
