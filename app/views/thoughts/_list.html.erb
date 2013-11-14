@@ -6,25 +6,29 @@
     });
 </script>
 
-<a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= @thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
-                 <h4 class="list-group-item-heading">
+<a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= thought.id %>">
+                <h4 class="list-group-item-heading">
                 
-                <% mod = @thought.content.scan(/#\w+/) %>
-                 
+                 <% unless @thought.title.empty? %>
+                      <strong><%=  @thought.title.titleize %></strong>
+                 <% else %>
+                
+                 <% mod = @thought.content.scan(/#\w+/) %>
                  <% if mod[0] %>
-                 <% title = mod[0].titleize %>
-                 <% title[0] = "" %>
+                 <% title = mod[0] %>
                  <% else %>
                  <% title = mod[0]%>
                  <% end %>
-                 
-                 <strong><%= title %></strong>
+                 <!-- # <strong><%= title %></strong> -->
                  <span class="hashSubTitle">
                  <%=  @thought.content.scan(/#\w+/).uniq %>
                  </span>
+
+                 <% end %>
                  </h4>
                  <p class="list-group-item-text">
                  
                  <%=  truncate(@thought.content, :length => 150) %>
+                 
                 </p>
               </a>
