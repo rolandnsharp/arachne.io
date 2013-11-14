@@ -6,7 +6,7 @@
 <% end %>
 <%= render "shared/error_messages", object: @thought %>
   <fieldset style="height:100%;">
-  		<%= f.text_field :title, class: "form-control writingClass", placeholder: "title optional" %>
+  		<%= f.text_field :title, class: "form-control titleClass", placeholder: "title optional" %>
         <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
      
   </fieldset>

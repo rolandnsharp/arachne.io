@@ -59,7 +59,7 @@
   
 
   /*bottom:0;*/
-  top:-75px;
+  top:-65px;
   height:100%;
   
   overflow:scroll; 
@@ -110,7 +110,7 @@ top: 0px;
 #newForm{
   position: relative;
 
-  top: -75px;
+  top: -100px;
   height: 100%;
   /*padding-bottom: -10px;*/
  
@@ -124,4 +124,15 @@ top: 0px;
 }
 .hashSubTitle {
   color:gray;
+}
+
+.titleClass{
+  width: 30%;
+  position: relative;
+  top: -12px;
+}
+
+#query{
+  position: relative;
+  left: -14px;
 }
