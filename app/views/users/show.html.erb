@@ -1,18 +1,12 @@
-<!-- get embedded hash array -->
-<% thought_array=[] %>
-<% @thoughts.each do |thought| %>
- <% thought.content.to_s   %>
- <% str=  thought.content.to_s   %>
- <% tags = str.scan(/#\w+/).uniq %>
- <%thought_array= thought_array+[tags] %>
-<% end %>
+
 
 <%= javascript_tag do %>
+window.hashArray = <%=raw web_array_maker(@thoughts).as_json %>;
  window.userid = "<%= @user.id %>";
   window.thoughtid = "<%= @thought.id %>";
   window.userName = "<%=j @user.username %>";
   window.nodeCount = "<%= @thoughts.size %>";
-  window.hashArray = <%=raw thought_array.as_json %>;
+  
 <% end %>
 
 <style type="text/css">

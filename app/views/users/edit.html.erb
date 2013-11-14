@@ -1,24 +1,14 @@
 
-<!-- get embedded hash array -->
-<% thought_array=[] %>
-<% @thoughts.each do |thought| %>
- <% thought.content.to_s   %>
- <% str=  thought.content.to_s   %>
- <% tags = str.scan(/#\w+/).uniq %>
- <%thought_array= thought_array+[tags] %>
-<% end %>
-
 <%= javascript_tag do %>
+ window.hashArray = <%=raw web_array_maker(@thoughts).as_json %>;
   window.userid = "<%= @user.id %>";
   window.thoughtid = "<%= @thought.id %>";
   window.userName = "<%=j @user.username %>";
-  window.nodeCount = "<%= @thoughts.size %>";
-  window.hashArray = <%=raw thought_array.as_json %>;
 <% end %>
 
 <style type="text/css">
 html{
-  overflow:hidden;
+  /*overflow:hidden;*/
 }
 </style>
 
@@ -106,22 +96,23 @@ html{
               
               <a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= thought.id %>">
                 <h4 class="list-group-item-heading">
-
-                <% mod = thought.content.scan(/#\w+/) %>
-                 
+                
+                 <% unless thought.title.empty? %>
+                      <strong><%=  thought.title.titleize %></strong>
+                 <% else %>
+                
+                 <% mod = thought.content.scan(/#\w+/) %>
                  <% if mod[0] %>
-                 <% title = mod[0].titleize %>
-                 <% title[0] = "" %>
+                 <% title = mod[0] %>
                  <% else %>
                  <% title = mod[0]%>
                  <% end %>
-
-
-                 
-                 <strong><%= title %></strong>
+                 <!-- # <strong><%= title %></strong> -->
                  <span class="hashSubTitle">
                  <%=  thought.content.scan(/#\w+/).uniq %>
                  </span>
+
+                 <% end %>
                  </h4>
                  <p class="list-group-item-text">
                  
@@ -153,5 +144,7 @@ html{
         
 
 
-
+      <%= web_array_maker(@thoughts) %>
        
+       </br>
+      
