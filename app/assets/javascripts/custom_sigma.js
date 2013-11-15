@@ -18,19 +18,53 @@ function init() {
 
 
 var nodeArray = [];
+var statArray = []; // returns only the duplicated items,
 var found = {};
 for (var i = 0; i < hashArray.length; i++) {
     nodeArray.push([]);
     for (var j = 0; j < hashArray[i].length; j++) {
         if (!found[hashArray[i][j]]) {
             found[hashArray[i][j]] = true; 
+
             nodeArray[i].push(hashArray[i][j]);
-        }
+        } else {
+        	statArray.push(hashArray[i][j]);
+        	console.log(statArray);
+         }
     }
 }
 
- console.log(Math.random());
-  
+
+
+function FrequencyCounter(array) {
+	//convert a Multidimensional Array (an array of arrays) into one long array. Great to use before running the unique script for instance
+	var singleArray = [];
+	for (i=0; i<array.length; i++) { 
+		for (j=0; j<array.length; j++) { 
+	singleArray.push(array[i][j]);	
+	};
+	};
+
+    var frequency = {}, value;
+    // compute frequencies of each value
+    for(var i = 0; i < singleArray.length; i++) {
+        value = singleArray[i];
+        if(value in frequency) {
+            frequency[value]++;
+        }
+        else {
+            frequency[value] = 1; // this value is to not one because all items in this array are already duplicates of more. 
+        }
+    }
+return frequency;
+}
+
+// now run the statArray through the frequency counter
+
+var duplicateFrequency = FrequencyCounter(hashArray);
+
+console.log(duplicateFrequency);
+
 
 
 
@@ -47,6 +81,11 @@ for (var i = 0; i < hashArray.length; i++) {
   	for (j = 0; j< nodeArray[i].length; j++){
   	//if node === duplicate move on
   	
+  	
+
+
+
+
   	if (j==0 && nodeArray[i][j].charAt(0)!=="#"){	
     
 
@@ -63,7 +102,7 @@ for (var i = 0; i < hashArray.length; i++) {
       'x': randomClusterX+Math.random(),
       'y': randomClusterY+Math.random(),
       'label': nodeArray[i][j],
-      'size': 6,
+      'size': 4*duplicateFrequency[nodeArray[i][j]],
       'color': randomColor
 
     
