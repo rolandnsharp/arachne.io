@@ -36,7 +36,10 @@ body {
 
   #editbtn{
     position: relative;
-    top:8px;
+    left:12px;
+  }
+  #reload{
+    position: relative;
     left:12px;
   }
 
@@ -71,5 +74,6 @@ body {
 <nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
 <!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
 <%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary", id: "editbtn", 'data-no-turbolink' => true %>
+<button type="button" id="reload" class="btn btn-default navbar-btn">Generate random Graph</button>
   <p class="navbar-text navbar-right">Using <a href="http://sigmajs.org/" class="navbar-link">sigma.js</a></p>
 </nav>

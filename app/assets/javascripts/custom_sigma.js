@@ -1,3 +1,7 @@
+
+
+
+
 function init() {
   /**
    * First, let's instanciate sigma.js :
@@ -6,12 +10,12 @@ function init() {
     defaultLabelColor: '#fff'
   }).graphProperties({
     // minNodeSize: 0.5,
-    // maxNodeSize: 40
+    // maxNodeSize: 555
     minEdgeSize: 2,
     maxEdgeSize: 2
   });
  
-
+sigInst.startNodeShapes();
 
 // var hashArray = ["#fjk2jfd","fsdfsfds","ur1qowru","8390jjll","234","zx","v","djksa"];
 //removing node duplication
@@ -29,7 +33,7 @@ for (var i = 0; i < hashArray.length; i++) {
             nodeArray[i].push(hashArray[i][j]);
         } else {
         	statArray.push(hashArray[i][j]);
-        	console.log(statArray);
+        	// console.log(statArray);
          }
     }
 }
@@ -65,12 +69,12 @@ var duplicateFrequency = FrequencyCounter(hashArray);
 
 console.log(duplicateFrequency);
 
-
+// var masterSize = 0;
 
 
 
   for(i = 0; i < nodeArray.length; i++){
-
+  	// masterSize = 0;
   	var randomClusterX = 2*Math.random()
   	var randomClusterY = Math.random()
 
@@ -84,33 +88,55 @@ console.log(duplicateFrequency);
   	
 
 
+  	
+  	
 
 
-  	if (j==0 && nodeArray[i][j].charAt(0)!=="#"){	
+  	if (j===0 && nodeArray[i][j].charAt(0)!=="#"){	
+  	// 	for (k = 1; k< nodeArray[i].length; k++){
+  	// 		masterSize = masterSize + duplicateFrequency[nodeArray[i][k]];
+  	// 	}
     
+  	// console.log(masterSize);
 
       	sigInst.addNode(nodeArray[i][j],{
       'x': randomClusterX+Math.random(),
       'y': randomClusterY+Math.random(),
       'label': nodeArray[i][j],
-      'size': 12,
-      'color': randomColor
+      'size': 20,
+      'color': randomColor,
+      shape: {
+      name: 'diamond'
+    }
     });
-    }else  {
+    } 
+    // else if (j===nodeArray[i].length-1 && nodeArray[i][0].charAt(0)!=="#"){
+    // 	console.log(masterSize);
+    // 		sigInst.addNode(nodeArray[i][j],{
+    //   'x': randomClusterX+Math.random(),
+    //   'y': randomClusterY+Math.random(),
+    //   'label': nodeArray[i][j],
+    //   'size': 4*masterSize,
+    //   'color': randomColor
+    // });
+    // } 
+    else  {
 
        sigInst.addNode(nodeArray[i][j],{
       'x': randomClusterX+Math.random(),
       'y': randomClusterY+Math.random(),
       'label': nodeArray[i][j],
-      'size': 4*duplicateFrequency[nodeArray[i][j]],
+      'size': 3+3*duplicateFrequency[nodeArray[i][j]], // node size = 4 multiplied by frequency of connections between different thought webs/each article
       'color': randomColor
 
     
     });
+
     }
+
     };
   
-    
+    // console.log(masterSize);
   
   };
 

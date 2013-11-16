@@ -13,7 +13,7 @@
                  <% unless thought_title == "" %>
                       <strong><%=  @thought.title.titleize %></strong>
                       <span class="hashSubTitle">
-                       <%=  thought.content.scan(/#\w+/).uniq %>
+                       <%=  @thought.content.scan(/#\w+/).uniq %>
                        </span>
                  <% else %>
                 

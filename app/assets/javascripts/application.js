@@ -80,9 +80,9 @@ $( "#thought_network_hide" ).click(function() {
 //    $(".alert").alert('close');
 // };
 
-
-
+$("#reload").click(function() {
+    location.reload();
 });
-
+});
 
 
