@@ -196,11 +196,20 @@ hashArray = cleanArray(hashArray);
     function showNodeInfo(event) {
       var nodeNString = String(event.content);
       iNumber = nodeNString;
-      console.log(iNumber);
+      // console.log(iNumber);
       $("#hashSearched").html(iNumber);
+
+      if(iNumber.charAt(0)!=="#"){
       document.getElementById("query").value = iNumber; //hashArray[iNumber[0]][iNumber[1]];
       $("#submit_id").submit();
       $("#hashSearched").html(iNumber);
+      }else{
+      document.getElementById("query").value = iNumber; //hashArray[iNumber[0]][iNumber[1]];
+      $("#submit_id").submit();
+      $("#hashSearched").html(iNumber);
+  	  }
+
+      
     }
  
   

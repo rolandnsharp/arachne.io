@@ -7,7 +7,11 @@ class Thought < ActiveRecord::Base
   
   def self.text_search(query)
   	if query.present?
-  		where("content like :q", q: "%#{query}%")
+      if query[0] == "#"
+      where("content like :q", q: "%#{query}%")
+      else
+  		where("title like :q", q: "%#{query}%")
+      end
   	else
   		scoped
   	end
