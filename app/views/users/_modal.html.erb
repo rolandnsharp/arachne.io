@@ -48,7 +48,7 @@
       <a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= thought.id %>/" class="list-group-item" data-thoughtid="<%= thought.id %>">
                  <h4 class="list-group-item-heading">
                 
-                <% mod = thought.content.scan(/#\w+/) %>
+                <% mod = @thought.content.scan(/#\w+/) %>
                  
                  <% if mod[0] %>
                  <% title = mod[0].titleize %>
