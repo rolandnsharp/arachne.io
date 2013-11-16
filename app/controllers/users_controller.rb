@@ -16,6 +16,7 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@thoughts = @user.thoughts
 		@thoughts_search = @user.thoughts.text_search(params[:query])
+		@thoughts_title_search = @user.thoughts.title_search(params[:query])
 		@thought = @user.thoughts.new
 		respond_to do |format|
 	    	 format.html {if params[:query]	

@@ -16,4 +16,14 @@ class Thought < ActiveRecord::Base
   		scoped
   	end
   end
+
+  def self.title_search(query)
+    if query.present?
+      
+      where("title like :q", q: "%#{query}%")
+      
+    else
+      scoped
+    end
+  end
 end

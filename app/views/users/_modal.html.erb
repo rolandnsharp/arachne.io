@@ -8,16 +8,20 @@
        
 
          
-          <% mod = @thoughts_search.first.content.scan(/#\w+/) %>
+          
                  
-                 <% if mod[0] %>
-                 <% title = mod[0].titleize %>
-                 <% title[0] = "" %>
-                 <% else %>
-                 <% title = mod[0]%>
-                 <% end %>
+                
 
-                 <strong><%= title %></strong>
+      
+
+                <% if @thoughts_search.first.title.length != 0 %>
+
+                 <strong><%= @thoughts_search.first.title%></strong>
+
+
+
+                  <% end %>
+
                
 
         </h4>
