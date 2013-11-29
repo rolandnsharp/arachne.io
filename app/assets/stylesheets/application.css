@@ -39,6 +39,11 @@
     /*margin-bottom: 30px;*/
   }
 
+.sign-up-btn {
+    text-align:center;
+    position: relative;
+    margin-top: -10px;
+  }
 
  td:hover{
   background-color: gray;

@@ -19,7 +19,7 @@ sigInst.startNodeShapes();
 
 // var hashArray = ["#fjk2jfd","fsdfsfds","ur1qowru","8390jjll","234","zx","v","djksa"];
 //removing node duplication
-
+console.log(hashArray);
 
 var nodeArray = [];
 var statArray = []; // returns only the duplicated items,

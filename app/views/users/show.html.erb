@@ -1,8 +1,7 @@
 
-
 <%= javascript_tag do %>
-window.hashArray = <%=raw web_array_maker(@thoughts).as_json %>;
- window.userid = "<%= @user.id %>";
+  window.hashArray = <%=raw web_array_maker(@thoughts).as_json %>;
+  window.userid = "<%= @user.id %>";
   window.thoughtid = "<%= @thought.id %>";
   window.userName = "<%=j @user.username %>";
   window.nodeCount = "<%= @thoughts.size %>";
@@ -17,22 +16,7 @@ body {
   background-color: black;
   /*padding-top: -100px;*/
   height: 100%;
-
 }
-
-/*.navbar  { height: -55px; }  */
-
-/*
-  .sigma-parent {
-    position: relative;
-    padding-bottom: 20px;
-    bottom: 0px;
-   
-    background: #222;
-    height: 100%;
-    
-    
-  }*/
 
   #editbtn{
     position: relative;
@@ -54,7 +38,6 @@ body {
 </div>
 
 
-
 <div style="display: none;">
 <%= form_tag @user,:id => 'submit_id', method: :get, remote: true do %>
 <p>
@@ -66,7 +49,6 @@ body {
 
 
 
-
 <div id="modalDiv">
 <%= render "users/modal"%>
 </div>
@@ -74,11 +56,11 @@ body {
 
 
 
-
 <nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
 <!-- <button type="button" class="btn btn-default navbar-btn">Sign in</button> -->
-<%= link_to "Edit", edit_user_path(@user), class: "btn btn-primary", id: "editbtn", 'data-no-turbolink' => true %>
+<%= link_to "Edit Mode", edit_user_path(@user), class: "btn btn-primary", id: "editbtn", 'data-no-turbolink' => true %>
+<%= link_to "New", edit_user_path(@user), class: "btn btn-primary", id: "editbtn", 'data-no-turbolink' => true %>
 <button type="button" id="reload" class="btn btn-default navbar-btn">Generate random Graph</button>
-<button type="button" id="publish" class="btn btn-default navbar-btn">Publish (under construction)</button>
-  <p class="navbar-text navbar-right">Using <a href="http://sigmajs.org/" class="navbar-link">sigma.js</a></p>
+<!-- <button type="button" id="publish" class="btn btn-default navbar-btn">Publish (under construction)</button> -->
+  <p class="navbar-text navbar-right">Using <a href="http://sigmajs.org/" target="_blank" class="navbar-link">sigma.js</a></p>
 </nav>

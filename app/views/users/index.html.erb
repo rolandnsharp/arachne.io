@@ -1,44 +1,4 @@
-
-
-<% xx=["#fjk2jfd","fsdfsfds","ur1qowru","8390jjll","234","zx","v","djksa"] %>
-
-  <%= javascript_tag do %>
-
-  window.hashArray = <%=raw xx.as_json %>;
-
-<% end %>
-
-
- <!--  <div class="center hero-unit"> -->
-    <h1>Welcome to Arachne Writer</h1><h2>
-      A project by <a href="http://rolandsharp.com/">rolandsharp.com</a>
-    </h2>
-
-
-    
-<div class="sigma-parent" id="sigma-expand">
-
-    <div class="sigma-expand" id="sigma-example"></div>
-  </div>
-    
-<div class="sign-up-btn"><%= link_to "Sign up now!", signup_path,
-                                class: "btn btn-lg btn-primary" %></div>
-
-
-
-
-
-
 <style type="text/css">
-  .sign-up-btn {
-    text-align:center;
-    position: relative;
-    margin-top: -10px;
-  }
-
- 
-
-
   .sigma-parent {
     position: relative;
     top: -50px;
@@ -47,10 +7,31 @@
     -webkit-border-radius: 4px;
     background: #222;
     height: 60%;
-    
-    
   }
-
-
-
 </style>
+
+
+
+
+  <%= javascript_tag do %>
+  <% xx=["#fjd","fssfds","#uowru","s79-","#urwru","kkjll","dkks","890123"] %>
+  window.hashArray = <%=raw xx.as_json %>;
+<% end %>
+
+<h1>Welcome to Arachne Writer</h1><h2>
+  A project by <a href="http://rolandsharp.com/" target="_blank">rolandsharp.com</a>
+</h2>
+
+
+<div class="sigma-parent" id="sigma-expand">
+    <div class="sigma-expand" id="sigma-example"></div>
+</div>
+    
+<div class="sign-up-btn"><%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %></div>
+
+
+
+
+
+
+

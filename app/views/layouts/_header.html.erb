@@ -10,7 +10,25 @@
         </div>
         
         <div class="collapse navbar-collapse">
+
+
+
           <ul class="nav navbar-nav pull-right">
+            
+
+            <p class="navbar-text" style="color: #b52a2a;">
+            <% if flash[:alert] %>
+              <%= flash[:alert] %>
+            <% end %>
+            </p>
+
+            <p class="navbar-text" style="color:green;">
+            <% if flash[:success] %>
+              <%= flash[:success] %>
+            <% end %>
+            </p>
+
+
             <% if current_user %>
 
            <li><p class="navbar-text">Logged in as <%=current_user.username%></p></li>
