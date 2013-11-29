@@ -71,7 +71,7 @@ console.log(duplicateFrequency);
 
 // var masterSize = 0;
 
-
+console.log(nodeArray);
 
   for(i = 0; i < nodeArray.length; i++){
   	// masterSize = 0;
@@ -126,7 +126,7 @@ console.log(duplicateFrequency);
       'x': randomClusterX+Math.random(),
       'y': randomClusterY+Math.random(),
       'label': nodeArray[i][j],
-      'size': 3+3*duplicateFrequency[nodeArray[i][j]], // node size = 4 multiplied by frequency of connections between different thought webs/each article
+      'size': 7, //3+3*duplicateFrequency[nodeArray[i][j]], // node size = 4 multiplied by frequency of connections between different thought webs/each article
       'color': randomColor
 
     
