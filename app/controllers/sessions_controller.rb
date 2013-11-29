@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
   	else	
 
   		redirect_to root_url
-      flash[:alert] = "Email or password is invalid"
+      flash[:alert] = "Username or password is invalid"
 
   	end
   end
