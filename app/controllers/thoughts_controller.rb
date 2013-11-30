@@ -11,8 +11,9 @@ class ThoughtsController < ApplicationController
 	def new
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.new
+		# redirect_to edit_user_path(@user)
 		respond_to do |format|
-	    	format.html {redirect_to edit_user_path(@user)}
+	    	# format.html {redirect_to edit_user_path(@user)}
 	    	format.js
 	    end
 	end

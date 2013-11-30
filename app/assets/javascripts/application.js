@@ -42,6 +42,12 @@ $(document).ready(function() {
     return false;
   });
 
+  $('#newThought').on('click', function() { 
+    $.get("/users/"+userid+"/thoughts/new/", null, "script");
+    
+  });
+
+
 
 
 
