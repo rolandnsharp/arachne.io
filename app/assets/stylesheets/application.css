@@ -140,6 +140,14 @@ top: 0px;
   top: -12px;
 }
 
+.titleClassM{
+  width: 100%;
+  position: relative;
+  top: -12px;
+}
+
+
+
 #query{
   position: relative;
   left: -14px;

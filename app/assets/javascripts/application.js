@@ -41,6 +41,9 @@ $(document).ready(function() {
     $("#deleted").show(0).delay(1000).hide(0);
     return false;
   });
+  
+  
+
 
   $('#newThought').on('click', function() { 
     $.get("/users/"+userid+"/thoughts/new/", null, "script");

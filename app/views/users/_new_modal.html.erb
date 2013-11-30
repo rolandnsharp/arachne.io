@@ -1,3 +1,4 @@
+
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -35,8 +36,9 @@
 		<% end %>
 		<%= render "shared/error_messages", object: @thought %>
 		  <fieldset style="height:100%;">
-		  		<%= f.text_field :title, class: "form-control titleClass", placeholder: "title optional" %>
-		        <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
+		  		<%= f.text_field :title, class: "form-control titleClassM", placeholder: "title optional" %>
+		        <%= f.text_area :content, autofocus: true, class: "form-control writingClassM", rows: 10  %>
+            <%= f.submit "save", class: "btn btn-large btn-primary", style: "position:relative; top: 20px;" %>
 		     
 		  </fieldset>
 		<% end %>

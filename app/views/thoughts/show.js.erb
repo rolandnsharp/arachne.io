@@ -5,3 +5,8 @@ $('.modal-body').append('<%= j render :partial => 'thoughts/single' %>');
 $('#myModalLabel').append('<%= j render :partial => 'thoughts/title' %>');
 
 
+$('#deleteM').on('click', function() { 
+    confirm("Are you sure?");
+    console.log("save");
+    
+  });
