@@ -1,8 +1,9 @@
 
-
+var hashArray = [];
 
 
 function init() {
+
   /**
    * First, let's instanciate sigma.js :
    */
@@ -32,8 +33,8 @@ for (var i = 0; i < hashArray.length; i++) {
 
             nodeArray[i].push(hashArray[i][j]);
         } else {
-        	statArray.push(hashArray[i][j]);
-        	// console.log(statArray);
+          statArray.push(hashArray[i][j]);
+          // console.log(statArray);
          }
     }
 }
@@ -41,13 +42,13 @@ for (var i = 0; i < hashArray.length; i++) {
 
 
 function FrequencyCounter(array) {
-	//convert a Multidimensional Array (an array of arrays) into one long array. Great to use before running the unique script for instance
-	var singleArray = [];
-	for (i=0; i<array.length; i++) { 
-		for (j=0; j<array.length; j++) { 
-	singleArray.push(array[i][j]);	
-	};
-	};
+  //convert a Multidimensional Array (an array of arrays) into one long array. Great to use before running the unique script for instance
+  var singleArray = [];
+  for (i=0; i<array.length; i++) { 
+    for (j=0; j<array.length; j++) { 
+  singleArray.push(array[i][j]);  
+  };
+  };
 
     var frequency = {}, value;
     // compute frequencies of each value
@@ -71,35 +72,45 @@ console.log(duplicateFrequency);
 
 // var masterSize = 0;
 
+
+
+
 console.log(nodeArray);
 
-  for(i = 0; i < nodeArray.length; i++){
-  	// masterSize = 0;
-  	var randomClusterX = 2*Math.random()
-  	var randomClusterY = Math.random()
 
-  	var randomColor = 'rgb('+Math.round(Math.random()*256)+','+
+  for(i = 0; i < nodeArray.length; i++){
+    // masterSize = 0;
+    var randomClusterX = 2*Math.random()
+    var randomClusterY = Math.random()
+
+    var randomColor = 'rgb('+Math.round(Math.random()*256)+','+
                       Math.round(Math.random()*256)+','+
                       Math.round(Math.random()*256)+')' 
 
-  	for (j = 0; j< nodeArray[i].length; j++){
-  	//if node === duplicate move on
-  	
-  	
 
 
-  	
-  	
 
 
-  	if (j===0 && nodeArray[i][j].charAt(0)!=="#"){	
-  	// 	for (k = 1; k< nodeArray[i].length; k++){
-  	// 		masterSize = masterSize + duplicateFrequency[nodeArray[i][k]];
-  	// 	}
+    for (j = 0; j< nodeArray[i].length; j++){
+    //if node === duplicate move on
     
-  	// console.log(masterSize);
+    
 
-      	sigInst.addNode(nodeArray[i][j],{
+
+    
+    
+
+
+    if (j===0 && nodeArray[i][j].charAt(0)!=="#"){  
+    //  for (k = 1; k< nodeArray[i].length; k++){
+    //    masterSize = masterSize + duplicateFrequency[nodeArray[i][k]];
+    //  }
+
+  
+    
+    // console.log(masterSize);
+
+        sigInst.addNode(nodeArray[i][j],{
       'x': randomClusterX+Math.random(),
       'y': randomClusterY+Math.random(),
       'label': nodeArray[i][j],
@@ -111,8 +122,8 @@ console.log(nodeArray);
     });
     } 
     // else if (j===nodeArray[i].length-1 && nodeArray[i][0].charAt(0)!=="#"){
-    // 	console.log(masterSize);
-    // 		sigInst.addNode(nodeArray[i][j],{
+    //  console.log(masterSize);
+    //    sigInst.addNode(nodeArray[i][j],{
     //   'x': randomClusterX+Math.random(),
     //   'y': randomClusterY+Math.random(),
     //   'label': nodeArray[i][j],
@@ -153,23 +164,24 @@ function cleanArray(actual){
 hashArray = cleanArray(hashArray);
 
  for(i = 0; i < hashArray.length; i++){
- 	
-  	//hierarchical edge structure for content with titles 
+  
+    //hierarchical edge structure for content with titles 
 
-  	if ( hashArray[i][0].charAt(0)!=="#"){
-	  	for (j = 0; j< hashArray[i].length-1; j++){
-			  sigInst.addEdge(i+",0-to-"+i+","+String((hashArray[i].length-1)-j),  hashArray[i][0],hashArray[i][(hashArray[i].length-1)-j]);
-	  		}
+    if ( hashArray[i][0].charAt(0)!=="#"){
+      for (j = 0; j< hashArray[i].length-1; j++){
+        sigInst.addEdge(i+",0-to-"+i+","+String((hashArray[i].length-1)-j),  hashArray[i][0],hashArray[i][(hashArray[i].length-1)-j]);
+        }
     }else {
-    	// non-hierarchical edge structure for content with titles. Each node is connected to all other nodes in the content
-    	for (j = 0; j< hashArray[i].length-1; j++){
-    		for (k = 0; k<hashArray[i].length; k++){
-    	sigInst.addEdge(i+","+j+"-to-"+i+","+k,  hashArray[i][j],hashArray[i][k]);
-	 	 }
-	  }
+      // non-hierarchical edge structure for content with titles. Each node is connected to all other nodes in the content
+      for (j = 0; j< hashArray[i].length-1; j++){
+        for (k = 0; k<hashArray[i].length; k++){
+      sigInst.addEdge(i+","+j+"-to-"+i+","+k,  hashArray[i][j],hashArray[i][k]);
+     }
+    }
     }
   }
  
+
 
   /**
    * Now, here is the code that shows the popup :
@@ -207,7 +219,7 @@ hashArray = cleanArray(hashArray);
       document.getElementById("query").value = iNumber; //hashArray[iNumber[0]][iNumber[1]];
       $("#submit_id").submit();
       $("#hashSearched").html(iNumber);
-  	  }
+      }
 
       
     }
@@ -216,12 +228,13 @@ hashArray = cleanArray(hashArray);
  
     sigInst.bind('downnodes',showNodeInfo).draw();
   })();
+
 }
 
 if (document.addEventListener) {
   document.addEventListener('DOMContentLoaded', init, false);
 } else { 
-	
+  
   window.onload = init;
 
 }
