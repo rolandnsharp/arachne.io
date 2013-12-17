@@ -246,7 +246,7 @@ console.log(nodeArray);
 
        sigInst.addNode(nodeArray[i][j],{
       'x': randomClusterX+Math.random()/2,
-      'y': ((randomClusterY+Math.random())/2)-4,
+      'y': ((randomClusterY+Math.random())/2)-5,
       'label': nodeArray[i][j],
       'size': 1+3*duplicateFrequency[nodeArray[i][j]], // node size = 4 multiplied by frequency of connections between different thought webs/each article
       'color': randomColor

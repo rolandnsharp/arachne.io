@@ -42,9 +42,9 @@
   }
 
 .sign-up-btn {
-    text-align:center;
     position: relative;
-    margin-top: -10px;
+    text-align:center;
+    margin-right: 130px;
   }
 
  td:hover{

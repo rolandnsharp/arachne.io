@@ -15,9 +15,16 @@ body {
     background: black;
     height: 70%;
   }
+
+  #sign-up-button{
+    position: fixed;
+    bottom: 30px;
+    color: black;
+
+  }
 </style>
 
-<h1 style="color:white;">Welcome to Arachne Writer</h1><h2 style="color:white;">
+<h1 style="color:white;">Welcome to Arachne Writer</h1><h2 style="color:#e6e6e6;">
   A project by <a href="http://rolandsharp.com/" target="_blank">rolandsharp.com</a>
 </h2>
 
@@ -25,7 +32,7 @@ body {
     <div class="sigma-expand" id="sigma-example"></div>
 </div>
     
-<div class="sign-up-btn"><%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %></div>
+<div class="sign-up-btn"><%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary", id: "sign-up-button" %></div>
 
 
 
