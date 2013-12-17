@@ -1,11 +1,34 @@
+<%= javascript_include_tag 'sigma/title_sigma.js' %> 
+
 <style type="text/css">
-	body {
+body {
   background-color: black;
+  /*padding-top: -100px;*/
   height: 100%;
 }
+  .sigma-parent {
+    position: relative;
+    top: -50px;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    background: black;
+    height: 90%;
+  }
+
+  #sign-up-form{
+  	position: fixed;
+  	top: 20px;
+  	/*padding-left: 200px;*/
+  }
+
 </style>
 
-<div class="container" style="color:white;">
+<div class="sigma-parent" id="sigma-expand">
+    <div class="sigma-expand" id="sigma-example"></div>
+</div>
+
+<div id="sign-up-form" class="container" style="color:white;">
 <h1>Sign up</h1>
 
 <div class="row">

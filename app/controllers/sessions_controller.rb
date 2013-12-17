@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   	if @user && @user.authenticate(params[:password])
   		session[:user_id] = @user.id
   		redirect_to @user
-      flash[:success] = "Logged in!"
+      # flash[:success] = "Logged in!"
   	else	
 
   		redirect_to root_url

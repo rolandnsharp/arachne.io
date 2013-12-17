@@ -31,7 +31,7 @@
 
             <% if current_user %>
 
-           <li><p class="navbar-text">Logged in as <%=current_user.username%></p></li>
+           <li><p class="navbar-text" id="logged-in-text">Logged in as <%=current_user.username%> !</p></li>
            <li><%= link_to "Log Out", logout_path, 'data-no-turbolink' => true %></li>
 
            <% else %>
