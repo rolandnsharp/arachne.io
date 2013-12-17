@@ -6,7 +6,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+          <%if current_page?(signup_path)%>
+          <span><%= link_to "Arachne Writer.", root_path, class: "brand", id: "logo" %> <%= image_tag"spider.png" %></span>
+          <% else %>
           <span><p class="brand" id="logo">Arachne Writer.</p> <%= image_tag"spider.png" %></span>
+          <% end %>
         </div>
         
         <div class="collapse navbar-collapse">
@@ -42,10 +46,10 @@
               <%= form_tag sessions_path, class: "navbar-form navbar-right", method: :post do %>
               <div class="form-group">
 
-              <%= text_field_tag :username, nil, :class=>"form-control", :placeholder =>"username" %>
+              <%= text_field_tag :username, nil, :class=>"form-control", :placeholder =>"Username" %>
               </div>
               <div class="form-group">
-                <%= password_field_tag :password, nil, :class=>"form-control", :placeholder => "password" %>
+                <%= password_field_tag :password, nil, :class=>"form-control", :placeholder => "Password" %>
                 </div>
                 <div class="form-group">
                 <%= submit_tag "Log In", class: "btn btn-success", id: "greenLogIn" %>
