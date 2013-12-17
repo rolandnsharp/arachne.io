@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'sigma/custom_sigma.js' %>  
+
 
 <%= javascript_tag do %>
   window.hashArray = <%=raw web_array_maker(@thoughts).as_json %>;
@@ -71,7 +73,7 @@ body {
 <!-- <button type="button" class="btn btn-primary" id="newThought">New Thought</button> -->
 <%= link_to "Edit Mode", edit_user_path(@user), class: "btn btn-primary", id: "editbtn", 'data-no-turbolink' => true %>
 
-<button type="button" id="reload" class="btn btn-default navbar-btn">Generate random Graph</button>
+<button type="button" id="reload" class="btn btn-default navbar-btn">Generate Random Graph</button>
 <!-- <button type="button" id="publish" class="btn btn-default navbar-btn">Publish (under construction)</button> -->
   <p class="navbar-text navbar-right">Using <a href="http://sigmajs.org/" target="_blank" class="navbar-link">sigma.js</a></p>
 </nav>

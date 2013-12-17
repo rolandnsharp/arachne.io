@@ -1,3 +1,5 @@
+<%= javascript_include_tag 'sigma/title_sigma.js' %> 
+
 <style type="text/css">
 body {
   background-color: black;
@@ -15,19 +17,9 @@ body {
   }
 </style>
 
-
-
-
-  <%= javascript_tag do %>
-  <% xx=[["#Lorem","#ipsum","#dolor"],["sit","#amet","#euismod","#tincidunt"],["#consectetuer","#adipiscing","#elit"],["#sed","#diam","#nonummy","#nibh"]] %>
-  window.hashArray = <%=raw xx.as_json %>;
-<% end %>
-
-
 <h1 style="color:white;">Welcome to Arachne Writer</h1><h2 style="color:white;">
   A project by <a href="http://rolandsharp.com/" target="_blank">rolandsharp.com</a>
 </h2>
-
 
 <div class="sigma-parent" id="sigma-expand">
     <div class="sigma-expand" id="sigma-example"></div>
