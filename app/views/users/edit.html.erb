@@ -59,16 +59,16 @@ html{
     
     <ul class="nav navbar-nav navbar-right">
       <div class="btn-group">
-        <%= link_to "New", new_user_thought_path(@user), class: "btn btn-default", remote: true %>
-        <button type="button" class="btn btn-primary" id="save">Save</button>
-        <button type="button" class="btn btn-danger" id="delete">Delete</button>
+        <%= link_to "New", new_user_thought_path(@user), class: "btn btn-success black-btn", remote: true %>
+        <button type="button" class="btn btn-success black-btn" id="save">Save</button>
+        <button type="button" class="btn btn-success black-btn" id="delete">Delete</button>
         
         <% if false%>
           
-          <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
+          <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-success black-btn", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
         <%end%>
         <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
-        <%= link_to "Display Mode", @user, class: "btn btn-success", 'data-no-turbolink' => true %>
+        <%= link_to "Display Mode", @user, class: "btn btn-success black-btn", 'data-no-turbolink' => true %>
        
        <!-- <button type="button" class="btn btn-default" id="thought_network">Thought Network</button> 
        <button type="button" class="btn btn-default" id="thought_network_hide">Thought Network Hide</button>  -->
