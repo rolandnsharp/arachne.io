@@ -72,6 +72,15 @@
 .sideSearch{
 position: relative;
 top: 0px;
+/*background-color: white;*/
+ }
+
+ #sidebar{
+  /*background-color: white;*/
+ }
+
+ .sideScrollBar{
+  background-color: white;
  }
 
  #toolBar{
