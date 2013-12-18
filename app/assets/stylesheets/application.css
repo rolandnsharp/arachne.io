@@ -41,10 +41,16 @@
     /*margin-bottom: 30px;*/
   }
 
-.sign-up-btn {
+.sign-up-div {
+    position: fixed;
+    left: 50%;
+    bottom: 30px;
+  }
+
+  #sign-up-button{
     position: relative;
-    text-align:center;
-    margin-right: 130px;
+    left: -70px;
+    color: black;
   }
 
  td:hover{
