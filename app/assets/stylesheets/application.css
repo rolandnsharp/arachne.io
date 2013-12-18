@@ -26,9 +26,6 @@
     -webkit-border-radius: 4px;
     background: #222;
     height: 100%;
-   
-    
-    
   }
   .sigma-expand {
     position: absolute;
@@ -37,8 +34,6 @@
     top: 0;
     left: 0;
     /*background-color: black;*/
-    
-    /*margin-bottom: 30px;*/
   }
 
 .sign-up-div {
@@ -58,7 +53,6 @@
  }
 
  #right-top-buttons{
- 
   float: right;
   margin-right: 20px;
 
@@ -67,19 +61,12 @@
  .sideScrollBar{
  /* display: none;*/
   position: relative;
-
-  
-  
-
-  /*bottom:0;*/
   top:-65px;
   height:100%;
-  
   overflow:scroll; 
   overflow-x: hidden; 
   border:1px solid gray; 
   border-radius:4px;
-
  }
 
 .sideSearch{
@@ -89,15 +76,8 @@ top: 0px;
 
  #toolBar{
   position: relative;
-  /*height: 60px;*/
   top: -50px;
  }
-
-
-#greenLogIn {
-  position: relative;
-  bottom: 0px;
-}
 
 .btn-group {
   z-index: 111;
@@ -106,35 +86,24 @@ top: 0px;
   right: 15px;
 }
 
-
-
 .toggleHeight{
   border:7px solid black; 
-
   height: 200px;
 }
-
 
 #thought_content{
   position: relative;
   height: 100%;
 }
 
-
 #newForm{
   position: relative;
-
   top: -100px;
   height: 100%;
-  /*padding-bottom: -10px;*/
- 
 }
 
 #newForm.hide{
- 
   height: 100%;
-  /*padding-bottom: -10px;*/
- 
 }
 .hashSubTitle {
   color:gray;
@@ -151,8 +120,6 @@ top: 0px;
   position: relative;
   top: -12px;
 }
-
-
 
 #query{
   position: relative;
