@@ -21,7 +21,7 @@ class ThoughtsController < ApplicationController
 	def create
 	  @user = User.find(params[:user_id])
 	  @thought = @user.thoughts.new(thought_params)
-	  # @thoughts = @user.thoughts
+	  @thoughts = @user.thoughts
 	  # @thoughts_search = @user.thoughts.text_search(params[:query])
 	  if @thought.save
 
@@ -64,6 +64,7 @@ class ThoughtsController < ApplicationController
 	def update
 	    @user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
+		@thoughts = @user.thoughts
 	    if @thought.update(thought_params)
 		redirect_to edit_user_path(@user)
 	     
@@ -91,7 +92,7 @@ class ThoughtsController < ApplicationController
 private
 
 def thought_params
-  params.require(:thought).permit(:content, :title)
+  params.require(:thought).permit(:content, :title, :tags)
 end
 
 

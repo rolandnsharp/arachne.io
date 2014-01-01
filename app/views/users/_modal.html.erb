@@ -49,7 +49,7 @@
       
    
     
-      <a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= thought.id %>/" class="list-group-item" data-thoughtid="<%= thought.id %>">
+      <a data-remote="true" href="/<%= @user.id %>/thoughts/<%= thought.id %>/" class="list-group-item" data-thoughtid="<%= thought.id %>">
                  <h4 class="list-group-item-heading">
                 
                 <% mod = thought.content.scan(/#\w+/).uniq %>

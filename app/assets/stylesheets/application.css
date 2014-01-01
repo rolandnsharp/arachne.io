@@ -89,11 +89,11 @@ top: 0px;
  }
 
 .btn-group {
-  z-index: 111;
+/*  z-index: 111;
   position: absolute;
   top: 7px;
   right: 15px;
-}
+*/}
 
 .toggleHeight{
   border:7px solid black; 
@@ -107,18 +107,20 @@ top: 0px;
 
 #newForm{
   position: relative;
-  top: -100px;
+  top: -107px;
   height: 100%;
 }
 
-#newForm.hide{
-  height: 100%;
-}
 .hashSubTitle {
   color:gray;
 }
 
-.titleClass{
+/*#titleSpacer{
+  position: relative;
+  height: 40px;
+}*/
+
+/*.titleClass{
   width: 30%;
   position: relative;
   top: -12px;
@@ -128,9 +130,19 @@ top: 0px;
   width: 100%;
   position: relative;
   top: -12px;
+}*/
+
+.tagClass{
+  position: relative;
+  top: 40px;
 }
 
 #query{
   position: relative;
   left: -14px;
 }
+
+/*.tagClass {
+  position: relative;
+  width: 900px;
+}*/

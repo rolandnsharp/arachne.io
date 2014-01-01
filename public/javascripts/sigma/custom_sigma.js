@@ -101,7 +101,7 @@ console.log(nodeArray);
     
 
 
-    if (j===0 && nodeArray[i][j].charAt(0)!=="#"){  
+    if (j===0 && nodeArray[i][j].charAt(0)==="#"){  
     //  for (k = 1; k< nodeArray[i].length; k++){
     //    masterSize = masterSize + duplicateFrequency[nodeArray[i][k]];
     //  }
@@ -167,7 +167,7 @@ hashArray = cleanArray(hashArray);
   
     //hierarchical edge structure for content with titles 
 
-    if ( hashArray[i][0].charAt(0)!=="#"){
+    if ( hashArray[i][0].charAt(0)==="#"){
       for (j = 0; j< hashArray[i].length-1; j++){
         sigInst.addEdge(i+",0-to-"+i+","+String((hashArray[i].length-1)-j),  hashArray[i][0],hashArray[i][(hashArray[i].length-1)-j]);
         }
@@ -211,7 +211,7 @@ hashArray = cleanArray(hashArray);
       // console.log(iNumber);
       $("#hashSearched").html(iNumber);
 
-      if(iNumber.charAt(0)!=="#"){
+      if(iNumber.charAt(0)==="#"){
       document.getElementById("query").value = iNumber; //hashArray[iNumber[0]][iNumber[1]];
       $("#submit_id").submit();
       $("#hashSearched").html(iNumber);

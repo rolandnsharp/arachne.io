@@ -7,18 +7,18 @@ module ThoughtsHelper
 		 
 
 		thoughts.each do |thought|
-		 	 title_string=  thought.title.to_s
+		 	 title_string=  "#"+thought.title.to_s
 
-		 	 if title_string.length == 0
-		 	         
-				str=  thought.content.to_s   
-			    tags = str.scan(/#\w+/).uniq 
-				thought_web_array= thought_web_array+[tags] 
+		 	 if title_string.length == 1
+
+				str=  thought.tags.to_s   
+			    tags = str.split(",")
+				thought_web_array= thought_web_array+[tags] 	
 		 	
 		 	 else
 
-		 	 	str=  thought.content.to_s   
-			    tags = str.scan(/#\w+/).uniq 
+		 	 	str=  thought.tags.to_s   
+			    tags = str.split(",")
 			    title_array = tags.unshift(title_string)
 				thought_web_array= thought_web_array+[title_array] 
 

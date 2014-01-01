@@ -37,7 +37,7 @@ $(document).ready(function() {
 
   $('#delete').on('click', function() { 
   	confirm("Are you sure?");
-  	$.post("/users/"+userid+"/thoughts/"+thoughtid+"/", { _method: 'delete' }, null, "script");
+  	$.post("/"+userid+"/thoughts/"+thoughtid+"/", { _method: 'delete' }, null, "script");
     $("#deleted").show(0).delay(1000).hide(0);
     return false;
   });
@@ -46,7 +46,7 @@ $(document).ready(function() {
 
 
   $('#newThought').on('click', function() { 
-    $.get("/users/"+userid+"/thoughts/new/", null, "script");
+    $.get("/"+userid+"/thoughts/new/", null, "script");
     
   });
 

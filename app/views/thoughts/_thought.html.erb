@@ -1,4 +1,8 @@
 
+
+
+
+
 <%= form_for [@user, @thought], :html => { :id => "newForm" },remote: true do |f| %>
 <!-- dynamic active thought variable for delete jquery-->
 <%= javascript_tag do %>
@@ -6,8 +10,19 @@
 <% end %>
 <%= render "shared/error_messages", object: @thought %>
   <fieldset style="height:100%;">
-  		<%= f.text_field :title, class: "form-control titleClass", placeholder: "title optional" %>
-        <%= f.text_area :content, autofocus: true, class: "form-control writingClass"  %>
+	      <%= f.text_field :tags, class: "form-control tagClass", placeholder: "Tags (represented as nodes)", 'data-role' => "tagsinput"%>
+	      <!-- tagClass -->
+	      <%= f.text_field :title, class: "form-control", placeholder: "Title (optional and represented as a diamond)" %>
+          <%= f.text_area :content, autofocus: true, class: "form-control writingClass" %>
      
   </fieldset>
 <% end %>
+
+
+
+
+
+
+
+
+

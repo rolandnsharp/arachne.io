@@ -24,126 +24,31 @@ body{
 <% end %>
 </div>
 
-
-<nav class="navbar navbar-default" role="navigation" id="toolBar">
-  <!-- Brand and toggle get grouped for better mobile display -->
-  <div class="navbar-header">
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    
-  </div>
-
-  <!-- Collect the nav links, forms, and other content for toggling -->
-  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-  
-    <form class="navbar-form navbar-left" role="search">
-      
-      <%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
-        
-        <%= text_field_tag :query, params[:query], :placeholder => "search", class: "form-control" %>
-      <%= submit_tag "Search", name: nil, class: "btn btn-default", style: "display:none;" %>
-
-      <% end %>
-    </form>
-    <p id="saved" class="navbar-text" style="display:none;">Saved.</p>
-    <p id="deleted" class="navbar-text" style="display:none;">Deleted.</p>
-    
-
- <!--   # <% flash.each do |key, value| %>
-        
-        #<%= content_tag(:div, value, class: "alert-div alert alert-#{key}") %>
-        
-   # <% end %> -->
-    
-    
-    <ul class="nav navbar-nav navbar-right">
-      <div class="btn-group">
-        <%= link_to "New", new_user_thought_path(@user), class: "btn btn-success black-btn", remote: true %>
-        <button type="button" class="btn btn-success black-btn" id="save">Save</button>
-        <button type="button" class="btn btn-success black-btn" id="delete">Delete</button>
-        
-        <% if false%>
-          
-          <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-success black-btn", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
-        <%end%>
-        <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
-        <%= link_to "Display Mode", @user, class: "btn btn-success black-btn", 'data-no-turbolink' => true %>
-       
-       <!-- <button type="button" class="btn btn-default" id="thought_network">Thought Network</button> 
-       <button type="button" class="btn btn-default" id="thought_network_hide">Thought Network Hide</button>  -->
-      </div>
-    </ul>
-
-    
-  </div><!-- /.navbar-collapse -->
-
-
-</nav>
-
+    <%= render "shared/menu_navbar"%>
 
 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" style="height:100%; padding-bottom:10px;">
 
-<div class="sideSearch">
+<!-- <div class="sideSearch">
 
+</div> -->
+<div class="sideScrollBar">
+<div class="list-group"> 
+    <%= render "thoughts/list"%>
+</div>
 </div>
 
-        <div class="sideScrollBar">
 
-          <div class="list-group">
+</div><!--/span-->
+<!-- <div id="titleSpacer"></div> -->
+<div id="bucket" class="col-xs-12 col-sm-9" style="height:100%; padding-bottom:50px;">
 
-              <% @thoughts_search.each do |thought|%>
-              
-              <a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= thought.id %>">
-                <h4 class="list-group-item-heading">
-                
-                 <% thought_title = thought.title.to_s %>
-                 <% unless thought_title == "" %>
-                      <strong><%=  thought.title.titleize %></strong>
-                       <span class="hashSubTitle">
-                       <%=  thought.content.scan(/#\w+/).uniq %>
-                       </span>
-                 <% else %>
-                
-                 <% mod = thought.content.scan(/#\w+/) %>
-                 <% if mod[0] %>
-                 <% title = mod[0] %>
-                 <% else %>
-                 <% title = mod[0]%>
-                 <% end %>
-                 <!-- # <strong><%= title %></strong> -->
-                 <span class="hashSubTitle">
-                 <%=  thought.content.scan(/#\w+/).uniq %>
-                 </span>
 
-                 <% end %>
-                 </h4>
-                 <p class="list-group-item-text">
-                 
-                 <%=  truncate(thought.content, :length => 150) %>
-                 
-                </p>
-              </a>
-            <% end %> 
-           
-          </div>
-        </div>
-
-        </div><!--/span-->
-
-<div id="bucket" class="col-xs-12 col-sm-9" style="height:100%; padding-bottom:10px;">
      
-  
 <%= render "thoughts/thought"%>
  
-
  <div style="display:none;" class="sigma-parent" id="sigma-example-parent" >
     <div class="sigma-expand" id="sigma-example" ></div>
-  </div>
+</div>
 
-  
 
 </div>

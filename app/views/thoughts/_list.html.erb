@@ -6,18 +6,25 @@
     });
 </script>
 
-<a data-remote="true" href="/users/<%= @user.id %>/thoughts/<%= @thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
+
+
+<% @thoughts.each do |thought|%>
+
+<a data-remote="true" href="/<%= @user.id %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
                 <h4 class="list-group-item-heading">
                 
-                 <% thought_title = @thought.title.to_s %>
+                 <% thought_title = thought.title.to_s %>
                  <% unless thought_title == "" %>
-                      <strong><%=  @thought.title.titleize %></strong>
+                 <% unless thought.nil? %>
+                      <strong><%=  thought.title.titleize %></strong>
                       <span class="hashSubTitle">
-                       <%=  @thought.content.scan(/#\w+/).uniq %>
+                       <%=  thought.content.scan(/#\w+/).uniq %>
                        </span>
+
+                 
                  <% else %>
                 
-                 <% mod = @thought.content.scan(/#\w+/) %>
+                 <% mod = thought.content.scan(/#\w+/) %>
                  <% if mod[0] %>
                  <% title = mod[0] %>
                  <% else %>
@@ -25,14 +32,17 @@
                  <% end %>
                  <!-- # <strong><%= title %></strong> -->
                  <span class="hashSubTitle">
-                 <%=  @thought.content.scan(/#\w+/).uniq %>
+                 <%=  thought.content.scan(/#\w+/).uniq %>
                  </span>
 
+                 <% end %>
                  <% end %>
                  </h4>
                  <p class="list-group-item-text">
                  
-                 <%=  truncate(@thought.content, :length => 150) %>
+                 <%=  truncate(thought.content, :length => 150) %>
                  
                 </p>
               </a>
+
+            <% end %> 
