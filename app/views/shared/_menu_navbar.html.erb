@@ -13,16 +13,7 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   
-    <form class="navbar-form navbar-left" role="search">
-      
-      <%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
-        
-        <%= text_field_tag :query, params[:query], :placeholder => "search", class: "form-control" %>
-      <%= submit_tag "Search", name: nil, class: "btn btn-default", style: "display:none;" %>
-
-      <% end %>
-    </form>
-
+    
     <p id="saved" class="navbar-text" style="display:none;">Saved.</p>
     <p id="deleted" class="navbar-text" style="display:none;">Deleted.</p>
     
@@ -36,13 +27,13 @@
     
     <ul class="nav navbar-nav navbar-right">
       <div class="btn-group">
-        <%= link_to "New", new_user_thought_path(@user), class: "btn btn-success black-btn", remote: true %>
-        <button type="button" class="btn btn-success black-btn" id="save">Save</button>
-        <button type="button" class="btn btn-success black-btn" id="delete">Delete</button>
+        <%= link_to "New", new_user_thought_path(@user), class: "btn btn-primary black-btn", remote: true %>
+        <button type="button" class="btn btn-primary black-btn" id="save">Save</button>
+        <button type="button" class="btn btn-primary black-btn" id="delete">Delete</button>
         
         <% if false%>
           
-          <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-success black-btn", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
+          <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-primary black-btn", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
         <%end%>
         <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
         <%= link_to "Display Mode", @user, class: "btn btn-success black-btn", 'data-no-turbolink' => true %>

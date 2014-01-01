@@ -11,44 +11,57 @@ html{
   overflow:hidden;
 }
 body{
-  background-color: #47a447;
+  background-color: gray;
 }
 </style>
 
 <div style="display: none;">
-<%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
-<p>
-  <%= text_field_tag :query, params[:query] %>
-  <%= submit_tag "Search", name: nil %>
-</p>
-<% end %>
+  <%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
+  <p>
+    <%= text_field_tag :query, params[:query] %>
+    <%= submit_tag "Search", name: nil %>
+  </p>
+  <% end %>
 </div>
 
-    <%= render "shared/menu_navbar"%>
 
 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" style="height:100%; padding-bottom:10px;">
+<!-- <form role="search"> -->
+      
+      <%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
+        
+        <%= text_field_tag :query, params[:query], :placeholder => "search", class: "form-control" %>
+      <%= submit_tag "Search", name: nil, class: "btn btn-default", style: "display:none;" %>
 
-<!-- <div class="sideSearch">
+      <% end %>
+    <!-- </form> -->
 
-</div> -->
-<div class="sideScrollBar">
-<div class="list-group"> 
-    <%= render "thoughts/list"%>
+
+  <div class="sideScrollBar">
+    <div class="list-group"> 
+        <%= render "thoughts/list"%>
+    </div>
+  </div>
 </div>
-</div>
 
-
-</div><!--/span-->
-<!-- <div id="titleSpacer"></div> -->
 <div id="bucket" class="col-xs-12 col-sm-9" style="height:100%; padding-bottom:50px;">
-
-
-     
-<%= render "thoughts/thought"%>
- 
- <div style="display:none;" class="sigma-parent" id="sigma-example-parent" >
-    <div class="sigma-expand" id="sigma-example" ></div>
-</div>
-
-
+<div class="btn-group">
+        <%= link_to "New", new_user_thought_path(@user), class: "btn btn-primary black-btn", remote: true %>
+        <button type="button" class="btn btn-primary black-btn" id="save">Save</button>
+        <button type="button" class="btn btn-primary black-btn" id="delete">Delete</button>
+        
+        <% if false%>
+          
+          <%= link_to "Delete", user_thought_path(@user, @thought_edit), class: "btn btn-primary black-btn", method: :delete, data: { confirm: 'Are you sure?' },remote: true %>
+        <%end%>
+        <!-- <button type="button" class="btn btn-danger" id="delete">Delete</button> -->
+        <%= link_to "Display Mode", @user, class: "btn btn-success black-btn", 'data-no-turbolink' => true %>
+       
+       <!-- <button type="button" class="btn btn-default" id="thought_network">Thought Network</button> 
+       <button type="button" class="btn btn-default" id="thought_network_hide">Thought Network Hide</button>  -->
+      </div>
+       <%= render "thoughts/thought"%>
+   <div style="display:none;" class="sigma-parent" id="sigma-example-parent" >
+      <div class="sigma-expand" id="sigma-example" ></div>
+  </div>
 </div>
