@@ -1,10 +1,4 @@
 
-<%= javascript_tag do %>
- window.hashArray = <%=raw web_array_maker(@thoughts).as_json %>;
-  window.userid = "<%= @user.id %>";
-  window.thoughtid = "<%= @thought.id %>";
-  window.userName = "<%=j @user.username %>";
-<% end %>
 
 <style type="text/css">
 html{
@@ -15,14 +9,7 @@ body{
 }
 </style>
 
-<div style="display: none;">
-  <%= form_tag edit_user_path(@user),:id => 'submit_id', method: :get do %>
-  <p>
-    <%= text_field_tag :query, params[:query] %>
-    <%= submit_tag "Search", name: nil %>
-  </p>
-  <% end %>
-</div>
+
 
 
 <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation" style="height:100%; padding-bottom:10px;">

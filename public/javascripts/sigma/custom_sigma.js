@@ -135,8 +135,10 @@ var statArray = []; // returns only the duplicated items,
 var found = {};
 for (var i = 0; i < hashArray.length; i++) {
     nodeArray.push([]);
+
     for (var j = 0; j < hashArray[i].length; j++) {
-        if (!found[hashArray[i][j]]) {
+
+         if (!found[hashArray[i][j]]) {
             found[hashArray[i][j]] = true; 
 
             nodeArray[i].push(hashArray[i][j]);
@@ -245,7 +247,7 @@ console.log(nodeArray);
       'y': randomClusterY+Math.random(),
       'label': nodeArray[i][j],
       // console.log(duplicateFrequency[nodeArray[i][j]]);
-      'size': 7,//4+3*duplicateFrequency[nodeArray[i][j]], // node size = 4 multiplied by frequency of connections between different thought webs/each article
+      'size': 7,//(4+3)*(1+duplicateFrequency[nodeArray[i][j]]), // node size = 4 multiplied by frequency of connections between different thought webs/each article
       //dynamic sizing causing problems, blank nodes
       'color': randomColor
 
