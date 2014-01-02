@@ -17,8 +17,10 @@ class UsersController < ApplicationController
 		# @user = User.find_by_slug(params[:slug])
 		@user = User.find(params[:id])
 		@thoughts = @user.thoughts
-		@thoughts_search = @user.thoughts.text_search(params[:query])
+		@thoughts_search = @user.thoughts.tags_search(params[:query])
 		@thoughts_title_search = @user.thoughts.title_search(params[:query])
+
+
 		@thought = @user.thoughts.new
 		respond_to do |format|
 	    	 format.html {if params[:query]	
@@ -45,9 +47,11 @@ class UsersController < ApplicationController
 		if @user.save
 			session[:user_id] = @user.id
 			UserMailer.signup_confirmation(@user).deliver
-			@thought = @user.thoughts.create(content: "This is a non-titled #thought, All #hashtags within a thought are represented in a  #non-hierarchical #web and in a particular #color.")
-			@thought = @user.thoughts.create(content: "This is some #test #text. #Lorem #ipsum #dolor #sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ")
-			@thought = @user.thoughts.create(content: "This is a titled #thought, All #hashtags are represented as children of the title #diamond in the #node and #line graph.", title: "Title Text")
+			@thought = @user.thoughts.create(content: "This is a non-titled thought, All tags of a non-titled thought are represented in a non-hierarchical web and of a particular color.", tags: "thought,non-hierarchical,web,color")
+			@thought = @user.thoughts.create(content: "This is some test text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", title:"Title Text", tags: "Lorem,ipsum,dolor,sit,amet")
+			@thought = @user.thoughts.create(content: "This is a non-titled thought, All tags of a non-titled thought are represented in a  non-hierarchical web and in a particular color.", tags: "titled,diamond,line,node,graph",title:"Read Me")
+			@thought = @user.thoughts.create(content: "This is a non-titled thought, All tags of a non-titled thought are represented in a  non-hierarchical web and in a particular color.", tags: "14,243,35,45,55,655,57,58")
+			@thought = @user.thoughts.create(content: "This is some test text. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.", tags: "sit,amet,consectetur,adipisicing,elit,sed")
 			
 			redirect_to @user, notice: "Thank you for signing up! A confirmation email has been sent to your address."
 		else

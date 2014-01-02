@@ -7,7 +7,7 @@ module ThoughtsHelper
 		 
 
 		thoughts.each do |thought|
-		 	 title_string=  "#"+thought.title.to_s
+		 	 title_string=  "#"+thought.title.to_s.titleize
 
 		 	 if title_string.length == 1
 

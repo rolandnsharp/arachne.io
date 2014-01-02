@@ -215,8 +215,7 @@ console.log(nodeArray);
     //  }
 
   
-    
-    // console.log(masterSize);
+    var TitleNodeName = nodeArray[i][j].substring(1);
 
         sigInst.addNode(nodeArray[i][j],{
       'x': randomClusterX+Math.random(),
@@ -245,7 +244,9 @@ console.log(nodeArray);
       'x': randomClusterX+Math.random(),
       'y': randomClusterY+Math.random(),
       'label': nodeArray[i][j],
-      'size': 7, //3+3*duplicateFrequency[nodeArray[i][j]], // node size = 4 multiplied by frequency of connections between different thought webs/each article
+      // console.log(duplicateFrequency[nodeArray[i][j]]);
+      'size': 7,//4+3*duplicateFrequency[nodeArray[i][j]], // node size = 4 multiplied by frequency of connections between different thought webs/each article
+      //dynamic sizing causing problems, blank nodes
       'color': randomColor
 
     
@@ -320,7 +321,8 @@ hashArray = cleanArray(hashArray);
       $("#hashSearched").html(iNumber);
 
       if(iNumber.charAt(0)==="#"){
-      document.getElementById("query").value = iNumber; //hashArray[iNumber[0]][iNumber[1]];
+      var iNumberUnhashed = iNumber.substring(1);
+      document.getElementById("query").value = iNumberUnhashed; //hashArray[iNumber[0]][iNumber[1]];
       $("#submit_id").submit();
       $("#hashSearched").html(iNumber);
       }else{
@@ -345,4 +347,3 @@ if (document.addEventListener) {
   window.onload = init;
 
 }
-

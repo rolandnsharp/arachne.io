@@ -13,6 +13,14 @@ class Thought < ActiveRecord::Base
   	end
   end
 
+  def self.tags_search(query)
+    if query.present?
+      where("title like :q or tags like :q", q: "%#{query}%")
+    else
+      scoped
+    end
+  end
+
 
 # not in use
   def self.title_search(query)  
