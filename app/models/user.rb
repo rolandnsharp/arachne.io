@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 
-
+ extend FriendlyId
+ friendly_id :username
 
 	has_many :thoughts, dependent: :destroy
 	has_secure_password
@@ -12,5 +13,7 @@ class User < ActiveRecord::Base
   validates :email, format:     { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   
+
+ 
 
 end

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :authorize, only: [:show, :edit]
+	# before_filter :authorize, only: [:show, :edit]
 
 
 	def index
@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 	def show
 		
 		# @user = User.find_by_slug(params[:slug])
-		@user = User.find(params[:id])
+		@user = User.find(5)
+		# @user = User.find(params[:id])
 		@thoughts = @user.thoughts
 		@thoughts_search = @user.thoughts.tags_search(params[:query])
 		@thoughts_title_search = @user.thoughts.title_search(params[:query])
@@ -60,7 +61,8 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = User.find(params[:id])
+		@user = User.find(5)
+		# @user = User.find(params[:id])
 		@thoughts = @user.thoughts
 		@thoughts_search = @user.thoughts.tags_search(params[:query])
 		@thought = @user.thoughts.new

@@ -5,14 +5,10 @@ Arachne::Application.routes.draw do
 
   root  'users#index'
   
-
   resources :sessions
-
   resources :users, path: "" do 
     resources :thoughts
   end
-
-
 end
 
 
