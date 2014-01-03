@@ -13,10 +13,12 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		# fail
 		
 		# @user = User.find_by_slug(params[:slug])
-		@user = User.find(5)
+		# @user = User.find(5)
 		# @user = User.find(params[:id])
+		@user = User.find_by_username(params[:id])
 		@thoughts = @user.thoughts
 		@thoughts_search = @user.thoughts.tags_search(params[:query])
 		@thoughts_title_search = @user.thoughts.title_search(params[:query])
@@ -61,7 +63,7 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = User.find(5)
+		@user = User.find_by_username(params[:id])
 		# @user = User.find(params[:id])
 		@thoughts = @user.thoughts
 		@thoughts_search = @user.thoughts.tags_search(params[:query])
