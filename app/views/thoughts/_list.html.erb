@@ -10,9 +10,10 @@
 
 <% @thoughts.each do |thought|%>
 
+<% unless thought.content == "" %>
 <a data-remote="true" href="/<%= @user.username %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
                 <h4 class="list-group-item-heading">
-                
+                <%= thought.id %>
                  <% thought_title = thought.title.to_s %>
                  <% unless thought_title == "" %>
                  <% unless thought.nil? %>
@@ -43,6 +44,7 @@
                  <%=  truncate(thought.content, :length => 150) %>
                  
                 </p>
-              </a>
+</a>
 
-            <% end %> 
+<% end %> 
+<% end %> 

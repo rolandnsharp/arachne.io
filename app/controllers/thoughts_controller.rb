@@ -50,7 +50,6 @@ class ThoughtsController < ApplicationController
 		# render :edit
 		# redirect_to edit_user_path(@user)
 		respond_to do |format|
-	    	
 	    	format.js
 	    end
 		
@@ -60,8 +59,11 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.find(params[:id])
 		@thoughts = @user.thoughts
 	    if @thought.update(thought_params)
-		redirect_to edit_user_path(@user)
-	     
+		# redirect_to edit_user_path(@user)
+	    respond_to do |format|
+	    	format.html {redirect_to edit_user_path(@user)}
+	    	format.js
+	    end 
 	      flash[:success] = "Thought successfully updated!"
 	    else
 	      render :edit
