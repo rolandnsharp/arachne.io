@@ -16,15 +16,11 @@
 //= require turbolinks
 //= require_directory .
 
-
 $(document).ready(function() {
-
 
   $('.list-group-item').click(function(e) {
          $('.list-group a').removeClass('active');
             $(this).addClass('active');
-  
-          // console.log("response");
     });
 
   $('#save').on('click', function() { 
@@ -47,10 +43,6 @@ $(document).ready(function() {
     $.get("/"+userid+"/thoughts/new/", null, "script");
   });
 
-
-$("#reload").click(function() {
-    location.reload();
-});
 });
 
 
