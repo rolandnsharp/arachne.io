@@ -1,15 +1,14 @@
 class ThoughtsController < ApplicationController
 	before_filter :authorize
+	before_action :set_user
 
 	def index
-		@user = User.find(params[:user_id])
 		@thoughts = @user.thoughts
 		@thoughts_search = Thought.text_search(params[:query])
 		@thought = @user.thoughts.first
 	end
 
 	def new
-		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.new
 		# redirect_to edit_user_path(@user)
 		respond_to do |format|
@@ -19,7 +18,6 @@ class ThoughtsController < ApplicationController
 	end
 	
 	def create
-	  @user = User.find(params[:user_id])
 	  @thought = @user.thoughts.new(thought_params)
 	  @thoughts = @user.thoughts
 	  # @thoughts_search = @user.thoughts.text_search(params[:query])
@@ -37,7 +35,6 @@ class ThoughtsController < ApplicationController
 	end
 
 	def show
-		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 		@thoughts_search = Thought.text_search(params[:query])
 		respond_to do |format|
@@ -48,12 +45,6 @@ class ThoughtsController < ApplicationController
 	end
 
 	def edit
-		# @user = User.find_by_username(params[:id])
-		# @thought = @user.thoughts.find(params[:id])
-		
-
-
-		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 		@thoughts = @user.thoughts
 		# render :edit
@@ -66,7 +57,6 @@ class ThoughtsController < ApplicationController
 	end
 
 	def update
-	    @user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 		@thoughts = @user.thoughts
 	    if @thought.update(thought_params)
@@ -79,7 +69,6 @@ class ThoughtsController < ApplicationController
     end
 
 	def destroy
-		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
 	    @thought.destroy
 	    respond_to do |format|
@@ -92,7 +81,6 @@ class ThoughtsController < ApplicationController
 
 	end
 
-
 private
 
 def thought_params
@@ -100,5 +88,9 @@ def thought_params
 end
 
 
+def set_user
+	@user = User.find(params[:user_id])
+  # @user = User.find_by_username(params[:user_id])
+end
 
 end

@@ -36,8 +36,12 @@ $(document).ready(function() {
   });
 
   $('#delete').on('click', function() { 
-  	confirm("Are you sure?");
-  	$.post("/"+userid+"/thoughts/"+thoughtid+"/", { _method: 'delete' }, null, "script");
+    console.log(thoughtid);
+    console.log(userName);
+    console.log(userid);
+  	
+  	$.post("/"+userid+"/thoughts/"+thoughtid, { _method: 'delete' }, null, "script");
+    confirm("Are you sure?");
     $("#deleted").show(0).delay(1000).hide(0);
     return false;
   });
@@ -46,7 +50,8 @@ $(document).ready(function() {
 
 
   $('#newThought').on('click', function() { 
-    $.get("/"+userid+"/thoughts/new/", null, "script");
+    // console.log(userid);
+    $.get("/"+userName+"/thoughts/new/", null, "script");
     
   });
 
