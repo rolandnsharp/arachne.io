@@ -1,19 +1,18 @@
-<script type="text/javascript">
-	$('.list-group-item').click(function(e) {
-         $('.list-group a').removeClass('active');
-            $(this).addClass('active');
-  
-    });
-</script>
+
 
 
 
 <% @thoughts.each do |thought|%>
 
-<% unless thought.content == "" %>
+<% if @thought.id == thought.id %>
+<a data-remote="true" href="/<%= @user.username %>/thoughts/<%= thought.id %>/edit" class="list-group-item active" data-thoughtid="<%= @thought.id %>">
+<% else %>
 <a data-remote="true" href="/<%= @user.username %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
+<% end %>
+
+
                 <h4 class="list-group-item-heading">
-                <%= thought.id %>
+ 
                  <% thought_title = thought.title.to_s %>
                  <% unless thought_title == "" %>
                  <% unless thought.nil? %>
@@ -47,4 +46,11 @@
 </a>
 
 <% end %> 
-<% end %> 
+
+<script type="text/javascript">
+    $('.list-group-item').click(function(e) {
+         $('.list-group a').removeClass('active');
+            $(this).addClass('active');
+  
+    });
+</script>
