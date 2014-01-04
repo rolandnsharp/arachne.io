@@ -12,7 +12,7 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.new
 		# redirect_to edit_user_path(@user)
 		respond_to do |format|
-	    	# format.html {redirect_to edit_user_path(@user)}
+	    	# format.html {redirect_to new_user_thought_path(@user)}
 	    	format.js
 	    end
 	end
@@ -76,9 +76,7 @@ class ThoughtsController < ApplicationController
 	    	format.js
 	    end
 
-	    
 	    flash[:success] = "Thought successfully deleted!"
-
 	end
 
 private

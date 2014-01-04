@@ -36,63 +36,17 @@ $(document).ready(function() {
   });
 
   $('#delete').on('click', function() { 
-    console.log(thoughtid);
-    console.log(userName);
-    console.log(userid);
-  	
   	$.post("/"+userid+"/thoughts/"+thoughtid, { _method: 'delete' }, null, "script");
     confirm("Are you sure?");
     $("#deleted").show(0).delay(1000).hide(0);
     return false;
   });
   
-  
-
-
   $('#newThought').on('click', function() { 
-    // console.log(userid);
-    $.get("/"+userName+"/thoughts/new/", null, "script");
-    
+    console.log(userid);
+    $.get("/"+userid+"/thoughts/new/", null, "script");
   });
 
-
-
-
-
-// $("#thought_network").on('click', function() { 
-
-//    $("#toolBar).css({"color": "green"});
-
-// });
-
-
-$( "#thought_network" ).click(function() {
-  $("#thought_content").css({"height": "200px"});
-  $(".sigma-parent").show();
-});
-
-$( "#thought_network_hide" ).click(function() {
-  $("#thought_content").css({"height": "100%"});
-});
-// $("#thought_network").click(function(){
-//       if($("#newForm").hasClass('toggleHeight') {
-//         $("#newForm").removeClass('toggleHeight');
-//       } else { 
-//         $("newForm").addClass('toggleHeight');
-//       }
-//     });
-
-// $("#thought_network").toggle(function(){
-//   $("#thought_content").css({"height": "200px"});
-// });
-
-//.css({"height": "200px"});   $("#thought_content").css({"height": "200px"});
-
-// setTimeout(doSomething, 1000);
-
-// function doSomething() {
-//    $(".alert").alert('close');
-// };
 
 $("#reload").click(function() {
     location.reload();
