@@ -1,5 +1,5 @@
 class ThoughtsController < ApplicationController
-	before_filter :authorize
+	# before_filter :authorize
 	before_action :set_user
 
 	def index
@@ -19,10 +19,10 @@ class ThoughtsController < ApplicationController
 	
 	def create
 	  @thought = @user.thoughts.new(thought_params)
+	  @thought = @user.thoughts.new(thought_params)
 	  @thoughts = @user.thoughts
 	  # @thoughts_search = @user.thoughts.text_search(params[:query])
 	  if @thought.save
-
 	  	respond_to do |format|
 	    	format.html {redirect_to edit_user_path(@user)}
 	    	format.js
@@ -87,8 +87,8 @@ end
 
 
 def set_user
-	@user = User.find(params[:user_id])
-  # @user = User.find_by_username(params[:user_id])
+	# @user = User.find(params[:user_id])
+  @user = User.find_by_username(params[:user_id])
 end
 
 end

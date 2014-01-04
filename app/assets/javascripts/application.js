@@ -24,23 +24,21 @@ $(document).ready(function() {
     });
 
   $('#save').on('click', function() { 
-  	console.log("save");
+  	console.log("save1");
   	$('#newForm').submit();
-    // $("#toolBar").css({"color": "green"});
     $("#saved").show(0).delay(1000).hide(0);
 
   });
 
   $('#delete').on('click', function() { 
-  	$.post("/"+userid+"/thoughts/"+thoughtid, { _method: 'delete' }, null, "script");
+  	$.post("/"+userName+"/thoughts/"+thoughtid, { _method: 'delete' }, null, "script");
     confirm("Are you sure?");
     $("#deleted").show(0).delay(1000).hide(0);
     return false;
   });
   
   $('#newThought').on('click', function() { 
-    console.log(userid);
-    $.get("/"+userid+"/thoughts/new/", null, "script");
+    $.get("/"+userName+"/thoughts/new/", null, "script");
   });
 
 });

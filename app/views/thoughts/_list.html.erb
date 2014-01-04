@@ -10,7 +10,7 @@
 
 <% @thoughts.each do |thought|%>
 
-<a data-remote="true" href="/<%= @user.id %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
+<a data-remote="true" href="/<%= @user.username %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
                 <h4 class="list-group-item-heading">
                 
                  <% thought_title = thought.title.to_s %>
