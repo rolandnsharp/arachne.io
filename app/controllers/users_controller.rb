@@ -1,29 +1,20 @@
 class UsersController < ApplicationController
 
-	# before_filter :authorize, only: [:show, :edit]
+	before_filter :authorize, only: [:show, :edit]
 
 
 	def index
 		@user = User.new
-
 		if current_user
 			redirect_to current_user
 		end
-
 	end
 
 	def show
-		# fail
-		
-		# @user = User.find_by_slug(params[:slug])
-		# @user = User.find(5)
-		# @user = User.find(params[:id])
 		@user = User.find_by_username(params[:id])
 		@thoughts = @user.thoughts
 		@thoughts_search = @user.thoughts.tags_search(params[:query])
 		@thoughts_title_search = @user.thoughts.title_search(params[:query])
-
-
 		@thought = @user.thoughts.new
 		respond_to do |format|
 	    	 format.html {if params[:query]	
@@ -64,7 +55,6 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find_by_username(params[:id])
-		# @user = User.find(params[:id])
 		@thoughts = @user.thoughts
 		@thoughts_search = @user.thoughts.tags_search(params[:query])
 		@thought = @user.thoughts.new
@@ -80,7 +70,6 @@ class UsersController < ApplicationController
 	end
 
 	private
-
 
     def user_params
       params.require(:user).permit(:username, :email, :password, :password_confirmation)

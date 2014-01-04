@@ -48,6 +48,10 @@ class ThoughtsController < ApplicationController
 	end
 
 	def edit
+		# @user = User.find_by_username(params[:id])
+		# @thought = @user.thoughts.find(params[:id])
+		
+
 
 		@user = User.find(params[:user_id])
 		@thought = @user.thoughts.find(params[:id])
