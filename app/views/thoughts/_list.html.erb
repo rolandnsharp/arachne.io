@@ -1,5 +1,7 @@
-<% @thoughts.each do |thought|%>
 
+
+<% @thoughts.each_with_index do |thought, index|%>
+<a class="btn btn-default" id="downChev" data-id="<%= index %>"><span class="glyphicon glyphicon-chevron-down"></span></a>
 <% if @thought.id == thought.id %>
 <a data-remote="true" href="/<%= @user.username %>/thoughts/<%= thought.id %>/edit" class="list-group-item active" data-thoughtid="<%= @thought.id %>">
 <% else %>
@@ -7,7 +9,8 @@
 <% end %>
 
 <h4 class="list-group-item-heading">
-    <span class="glyphicon glyphicon-chevron-down"></span>
+
+    <!-- <span class="glyphicon glyphicon-chevron-down"></span> -->
     <% if thought.title %>
         <strong><%=  thought.title.titleize %></strong>
     <% end %>
@@ -33,12 +36,14 @@
     <% end %>
 <% end %>
 
-
- <%=  truncate(thought.content, :length => 150) %>
+   <%=  truncate(thought.content, :length => 150) %>
  
 </p>
 
 </a>
+<p style="display:none;" id="PID<%= index %>">
+    <%= thought.content %>
+</p>
 
 <% end %> 
 

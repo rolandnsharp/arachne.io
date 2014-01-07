@@ -18,6 +18,15 @@
 
 $(document).ready(function() {
 
+ $('body').on('click',  "#downChev", function (ev) {
+        var clicked=$(ev.currentTarget);
+        var DID = clicked.attr("data-id");
+
+        $("#PID"+DID).toggle();
+    });
+
+
+
   $('.list-group-item').click(function(e) {
          $('.list-group a').removeClass('active');
             $(this).addClass('active');

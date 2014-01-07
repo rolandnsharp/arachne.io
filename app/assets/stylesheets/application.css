@@ -118,10 +118,7 @@ top: 0px;
 }
 
 .hashSubTitle {
-  ;
 
-
-  
 }
 
 .tagListClass{
@@ -175,7 +172,17 @@ top: 0px;
 }
 
 .glyphicon-chevron-down{
-  position: absolute;
-  right: 10px;
-  top: 50%;
+
 }
+
+#downChev{
+
+  z-index: 111;
+  background-color: lightgray;
+  position: absolute;
+  right: 0px;
+  border-radius: 5px;
+
+}
+
+
