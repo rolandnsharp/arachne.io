@@ -175,8 +175,9 @@ top: 0px;
   padding-right: 400px;
 }
 
-.glyphicon-chevron-down{
-
+.list-group-item{
+background-color: lightgray;
+border-color: darkgray;
 }
 
 #downChev{
@@ -196,4 +197,5 @@ top: 0px;
 
 #thought_title{
   font-weight: bold;
+  font-size: large;
 }
