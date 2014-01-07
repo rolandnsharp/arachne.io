@@ -1,7 +1,3 @@
-
-
-
-
 <% @thoughts.each do |thought|%>
 
 <% if @thought.id == thought.id %>
@@ -10,47 +6,39 @@
 <a data-remote="true" href="/<%= @user.username %>/thoughts/<%= thought.id %>/edit" class="list-group-item" data-thoughtid="<%= @thought.id %>">
 <% end %>
 
+<h4 class="list-group-item-heading">
+    <span class="glyphicon glyphicon-chevron-down"></span>
+    <% if thought.title %>
+        <strong><%=  thought.title.titleize %></strong>
+    <% end %>
+</h4>
 
-                <h4 class="list-group-item-heading">
+<p class="list-group-item-text">
+
+<span class="hashSubTitle">
+ <% if thought.tags  %>
+  <% thought.tags.split(',').each do |tag| %>
+    <p class="tagListClass">
+    <%= tag %>
+    </p>
+
+ <% end %>
+
+ <% end %>
+ </span>
+
+<% if thought.tags  %>
+    <% if thought.tags.split(',').length > 0 %>
+     <br />  
+    <% end %>
+<% end %>
+
+
+ <%=  truncate(thought.content, :length => 150) %>
  
-                 <% thought_title = thought.title.to_s %>
-                 <% unless thought_title == "" %>
-                 <% unless thought.nil? %>
-                      <strong><%=  thought.title.titleize %></strong>
-                      <span class="hashSubTitle">
-                       <%=  thought.tags %>
-                       </span>
+</p>
 
-                 
-                 <% else %>
-                
-                 <% mod = thought.content.scan(/#\w+/) %>
-                 <% if mod[0] %>
-                 <% title = mod[0] %>
-                 <% else %>
-                 <% title = mod[0]%>
-                 <% end %>
-                 <!-- # <strong><%= title %></strong> -->
-                 <span class="hashSubTitle">
-                 <%=  thought.content.scan(/#\w+/).uniq %>
-                 </span>
-
-                 <% end %>
-                 <% end %>
-                 </h4>
-                 <p class="list-group-item-text">
-                 
-                 <%=  truncate(thought.content, :length => 150) %>
-                 
-                </p>
 </a>
 
 <% end %> 
 
-<script type="text/javascript">
-    $('.list-group-item').click(function(e) {
-         $('.list-group a').removeClass('active');
-            $(this).addClass('active');
-  
-    });
-</script>

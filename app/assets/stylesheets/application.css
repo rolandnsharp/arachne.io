@@ -118,7 +118,23 @@ top: 0px;
 }
 
 .hashSubTitle {
-  color:gray;
+  ;
+
+
+  
+}
+
+.tagListClass{
+
+  display: inline; 
+  background-color: lightblue;
+  position: relative;
+  padding-left: 4px;
+  border-radius: 4px;
+  margin-right: 4px;
+
+ 
+  /*left: 40px;*/
 }
 
 /*#titleSpacer{
@@ -156,4 +172,10 @@ top: 0px;
 #thought_tags{
   position: relative;
   padding-right: 400px;
+}
+
+.glyphicon-chevron-down{
+  position: absolute;
+  right: 10px;
+  top: 50%;
 }
