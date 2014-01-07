@@ -1,5 +1,3 @@
-
-
 <% @thoughts.each_with_index do |thought, index|%>
 <a class="btn btn-default" id="downChev" data-id="<%= index %>"><span class="glyphicon glyphicon-chevron-down"></span></a>
 <% if @thought.id == thought.id %>
@@ -41,7 +39,7 @@
 </p>
 
 </a>
-<p style="display:none;" id="PID<%= index %>">
+<p class="toggledContent" style="display:none;" id="PID<%= index %>">
     <%= thought.content %>
 </p>
 
