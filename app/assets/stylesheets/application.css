@@ -87,6 +87,8 @@ top: 0px;
 
  .sideScrollBar{
   background-color: white;
+  position: relative;
+  height: 100%;
  }
 
  #toolBar{
@@ -106,9 +108,20 @@ top: 0px;
   height: 200px;
 }
 
+#thought_title{
+  border-bottom: 1px solid gray;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;
+
+
+}
+
 #thought_content{
   position: relative;
   height: 100%;
+  border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-top: 1px solid gray;
 }
 
 #newForm{
@@ -175,9 +188,16 @@ top: 0px;
   padding-right: 400px;
 }
 
+.list-group {
+  position: relative;
+  height: auto;
+}
+
 .list-group-item{
 background-color: lightgray;
 border-color: darkgray;
+position: relative;
+height: 100%;
 }
 
 #downChev{
@@ -185,8 +205,14 @@ border-color: darkgray;
   z-index: 111;
   /*background-color: lightgray;*/
   position: absolute;
+
+  /*height: 100%;*/
+  /*margin-top: 50%;*/
+
   right: 0px;
+  /*bottom: 0px;*/
   border-radius: 5px;
+
 
 }
 
