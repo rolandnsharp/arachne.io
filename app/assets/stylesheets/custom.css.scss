@@ -118,12 +118,24 @@ input {
 
 #deleted {
     position: absolute;
-    top: -5px;
-      font-size: 120%;
-    left: 50%;
-    /*color: #468847;*/
+    font-size: 120%;
+    right: 300px;
+    top: -93px;
+    color: white;
     text-align: center;
-    line-height: 2.5;
+    line-height: 6.5;
+    background-color: green;
+}
+
+#saved{
+    position: absolute;
+    font-size: 120%;
+    right: 300px;
+    top: -93px;
+    color: white;
+    text-align: center;
+    line-height: 6.5;
+    background-color: green;
 }
 
 #logged-in-text{

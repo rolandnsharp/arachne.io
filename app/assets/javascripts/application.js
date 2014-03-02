@@ -42,8 +42,11 @@ $(document).ready(function() {
   $('#delete').on('click', function() { 
   	$.post("/"+userName+"/thoughts/"+thoughtid, { _method: 'delete' }, null, "script");
     confirm("Are you sure?");
+   
     $("#deleted").show(0).delay(1000).hide(0);
-    return false;
+    // $("#deleted").show();
+    
+    // return false;
   });
   
   $('#newThought').on('click', function() { 
