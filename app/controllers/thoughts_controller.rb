@@ -18,9 +18,9 @@ class ThoughtsController < ApplicationController
 	end
 	
 	def create
-	  @thought = @user.thoughts.new(thought_params)
-	  @thought = @user.thoughts.new(thought_params)
 	  @thoughts = @user.thoughts
+	  @thought = @user.thoughts.new(thought_params)
+	  @thought = @user.thoughts.new(thought_params)
 	  # @thoughts_search = @user.thoughts.text_search(params[:query])
 	  if @thought.save
 	  	respond_to do |format|
@@ -28,7 +28,7 @@ class ThoughtsController < ApplicationController
 	    	format.js
 	    end
 
-	    flash[:success] = "Thanks for your thought!"
+	    # flash[:success] = "Thanks for your thought!"
 	  else
 	    render :new
 	  end
@@ -64,7 +64,7 @@ class ThoughtsController < ApplicationController
 	    	format.html {redirect_to edit_user_path(@user)}
 	    	format.js
 	    end 
-	      flash[:success] = "Thought successfully updated!"
+	      # flash[:success] = "Thought successfully updated!"
 	    else
 	      render :edit
 	    end
@@ -76,7 +76,7 @@ class ThoughtsController < ApplicationController
 	    @thoughts = @user.thoughts
 	    respond_to do |format|
 	    	# format.html {redirect_to edit_user_path(@user)}
-	    	format.js { render :layout=>false }
+	    	format.js
 	    end
 
 	 
