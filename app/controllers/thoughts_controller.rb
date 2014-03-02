@@ -73,12 +73,13 @@ class ThoughtsController < ApplicationController
 	def destroy
 		@thought = @user.thoughts.find(params[:id])
 	    @thought.destroy
+	    @thoughts = @user.thoughts
 	    respond_to do |format|
-	    	format.html {redirect_to edit_user_path(@user)}
-	    	format.js
+	    	# format.html {redirect_to edit_user_path(@user)}
+	    	format.js { render :layout=>false }
 	    end
 
-	    flash[:success] = "Thought successfully deleted!"
+	 
 	end
 
 private

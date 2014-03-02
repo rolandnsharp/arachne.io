@@ -40,13 +40,11 @@ $(document).ready(function() {
   });
 
   $('#delete').on('click', function() { 
-  	$.post("/"+userName+"/thoughts/"+thoughtid, { _method: 'delete' }, null, "script");
     confirm("Are you sure?");
-   
+    $.post("/"+userName+"/thoughts/"+thoughtid, { _method: 'delete' }, null, "script");
     $("#deleted").show(0).delay(1000).hide(0);
-    // $("#deleted").show();
-    
     // return false;
+
   });
   
   $('#newThought').on('click', function() { 
