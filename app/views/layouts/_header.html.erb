@@ -21,10 +21,7 @@
        
         <div class="collapse navbar-collapse">
 
-
-
           <ul class="nav navbar-nav pull-right">
-            
 
             <p class="navbar-text" style="color: #b52a2a;">
             <% if flash[:alert] %>
@@ -37,9 +34,9 @@
               <%= flash[:success] %>
             <% end %>
             </p>
-
            
-
+            <p class="navbar-text" id="saved" class="navbar-text" style="display:none;">Saving...</p>
+            <p class="navbar-text" id="deleted" class="navbar-text" style="display:none;">Deleting...</p>
 
             <% if current_user %>
 
@@ -49,8 +46,6 @@
            <% else %>
 
             </ul>
-
-
 
               <%= form_tag sessions_path, class: "navbar-form navbar-right", method: :post do %>
               <div class="form-group">

@@ -24,9 +24,6 @@ class ThoughtsController < ApplicationController
 	  	  respond_to do |format|
 	      format.js
 	    end
-	  
-	    # @thought = @user.thoughts.first
-	   
 	    # flash[:success] = "Thanks for your thought!"
 	  else
 	    render :new
@@ -39,7 +36,6 @@ class ThoughtsController < ApplicationController
 		respond_to do |format|
 	    	format.js
 	    end
-
 	end
 
 	def edit
@@ -74,7 +70,6 @@ class ThoughtsController < ApplicationController
 	    respond_to do |format|
 	    	format.js
 	    end
-	 
 	end
 
 private

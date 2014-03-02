@@ -106,36 +106,26 @@ input {
 
 /*alert */
 
-#saved {
-    position: absolute;
-    top: -5px;
-      font-size: 120%;
-    left: 50%;
-    /*color: #468847;*/
-    text-align: center;
-    line-height: 2.5;
-}
-
 #deleted {
     position: absolute;
     font-size: 120%;
     right: 300px;
-    top: -93px;
+    top: -45px;
     color: white;
     text-align: center;
     line-height: 6.5;
-    background-color: green;
+ 
 }
 
 #saved{
     position: absolute;
     font-size: 120%;
     right: 300px;
-    top: -93px;
+    top: -45px;
     color: white;
     text-align: center;
     line-height: 6.5;
-    background-color: green;
+
 }
 
 #logged-in-text{

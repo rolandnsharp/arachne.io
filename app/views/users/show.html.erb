@@ -1,6 +1,5 @@
 <%= javascript_include_tag 'sigma/custom_sigma.js' %>  
 
-
 <%= javascript_tag do %>
   window.hashArray = <%=raw web_array_maker(@thoughts).as_json %>;
   window.userid = "<%= @user.id %>";
@@ -50,12 +49,9 @@ body {
 </div>
 
 
-
 <div id="modalDiv">
 <%= render "users/modal"%>
 </div>
-
-
 
 
 <nav class="navbar navbar-inverse navbar-default navbar-fixed-bottom" role="navigation">
