@@ -20,14 +20,14 @@ class ThoughtsController < ApplicationController
 	def create
 	  @thoughts = @user.thoughts
 	  @thought = @user.thoughts.new(thought_params)
-	  @thought = @user.thoughts.new(thought_params)
 	  # @thoughts_search = @user.thoughts.text_search(params[:query])
 	  if @thought.save
 	  	respond_to do |format|
 	    	format.html {redirect_to edit_user_path(@user)}
 	    	format.js
 	    end
-
+	  
+	    @thought = @user.thoughts.first
 	    # flash[:success] = "Thanks for your thought!"
 	  else
 	    render :new
@@ -75,7 +75,7 @@ class ThoughtsController < ApplicationController
 	    @thought.destroy
 	    @thoughts = @user.thoughts
 
-	    @thought = @user.thoughts.first
+	    @thought = @user.thoughts.new
 
 	    respond_to do |format|
 	    	# format.html {redirect_to edit_user_path(@user)}
