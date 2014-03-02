@@ -12,7 +12,6 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.new
 		# redirect_to edit_user_path(@user)
 		respond_to do |format|
-	    	# format.html {redirect_to new_user_thought_path(@user)}
 	    	format.js
 	    end
 	end
@@ -22,12 +21,12 @@ class ThoughtsController < ApplicationController
 	  @thought = @user.thoughts.new(thought_params)
 	  # @thoughts_search = @user.thoughts.text_search(params[:query])
 	  if @thought.save
-	  	respond_to do |format|
-	    	format.html {redirect_to edit_user_path(@user)}
-	    	format.js
+	  	  respond_to do |format|
+	      format.js
 	    end
 	  
-	    @thought = @user.thoughts.first
+	    # @thought = @user.thoughts.first
+	   
 	    # flash[:success] = "Thanks for your thought!"
 	  else
 	    render :new
@@ -38,7 +37,6 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.find(params[:id])
 		@thoughts_search = Thought.text_search(params[:query])
 		respond_to do |format|
-	    	
 	    	format.js
 	    end
 
@@ -52,7 +50,6 @@ class ThoughtsController < ApplicationController
 		respond_to do |format|
 	    	format.js
 	    end
-		
 	end
 
 	def update
@@ -61,7 +58,6 @@ class ThoughtsController < ApplicationController
 	    if @thought.update(thought_params)
 		# redirect_to edit_user_path(@user)
 	    respond_to do |format|
-	    	format.html {redirect_to edit_user_path(@user)}
 	    	format.js
 	    end 
 	      # flash[:success] = "Thought successfully updated!"
@@ -74,14 +70,10 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.find(params[:id])
 	    @thought.destroy
 	    @thoughts = @user.thoughts
-
 	    @thought = @user.thoughts.new
-
 	    respond_to do |format|
-	    	# format.html {redirect_to edit_user_path(@user)}
 	    	format.js
 	    end
-
 	 
 	end
 
@@ -91,9 +83,7 @@ def thought_params
   params.require(:thought).permit(:content, :title, :tags)
 end
 
-
 def set_user
-	# @user = User.find(params[:user_id])
   @user = User.find_by_username(params[:user_id])
 end
 
