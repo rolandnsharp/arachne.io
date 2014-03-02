@@ -1,5 +1,7 @@
 $('#newForm').remove();
-$('#bucket').append('<%= j render(@thought) %>');
+// $('#bucket').append('<%= j render(@thought) %>');
+$('#bucket').append('<%= j render :partial => 'thoughts/thought' %>');
+
 
 $('.list-group').remove();
 $('.sideScrollBar').append('<div class="list-group"><%= j render :partial => 'thoughts/list' %></div>');

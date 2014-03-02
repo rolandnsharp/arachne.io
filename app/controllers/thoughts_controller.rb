@@ -74,6 +74,9 @@ class ThoughtsController < ApplicationController
 		@thought = @user.thoughts.find(params[:id])
 	    @thought.destroy
 	    @thoughts = @user.thoughts
+
+	    @thought = @user.thoughts.first
+
 	    respond_to do |format|
 	    	# format.html {redirect_to edit_user_path(@user)}
 	    	format.js

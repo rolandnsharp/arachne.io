@@ -1,7 +1,6 @@
-
-
 <% @thoughts.each_with_index do |thought, index|%>
 <% if thought.content %>
+
 <a class="btn btn-default" id="downChev" data-id="<%= index %>"><span class="glyphicon glyphicon-chevron-down"></span></a>
 
 <% if @thought.id == thought.id %>
@@ -11,12 +10,9 @@
 <% end %>
 
 <h4 class="list-group-item-heading">
-
     <% if thought.title %>
         <strong><%=  thought.title.titleize %></strong>
         <strong><%=  @thoughts.length %></strong>
-     
-       
     <% end %>
 </h4>
 
@@ -51,4 +47,3 @@
 
 <% end %> 
 <% end %> 
-
