@@ -38,6 +38,16 @@ $(document).ready(function() {
     $("#saved").show(0).delay(1000).hide(0);
 
   });
+//cross browser ctrl+s save
+  $(document).keydown(function(event) {
+    var currKey=0,e=e||event; 
+    currKey=e.keyCode||e.which||e.charCode;  //do this handle FF and IE
+    if (!( String.fromCharCode(event.which).toLowerCase() == 's' && event.ctrlKey) && !(event.which == 19)) return true;
+    event.preventDefault();
+    $('#newForm').submit();
+    $("#saved").show(0).delay(1000).hide(0);
+    return false;
+}   ); 
 
   $('#delete').on('click', function() { 
     confirm("Are you sure?");
