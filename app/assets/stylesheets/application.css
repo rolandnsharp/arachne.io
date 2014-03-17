@@ -204,12 +204,7 @@ top: 0px;
   top: -50px;
  }
 
-.btn-group {
-  z-index: 111;
-  position: absolute;
-  top: -40px;
-  right: 15px;
-}
+
 
 .toggleHeight{
   border:7px solid black; 
@@ -298,4 +293,18 @@ height: 100%;
   height: 100%;
   padding-bottom: 44px;
   padding-top: 41px;
+}
+.left_buttons{
+  float: left;
+   z-index: 111;
+  position: absolute;
+  top: -40px;
+  /*right: 15px;*/
+}
+
+.right_buttons {
+  z-index: 111;
+  position: absolute;
+  top: -40px;
+  right: 15px;
 }
