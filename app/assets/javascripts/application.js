@@ -21,11 +21,8 @@ $(document).ready(function() {
  $('body').on('click',  "#downChev", function (ev) {
         var clicked=$(ev.currentTarget);
         var DID = clicked.attr("data-id");
-
         $("#PID"+DID).toggle();
     });
-
-
 
   $('.list-group-item').click(function(e) {
          $('.list-group a').removeClass('active');
@@ -47,7 +44,7 @@ $(document).ready(function() {
     $('#newForm').submit();
     $("#saved").show(0).delay(1000).hide(0);
     return false;
-}   ); 
+}); 
 
   $('#delete').on('click', function() { 
     confirm("Are you sure?");

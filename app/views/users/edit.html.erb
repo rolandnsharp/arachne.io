@@ -24,14 +24,18 @@ body{
   
 </div>
 
-<div id="bucket" class="col-xs-12 col-sm-9" style="height:100%; padding-bottom:50px;">
+<div id="bucket" class="col-xs-12 col-sm-9" >
     
     
 
 <div class="btn-group">
         <!-- <%= link_to "New", new_user_thought_path(@user), class: "btn btn-primary black-btn", remote: true %> -->
+       
+        <button type="button" class="btn btn-default black-btn" id="markdown">Markdown</button>
+        <button type="button" class="btn btn-default black-btn" id="preview">Priview</button>
+
         <button type="button" class="btn btn-default black-btn" id="newThought">New</button>
-        <button type="button" class="btn btn-default black-btn" id="save">Save</button>
+        <button type="button" class="btn btn-default black-btn" id="save">Save (Ctrl+s)</button>
         <button type="button" class="btn btn-default black-btn" id="delete">Delete</button>
         <%= link_to "Display Mode", @user, class: "btn btn-success black-btn", 'data-no-turbolink' => true %>
 </div>
