@@ -1,3 +1,5 @@
+require 'redcarpet'
+
 module ApplicationHelper
 
 	def markdown(text)
