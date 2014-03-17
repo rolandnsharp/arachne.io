@@ -3,7 +3,5 @@ class ChangeContentTypeInThoughts < ActiveRecord::Migration
 
     change_column :thoughts, :content, :text, :limit => nil
 
-
-
   end
 end

@@ -8,10 +8,10 @@
           </button>
           
           <%if current_page?(signup_path)%>
-          <span><%= link_to "Arachne Writer.", root_path, class: "brand", id: "logo" %> <%= image_tag"spider.png" %></span>
+          <span><%= link_to "arachne.io", root_path, class: "brand", id: "logo" %> <%= image_tag"spider.png" %></span>
           
           <% elsif params[:id] && current_page?(edit_user_path)%>
-          <span><%= link_to "Arachne Writer.", user_path(@user), class: "brand", id: "logo" %> <%= image_tag"spider.png" %></span>
+          <span><%= link_to "arachne.io", user_path(@user), class: "brand", id: "logo" %> <%= image_tag"spider.png" %></span>
 
           <% else %>
           <span><p class="brand" id="logo">Arachne Writer.</p> <%= image_tag"spider.png" %></span>
