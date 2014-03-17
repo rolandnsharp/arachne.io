@@ -53,3 +53,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 gem "friendly_id", :require => "friendly_id"
+
+gem 'redcarpet'
+gem 'albino'
+gem 'nokogiri'
