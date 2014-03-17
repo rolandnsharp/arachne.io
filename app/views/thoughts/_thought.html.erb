@@ -9,6 +9,9 @@
 
   <fieldset style="height:100%;">
 
+<!-- <a data-remote="true" href="/<%= @user.username %>/thoughts/<%= @thought.id %>" class="btn btn-default black-btn" id="markdown" >Markdown</a> -->
+
+<%= link_to "Markdown", user_thought_path(@user, @thought), class: "btn btn-primary black-btn", remote: true, method: :get %>
 	      <!-- <%= f.submit%> -->
 	      <%= f.text_field :title, class: "form-control", placeholder: "Title"%>
           <%= f.text_area :content, autofocus: true, class: "form-control writingClass" %>    

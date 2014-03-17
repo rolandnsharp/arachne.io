@@ -1,3 +1,12 @@
+$('#newForm').remove();
+$('#bucket').append('<%= j render :partial => 'thoughts/markdown' %>');
+
+$('.list-group').remove();
+$('.sideScrollBar').append('<div class="list-group"><%= j render :partial => 'thoughts/list' %></div>');
+
+
+//node mode
+
 $('.modal-body').empty();
 $('#myModalLabel').empty();
 

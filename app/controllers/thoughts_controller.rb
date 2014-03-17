@@ -31,6 +31,7 @@ class ThoughtsController < ApplicationController
 	end
 
 	def show
+		@thoughts = @user.thoughts
 		@thought = @user.thoughts.find(params[:id])
 		@thoughts_search = Thought.text_search(params[:query])
 		respond_to do |format|

@@ -58,6 +58,14 @@ $(document).ready(function() {
     $.get("/"+userName+"/thoughts/new/", null, "script");
   });
 
+  // $('#markdown').on('click', function() { 
+
+  //   alert("markdown");
+
+  // });
+
+
+
 });
 
 

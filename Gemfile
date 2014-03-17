@@ -55,5 +55,5 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem "friendly_id", :require => "friendly_id"
 
 gem 'redcarpet'
-gem 'albino'
-gem 'nokogiri'
+# gem 'albino'
+# gem 'nokogiri'
