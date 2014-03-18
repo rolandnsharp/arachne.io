@@ -1,7 +1,14 @@
 
 <!-- <a data-remote="true" href="/<%= @user.id %>/thoughts/<%= @thought.id %>/edit" class="list-group-item" >Preview</a> -->
 
-<div><%= mark_it_down(@thought.content)  %></div>
+
+<div id="newForm">
+
+<%= link_to "Markdown", edit_user_thought_path(@user, @thought), class: "btn btn-primary black-btn", remote: true, method: :get %>
+<%= link_to "Preview", user_thought_path(@user, @thought), class: "btn btn-primary black-btn", remote: true, method: :get %>
+
+
+<%= mark_it_down(@thought.content)  %></div>
 
 
 
