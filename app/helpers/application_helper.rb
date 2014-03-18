@@ -1,16 +1,11 @@
-require 'redcarpet'
+# require 'redcarpet'
 
 module ApplicationHelper
 
-	def markdown(text)
-	  # options = [:hard_wrap, :filter_html, :autolink, :no_intraemphasis, :fenced_code, :gh_blockcode]
-	  # Redcarpet.new(text, *options).to_html.html_safe
-		
-		# markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML,
-		# :hard_wrap => true)
-		# markdown.render(text).html_safe
-
-		text
+	def mark_it_down(text)
+		require 'redcarpet'
+		markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+		markdown.render(text).html_safe
 	end
 
 	# def syntax_highlighter(html)
