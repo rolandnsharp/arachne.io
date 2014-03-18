@@ -286,14 +286,22 @@ height: 100%;
 }
 #bucket{
   height: 100%;
-  padding-bottom: 44px;
-  padding-top: 41px;
+  /*padding-bottom: 44px;*/
+  /*padding-top: 41px;*/
 }
 #newForm{
   position: relative;
-  top: -77px;
+  top: -40px;
   height: 100%;
+  padding-bottom: 81px;
 }
+.markdown_preview{
+    background-color: #ffffff;
+    height: 100%;
+    padding: 15px;
+    margin-top: 2px;
+    overflow-y:scroll;
+  }
 .left_buttons{
   float: left;
    z-index: 111;

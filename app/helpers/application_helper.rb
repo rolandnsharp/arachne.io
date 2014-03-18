@@ -4,7 +4,7 @@ module ApplicationHelper
 
 	def mark_it_down(text)
 		require 'redcarpet'
-		markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true)
+		markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, hard_wrap: true)
 		markdown.render(text).html_safe
 	end
 
