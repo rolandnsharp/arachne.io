@@ -11,8 +11,10 @@
 
 <!-- <a data-remote="true" href="/<%= @user.username %>/thoughts/<%= @thought.id %>" class="btn btn-default black-btn" id="markdown" >Markdown</a> -->
 
-<%= link_to "Markdown", edit_user_thought_path(@user, @thought), class: "btn btn-primary black-btn", remote: true, method: :get %>
+<%= link_to "Markdown", edit_user_thought_path(@user, @thought), class: "btn btn-primary black-btn active", remote: true, method: :get %>
 <%= link_to "Preview", user_thought_path(@user, @thought), class: "btn btn-primary black-btn", remote: true, method: :get %>
+
+<div class="markdown_markdown">
 	      <!-- <%= f.submit%> -->
 	      <%= f.text_field :title, class: "form-control", placeholder: "Title"%>
           <%= f.text_area :content, autofocus: true, class: "form-control writingClass" %>    
@@ -20,8 +22,18 @@
   </fieldset>
 <% end %>
 
+</div>
 
-
+<style type="text/css">
+	
+	.markdown_markdown{
+	
+		height: 100%;
+		/*padding: 15px;*/
+		margin-top: 2px;
+		
+	}
+</style>
 
 
 

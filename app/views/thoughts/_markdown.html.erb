@@ -5,11 +5,31 @@
 <div id="newForm">
 
 <%= link_to "Markdown", edit_user_thought_path(@user, @thought), class: "btn btn-primary black-btn", remote: true, method: :get %>
-<%= link_to "Preview", user_thought_path(@user, @thought), class: "btn btn-primary black-btn", remote: true, method: :get %>
+<%= link_to "Preview", user_thought_path(@user, @thought), class: "btn btn-primary black-btn active", remote: true, method: :get %>
 
+<div class="markdown_preview">
+<%= @thought.title  %>
+<br />
+<%= mark_it_down(@thought.content)  %>
 
-<%= mark_it_down(@thought.content)  %></div>
+</div>
+</div>
 
+<style type="text/css">
+	
+	.markdown_preview{
+		background-color: #ffffff;
+		height: 100%;
+		padding: 15px;
+		margin-top: 2px;
+		overflow-y:scroll;
+	}
+	/*#bucket {
+	height: 100%;
+	padding-bottom: 0px;
+	padding-top: 24px;
+	}*/
+</style>
 
 
 
